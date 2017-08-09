@@ -4,25 +4,6 @@
 Currently supports 4 duts in parallel.
 """
 
-from UFT.config import PS_VOLT
-from UFT.config import RESULT_LOG
-from UFT.config import RESULT_DB
-from UFT.config import SD_COUNTER
-from UFT.config import START_VOLT
-from UFT.config import CONFIG_DB
-from UFT.config import DIAMOND4_LIST
-from UFT.config import PS_OCP
-from UFT.config import PS_OVP
-from UFT.config import PS_CURR
-from UFT.config import PS_CHAN
-from UFT.config import PS_ADDR
-from UFT.config import TOTAL_SLOTNUM
-from UFT.config import LD_DELAY
-from UFT.config import LD_PORT
-from UFT.config import ADK_PORT
-from UFT.config import INTERVAL
-
-
 __version__ = "0.1"
 __author__ = "@fanmuzhi, @boqiling"
 __all__ = ["Channel", "ChannelStates"]
@@ -160,6 +141,7 @@ class Channel(threading.Thread):
                                          dut.partnumber, dut.revision)
                 self.config_list.append(dut_config)
             else:
+                i += 1
                 # dut is not loaded on fixture
                 self.dut_list.append(None)
                 self.config_list.append(None)

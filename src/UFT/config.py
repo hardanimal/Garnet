@@ -7,63 +7,39 @@ __version__ = "0.1"
 __author__ = "@fanmuzhi, @boqiling"
 
 import sys
-# Projects PartNumber List
-DIAMOND4_LIST = ["AGIGA9811-001BCA",
-                 "AGIGA9811-001DCA",
-                 "AGIGA9801-004BCA",
-                 "AGIGA9801-005JCA",
-                 "AGIGA9801-004JCA",
-                 "AGIGA9811-001JCA",
-                 "AGIGA9811-001JCB",
-                 "AGIGA9811-001BCB"]
+import ConfigParser
 
-Mode4in1_PN = ["AGIGA9823-000KCA",
-               "AGIGA9823-001JCA",
-               "AGIGA9823-002JCA",
+# station settings
+STATION_CONFIG = "./xml/station.cfg"
 
-               "AGIGA9823-003JCA",
-               "AGIGA9823-102JCA",
-               "AGIGA9824-003JCA",
-               "AGIGA9824-103JCA",
-               "AGIGA9824-103JCB"]
+config = ConfigParser.RawConfigParser()
+config.read(STATION_CONFIG)
 
-# total slot number for one channel,
-# should be 4, 1 for debug
-TOTAL_SLOTNUM = 16
+DIAMOND4_LIST = config.get('StationConfig', 'DIAMOND4_LIST')
 
-# seconds to delay in charging and discharging,
-# increase value to reduce the data in database.
-# more data, more accurate test result.
-INTERVAL = 2
+Mode4in1_PN = config.get('StationConfig', 'Mode4in1_PN')
 
-# DUT will discharge to start voltage before testing
-START_VOLT = 1.0
+TOTAL_SLOTNUM = config.getint('StationConfig', 'TOTAL_SLOTNUM')
 
-# power supply settings
-# node address and channel
-PS_ADDR = 5
-PS_CHAN = 1
-# output
-PS_VOLT = 12.0
-PS_OVP = 13.0
-PS_CURR = 5.0
-PS_OCP = 10.0
+INTERVAL = config.getfloat('StationConfig', 'INTERVAL')
 
-# aardvark settings
-# port number
-ADK_PORT = 0
+START_VOLT = config.getfloat('StationConfig', 'START_VOLT')
 
-# load Settings
-# load RS232 port
-# LD_PORT = "COM5"
-LD_PORT = "COM5"
-LD_DELAY = 3
+PS_ADDR = config.getint('StationConfig', 'PS_ADDR')
+PS_CHAN = config.getint('StationConfig', 'PS_CHAN')
+PS_VOLT = config.getfloat('StationConfig', 'PS_VOLT')
+PS_OVP = config.getfloat('StationConfig', 'PS_OVP')
+PS_CURR = config.getfloat('StationConfig', 'PS_CURR')
+PS_OCP = config.getfloat('StationConfig', 'PS_OCP')
 
-# erie board settings
-ERIE_PORT = "COM6"
+ADK_PORT = config.getint('StationConfig', 'ADK_PORT')
 
-# self discharge counter
-SD_COUNTER = 10
+LD_PORT = config.get('StationConfig', 'LD_PORT')
+LD_DELAY = config.getint('StationConfig', 'LD_DELAY')
+
+ERIE_PORT = config.get('StationConfig', 'ERIE_PORT')
+
+SD_COUNTER = config.getint('StationConfig', 'SD_COUNTER')
 
 # database settings
 # database for dut test result

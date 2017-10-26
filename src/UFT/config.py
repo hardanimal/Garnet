@@ -6,11 +6,13 @@
 __version__ = "0.1"
 __author__ = "@fanmuzhi, @boqiling"
 
-import sys
+import sys, os
 import ConfigParser
 
 # station settings
 STATION_CONFIG = "./xml/station.cfg"
+if not os.path.exists(STATION_CONFIG):
+    raise Exception("Station config does not exist!")
 
 config = ConfigParser.RawConfigParser()
 config.read(STATION_CONFIG)

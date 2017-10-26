@@ -34,7 +34,11 @@ class Erie(object):
             self.ser.open()
             self._cleanbuffer_()
 
-        self.GetVersion()
+        try:
+            self.GetVersion()
+        except Exception:
+            raise Exception("Hardware is NOT ready!")
+
 
     def __del__(self):
         self.ser.close()

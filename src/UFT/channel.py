@@ -93,17 +93,6 @@ class ChannelStates(object):
 
 
 class Channel(threading.Thread):
-
-    #first setup erie
-    erie = erie.Erie(port=ERIE_PORT)
-
-    # aardvark
-    adk = aardvark.Adapter(erie)
-    # setup load
-    ld = load.DCLoad(erie)
-    # setup main power supply
-    ps = pwr.PowerSupply(erie)
-
     def __init__(self, name, barcode_list, cable_barcodes_list, capacitor_barcodes_list, mode4in1, channel_id=0):
         """initialize channel
         :param name: thread name
@@ -138,7 +127,6 @@ class Channel(threading.Thread):
         # exit flag and queue for threading
         self.exit = False
         self.queue = Queue()
-        self.product_class = "Crystal"
         super(Channel, self).__init__(name=name)
 
     def read_volt(self, dut):
@@ -152,6 +140,17 @@ class Channel(threading.Thread):
          # setup load
         #self.ld.reset()
         #time.sleep(2)
+
+        logger.info("Initiate Hardware...")
+        #first setup erie
+        self.erie = erie.Erie(port=ERIE_PORT)
+
+        # aardvark
+        self.adk = aardvark.Adapter(self.erie)
+        # setup load
+        self.ld = load.DCLoad(self.erie)
+        # setup main power supply
+        self.ps = pwr.PowerSupply(self.erie)
 
         logger.info("mode 4in1 is {0}".format(self.InMode4in1))
 
@@ -198,11 +197,6 @@ class Channel(threading.Thread):
                 dut = PGEMBase(device=self.adk,
                                slot=i,
                                barcode=bc)
-                if dut.partnumber in DIAMOND4_LIST:
-                    self.product_class = "Diamond4"
-                    dut = Diamond4(device=self.adk,
-                                   slot=i,
-                                   barcode=bc)
                 if self.InMode4in1:
                     if dut.partnumber not in Mode4in1_PN:
                         raise Exception("This partnumber {0} does not support Mode4in1".format(dut.partnumber))

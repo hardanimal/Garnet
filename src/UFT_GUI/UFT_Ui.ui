@@ -975,7 +975,7 @@
       </item>
      </layout>
     </widget>
-    <widget class="Line" name="line">
+    <widget class="Line" name="line_1">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -1006,16 +1006,2902 @@
     <attribute name="title">
      <string>Erie #2</string>
     </attribute>
+    <widget class="QGroupBox" name="groupBox2_4">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>250</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #4</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_20">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_2_4">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_2_4">
+        <property name="placeholderText">
+         <string>Cable_SN_4</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2_4">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_2_4">
+        <property name="placeholderText">
+         <string>Battery_SN_4</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox2_16">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>590</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #16</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_21">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_2_16">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_2_16">
+        <property name="placeholderText">
+         <string>Cable_SN_16</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2_16">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_2_16">
+        <property name="placeholderText">
+         <string>Battery_SN_16</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox2_13">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>350</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #13</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_22">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_2_13">
+        <property name="acceptDrops">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_2_13">
+        <property name="placeholderText">
+         <string>Cable_SN_13</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2_13">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_2_13">
+        <property name="placeholderText">
+         <string>Battery_SN_13</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox2_6">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>430</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #6</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_23">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_2_6">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_2_6">
+        <property name="placeholderText">
+         <string>Cable_SN_6</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2_6">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_2_6">
+        <property name="placeholderText">
+         <string>Battery_SN_6</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox2_15">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>510</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #15</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_24">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_2_15">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_2_15">
+        <property name="placeholderText">
+         <string>Cable_SN_15</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2_15">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_2_15">
+        <property name="placeholderText">
+         <string>Battery_SN_15</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox2_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>90</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #2</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_25">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_2_2">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_2_2">
+        <property name="placeholderText">
+         <string>Cable_SN_2</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2_2">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_2_2">
+        <property name="placeholderText">
+         <string>Battery_SN_2</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox2_5">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>350</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #5</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_26">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_2_5">
+        <property name="acceptDrops">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_2_5">
+        <property name="placeholderText">
+         <string>Cable_SN_5</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2_5">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_2_5">
+        <property name="placeholderText">
+         <string>Battery_SN_5</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox2_9">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>10</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #9</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_27">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_2_9">
+        <property name="acceptDrops">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_2_9">
+        <property name="placeholderText">
+         <string>Cable_SN_9</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2_9">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_2_9">
+        <property name="placeholderText">
+         <string>Battery_SN_9</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox2_8">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>590</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #8</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_28">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_2_8">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_2_8">
+        <property name="placeholderText">
+         <string>Cable_SN_8</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2_8">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_2_8">
+        <property name="placeholderText">
+         <string>Battery_SN_8</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox2_10">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>90</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #10</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_29">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_2_10">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_2_10">
+        <property name="placeholderText">
+         <string>Cable_SN_10</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2_10">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_2_10">
+        <property name="placeholderText">
+         <string>Battery_SN_10</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox2_1">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #1</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_30">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_2_1">
+        <property name="acceptDrops">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_2_1">
+        <property name="placeholderText">
+         <string>Cable_SN_1</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2_1">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_2_1">
+        <property name="placeholderText">
+         <string>Battery_SN_1</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="Line" name="line_4">
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>20</y>
+       <width>20</width>
+       <height>651</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </widget>
+    <widget class="Line" name="line_3">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>330</y>
+       <width>921</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="groupBox2_11">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>170</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #11</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_31">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_2_11">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_2_11">
+        <property name="placeholderText">
+         <string>Cable_SN_11</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2_11">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_2_11">
+        <property name="placeholderText">
+         <string>Battery_SN_11</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox2_3">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>170</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #3</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_32">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_2_3">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_2_3">
+        <property name="placeholderText">
+         <string>Cable_SN_3</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2_3">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_2_3">
+        <property name="placeholderText">
+         <string>Battery_SN_3</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox2_7">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>510</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #7</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_33">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_2_7">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_2_7">
+        <property name="placeholderText">
+         <string>Cable_SN_7</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2_7">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_2_7">
+        <property name="placeholderText">
+         <string>Battery_SN_7</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox2_14">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>430</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #14</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_34">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_2_14">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_2_14">
+        <property name="placeholderText">
+         <string>Cable_SN_14</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2_14">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_2_14">
+        <property name="placeholderText">
+         <string>Battery_SN_14</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox2_12">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>250</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #12</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_35">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_2_12">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_2_12">
+        <property name="placeholderText">
+         <string>Cable_SN_12</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2_12">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_2_12">
+        <property name="placeholderText">
+         <string>Battery_SN_12</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
    </widget>
    <widget class="QWidget" name="tab_EB3">
     <attribute name="title">
      <string>Erie #3</string>
     </attribute>
+    <widget class="QGroupBox" name="groupBox3_13">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>350</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #13</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_36">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_3_13">
+        <property name="acceptDrops">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_3_13">
+        <property name="placeholderText">
+         <string>Cable_SN_13</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_3_13">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_3_13">
+        <property name="placeholderText">
+         <string>Battery_SN_13</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox3_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>90</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #2</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_37">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_3_2">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_3_2">
+        <property name="placeholderText">
+         <string>Cable_SN_2</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_3_2">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_3_2">
+        <property name="placeholderText">
+         <string>Battery_SN_2</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox3_1">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #1</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_38">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_3_1">
+        <property name="acceptDrops">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_3_1">
+        <property name="placeholderText">
+         <string>Cable_SN_1</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_3_1">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_3_1">
+        <property name="placeholderText">
+         <string>Battery_SN_1</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox3_12">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>250</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #12</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_39">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_3_12">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_3_12">
+        <property name="placeholderText">
+         <string>Cable_SN_12</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_3_12">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_3_12">
+        <property name="placeholderText">
+         <string>Battery_SN_12</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox3_11">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>170</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #11</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_40">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_3_11">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_3_11">
+        <property name="placeholderText">
+         <string>Cable_SN_11</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_3_11">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_3_11">
+        <property name="placeholderText">
+         <string>Battery_SN_11</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox3_3">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>170</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #3</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_41">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_3_3">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_3_3">
+        <property name="placeholderText">
+         <string>Cable_SN_3</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_3_3">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_3_3">
+        <property name="placeholderText">
+         <string>Battery_SN_3</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox3_4">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>250</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #4</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_42">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_3_4">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_3_4">
+        <property name="placeholderText">
+         <string>Cable_SN_4</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_3_4">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_3_4">
+        <property name="placeholderText">
+         <string>Battery_SN_4</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox3_6">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>430</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #6</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_43">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_3_6">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_3_6">
+        <property name="placeholderText">
+         <string>Cable_SN_6</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_3_6">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_3_6">
+        <property name="placeholderText">
+         <string>Battery_SN_6</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox3_5">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>350</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #5</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_44">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_3_5">
+        <property name="acceptDrops">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_3_5">
+        <property name="placeholderText">
+         <string>Cable_SN_5</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_3_5">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_3_5">
+        <property name="placeholderText">
+         <string>Battery_SN_5</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="Line" name="line_5">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>330</y>
+       <width>921</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="groupBox3_7">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>510</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #7</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_45">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_3_7">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_3_7">
+        <property name="placeholderText">
+         <string>Cable_SN_7</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_3_7">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_3_7">
+        <property name="placeholderText">
+         <string>Battery_SN_7</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="Line" name="line_6">
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>20</y>
+       <width>20</width>
+       <height>651</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="groupBox3_16">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>590</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #16</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_46">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_3_16">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_3_16">
+        <property name="placeholderText">
+         <string>Cable_SN_16</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_3_16">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_3_16">
+        <property name="placeholderText">
+         <string>Battery_SN_16</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox3_15">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>510</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #15</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_47">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_3_15">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_3_15">
+        <property name="placeholderText">
+         <string>Cable_SN_15</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_3_15">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_3_15">
+        <property name="placeholderText">
+         <string>Battery_SN_15</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox3_9">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>10</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #9</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_48">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_3_9">
+        <property name="acceptDrops">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_3_9">
+        <property name="placeholderText">
+         <string>Cable_SN_9</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_3_9">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_3_9">
+        <property name="placeholderText">
+         <string>Battery_SN_9</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox3_8">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>590</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #8</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_49">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_3_8">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_3_8">
+        <property name="placeholderText">
+         <string>Cable_SN_8</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_3_8">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_3_8">
+        <property name="placeholderText">
+         <string>Battery_SN_8</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox3_10">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>90</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #10</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_50">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_3_10">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_3_10">
+        <property name="placeholderText">
+         <string>Cable_SN_10</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_3_10">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_3_10">
+        <property name="placeholderText">
+         <string>Battery_SN_10</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox3_14">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>430</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #14</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_51">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_3_14">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_3_14">
+        <property name="placeholderText">
+         <string>Cable_SN_14</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_3_14">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_3_14">
+        <property name="placeholderText">
+         <string>Battery_SN_14</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
    </widget>
    <widget class="QWidget" name="tab_EB4">
     <attribute name="title">
      <string>Erie #4</string>
     </attribute>
+    <widget class="QGroupBox" name="groupBox4_13">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>350</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #13</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_52">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_4_13">
+        <property name="acceptDrops">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_4_13">
+        <property name="placeholderText">
+         <string>Cable_SN_13</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_4_13">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_4_13">
+        <property name="placeholderText">
+         <string>Battery_SN_13</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox4_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>90</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #2</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_53">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_4_2">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_4_2">
+        <property name="placeholderText">
+         <string>Cable_SN_2</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_4_2">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_4_2">
+        <property name="placeholderText">
+         <string>Battery_SN_2</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox4_1">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #1</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_54">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_4_1">
+        <property name="acceptDrops">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_4_1">
+        <property name="placeholderText">
+         <string>Cable_SN_1</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_4_1">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_4_1">
+        <property name="placeholderText">
+         <string>Battery_SN_1</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox4_12">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>250</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #12</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_55">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_4_12">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_4_12">
+        <property name="placeholderText">
+         <string>Cable_SN_12</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_4_12">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_4_12">
+        <property name="placeholderText">
+         <string>Battery_SN_12</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox4_11">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>170</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #11</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_56">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_4_11">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_4_11">
+        <property name="placeholderText">
+         <string>Cable_SN_11</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_4_11">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_4_11">
+        <property name="placeholderText">
+         <string>Battery_SN_11</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox4_3">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>170</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #3</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_57">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_4_3">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_4_3">
+        <property name="placeholderText">
+         <string>Cable_SN_3</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_4_3">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_4_3">
+        <property name="placeholderText">
+         <string>Battery_SN_3</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox4_4">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>250</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #4</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_58">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_4_4">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_4_4">
+        <property name="placeholderText">
+         <string>Cable_SN_4</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_4_4">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_4_4">
+        <property name="placeholderText">
+         <string>Battery_SN_4</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox4_6">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>430</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #6</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_59">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_4_6">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_4_6">
+        <property name="placeholderText">
+         <string>Cable_SN_6</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_4_6">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_4_6">
+        <property name="placeholderText">
+         <string>Battery_SN_6</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox4_5">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>350</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #5</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_60">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_4_5">
+        <property name="acceptDrops">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_4_5">
+        <property name="placeholderText">
+         <string>Cable_SN_5</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_4_5">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_4_5">
+        <property name="placeholderText">
+         <string>Battery_SN_5</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="Line" name="line_7">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>330</y>
+       <width>921</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="groupBox4_7">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>510</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #7</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_61">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_4_7">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_4_7">
+        <property name="placeholderText">
+         <string>Cable_SN_7</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_4_7">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_4_7">
+        <property name="placeholderText">
+         <string>Battery_SN_7</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="Line" name="line_8">
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>20</y>
+       <width>20</width>
+       <height>651</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="groupBox4_16">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>590</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #16</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_62">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_4_16">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_4_16">
+        <property name="placeholderText">
+         <string>Cable_SN_16</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_4_16">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_4_16">
+        <property name="placeholderText">
+         <string>Battery_SN_16</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox4_15">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>510</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #15</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_63">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_4_15">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_4_15">
+        <property name="placeholderText">
+         <string>Cable_SN_15</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_4_15">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_4_15">
+        <property name="placeholderText">
+         <string>Battery_SN_15</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox4_9">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>10</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #9</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_64">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_4_9">
+        <property name="acceptDrops">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_4_9">
+        <property name="placeholderText">
+         <string>Cable_SN_9</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_4_9">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_4_9">
+        <property name="placeholderText">
+         <string>Battery_SN_9</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox4_8">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>590</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #8</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_65">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_4_8">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_4_8">
+        <property name="placeholderText">
+         <string>Cable_SN_8</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_4_8">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_4_8">
+        <property name="placeholderText">
+         <string>Battery_SN_8</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox4_10">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>90</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #10</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_66">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_4_10">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_4_10">
+        <property name="placeholderText">
+         <string>Cable_SN_10</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_4_10">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_4_10">
+        <property name="placeholderText">
+         <string>Battery_SN_10</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox4_14">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>430</y>
+       <width>451</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Slot #14</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_67">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="sn_lineEdit_4_14">
+        <property name="maxLength">
+         <number>33</number>
+        </property>
+        <property name="placeholderText">
+         <string>Serial Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CablelineEdit_4_14">
+        <property name="placeholderText">
+         <string>Cable_SN_14</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_4_14">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="BatterylineEdit_4_14">
+        <property name="placeholderText">
+         <string>Battery_SN_14</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
    </widget>
    <widget class="QWidget" name="info">
     <attribute name="title">

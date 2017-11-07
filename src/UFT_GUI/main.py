@@ -63,17 +63,31 @@ class MainWidget(QtGui.QWidget):
 
     def start_click(self):
         try:
-            barcodes = self.ui.barcodes()
-            cable_barcodes = self.ui.cabel_barcodes()
-            capacitor_barcodes = self.ui.capacitor_barcodes()
             mode4in1 = self.ui.InMode4in1()
-            self.u.loaddata(barcodes, cable_barcodes, capacitor_barcodes, mode4in1)
+            # Erie #1
+            db_1 = self.ui.barcodes_1()
+            cb_1 = self.ui.cabel_barcodes_1()
+            bb_1 = self.ui.capacitor_barcodes_1()
+            # Erie #2
+            db_2 = self.ui.barcodes_2()
+            cb_2 = self.ui.cabel_barcodes_2()
+            bb_2 = self.ui.capacitor_barcodes_2()
+            # Erie #3
+            db_3 = self.ui.barcodes_3()
+            cb_3 = self.ui.cabel_barcodes_3()
+            bb_3 = self.ui.capacitor_barcodes_3()
+            # Erie #4
+            db_4 = self.ui.barcodes_4()
+            cb_4 = self.ui.cabel_barcodes_4()
+            bb_4 = self.ui.capacitor_barcodes_4()
+
+            self.u.loaddata(db_1, cb_1, bb_1, db_2, cb_2, bb_2, db_3, cb_3, bb_3, db_4, cb_4, bb_4,mode4in1)
             self.connect(self.u, QtCore.SIGNAL('progress_bar'),
                          self.ui.progressBar.setValue)
             self.connect(self.u, QtCore.SIGNAL('is_alive'),
                          self.ui.auto_enable_disable_widgets)
-            self.connect(self.u, QtCore.SIGNAL("dut_status"),
-                         self.ui.set_status_text)
+            self.connect(self.u, QtCore.SIGNAL("dut_status_1"),
+                         self.ui.set_status_text_1)
             self.connect(self.u, QtCore.SIGNAL('time_used'),
                          self.ui.print_time)
             self.u.start()
@@ -89,15 +103,32 @@ class Update(QtCore.QThread):
     def __init__(self):
         QtCore.QThread.__init__(self)
 
-    def loaddata(self, barcodes, cable_barcodes, capacitor_barcodes, mode):
-        self.barcodes = barcodes
-        self.cable_barcodes = cable_barcodes
-        self.capacitor_barcodes = capacitor_barcodes
+    def loaddata(self, barcodes_1, cable_barcodes_1, capacitor_barcodes_1,
+                 barcodes_2, cable_barcodes_2, capacitor_barcodes_2,
+                 barcodes_3, cable_barcodes_3, capacitor_barcodes_3,
+                 barcodes_4, cable_barcodes_4, capacitor_barcodes_4,
+                 mode):
+        # Erie #1
+        self.barcodes_1 = barcodes_1
+        self.cable_barcodes_1 = cable_barcodes_1
+        self.capacitor_barcodes_1 = capacitor_barcodes_1
+        # Erie #2
+        self.barcodes_2 = barcodes_2
+        self.cable_barcodes_2 = cable_barcodes_2
+        self.capacitor_barcodes_2 = capacitor_barcodes_2
+        # Erie #3
+        self.barcodes_3 = barcodes_3
+        self.cable_barcodes_3 = cable_barcodes_3
+        self.capacitor_barcodes_3 = capacitor_barcodes_3
+        # Erie #4
+        self.barcodes_4 = barcodes_4
+        self.cable_barcodes_4 = cable_barcodes_4
+        self.capacitor_barcodes_4 = capacitor_barcodes_4
         self.mode = mode
 
     def run(self):
         sec_count = 0
-        ch = Channel(barcode_list=self.barcodes, cable_barcodes_list=self.cable_barcodes, capacitor_barcodes_list=self.capacitor_barcodes,
+        ch = Channel(barcode_list=self.barcodes_1, cable_barcodes_list=self.cable_barcodes_1, capacitor_barcodes_list=self.capacitor_barcodes_1,
                           channel_id=0, name="UFT_CHANNEL", mode4in1=self.mode)
         #ch.setDaemon(True)
         ch.auto_test()
@@ -108,14 +139,14 @@ class Update(QtCore.QThread):
             self.emit(QtCore.SIGNAL("time_used"), sec_count)
             for dut in ch.dut_list:
                 if dut is not None:
-                    self.emit(QtCore.SIGNAL("dut_status"), dut.slotnum,
+                    self.emit(QtCore.SIGNAL("dut_status_1"), dut.slotnum,
                               dut.status)
             time.sleep(1)
 
         self.emit(QtCore.SIGNAL("progress_bar"), ch.progressbar)
         for dut in ch.dut_list:
             if dut is not None:
-                self.emit(QtCore.SIGNAL("dut_status"), dut.slotnum, dut.status)
+                self.emit(QtCore.SIGNAL("dut_status_1"), dut.slotnum, dut.status)
 
         ch.save_db()
 

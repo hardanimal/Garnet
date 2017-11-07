@@ -27,17 +27,19 @@ class Erie(object):
         parity = kvargs.get('parity', serial.PARITY_NONE)
         bytesize = kvargs.get('bytesize', serial.EIGHTBITS)
         stopbits = kvargs.get('stopbits', serial.STOPBITS_ONE)
-        self.ser = serial.Serial(port=port, baudrate=baudrate,
-                                 timeout=timeout, bytesize=bytesize,
-                                 parity=parity, stopbits=stopbits)
-        if (not self.ser.isOpen()):
+        try:
+            self.ser = serial.Serial(port=port, baudrate=baudrate,
+                                     timeout=timeout, bytesize=bytesize,
+                                     parity=parity, stopbits=stopbits)
+        except Exception:
+            raise Exception("Couldn't open COM port - Erie Board does NOT exist or the serial port config error!")
+
+        if not self.ser.isOpen():
             self.ser.open()
             self._cleanbuffer_()
 
-        try:
-            self.GetVersion()
-        except Exception:
-            raise Exception("Hardware is NOT ready!")
+        if not self.GetVersion():
+            raise Exception("Wrong Erie firmware version, should be: v" + str(FirmwareVersion[0]) + "." + str(FirmwareVersion[1]))
 
 
     def __del__(self):
@@ -75,7 +77,8 @@ class Erie(object):
         if ret[2] != 0x0C or ret[6] != 0x00:
             raise Exception("UART communication failure")
         if ret[7] != FirmwareVersion[0] or ret[8] != FirmwareVersion[1]:
-            raise Exception("Wrong Erie firmware version: " + str(ret[7]) + "." + str(ret[8]))
+            return False
+        return True
 
     def SetProType(self, port, type):
         self._logging_("set product type")
@@ -261,7 +264,7 @@ class Erie(object):
         self._displaylanguage_(content)
         if len(buff) < 7:
             self._erroroutinfor_()
-            raise Exception("UART communication failure")
+            raise Exception("Hardware is NOT ready")
         if buff[0] != 0x55 or buff[1] != 0x77:
             self._erroroutinfor_()
             raise Exception("UART communication failure")

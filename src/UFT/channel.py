@@ -141,7 +141,7 @@ class Channel(threading.Thread):
         #self.ld.reset()
         #time.sleep(2)
 
-        logger.info("Initiate Hardware...")
+        logger.info("Initiate Hardware of Channel {0}...".format(self.channel))
         #first setup erie
         if self.channel == 0:
             self.erie = erie.Erie(port=ERIE_NO1)

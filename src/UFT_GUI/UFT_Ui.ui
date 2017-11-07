@@ -35,7 +35,7 @@
     <attribute name="title">
      <string>Erie #1</string>
     </attribute>
-    <widget class="QGroupBox" name="groupBox8">
+    <widget class="QGroupBox" name="groupBox1_8">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -55,7 +55,7 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_11">
       <item row="0" column="0">
-       <widget class="QLineEdit" name="sn_lineEdit_8">
+       <widget class="QLineEdit" name="sn_lineEdit_1_8">
         <property name="maxLength">
          <number>33</number>
         </property>
@@ -65,14 +65,14 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="CablelineEdit_8">
+       <widget class="QLineEdit" name="CablelineEdit_1_8">
         <property name="placeholderText">
          <string>Cable_SN_8</string>
         </property>
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QLabel" name="label_8">
+       <widget class="QLabel" name="label_1_8">
         <property name="font">
          <font>
           <pointsize>12</pointsize>
@@ -84,7 +84,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="BatterylineEdit_8">
+       <widget class="QLineEdit" name="BatterylineEdit_1_8">
         <property name="placeholderText">
          <string>Battery_SN_8</string>
         </property>
@@ -92,7 +92,7 @@
       </item>
      </layout>
     </widget>
-    <widget class="QGroupBox" name="groupBox2">
+    <widget class="QGroupBox" name="groupBox1_2">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -112,7 +112,7 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="0" column="0">
-       <widget class="QLineEdit" name="sn_lineEdit_2">
+       <widget class="QLineEdit" name="sn_lineEdit_1_2">
         <property name="maxLength">
          <number>33</number>
         </property>
@@ -122,14 +122,14 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="CablelineEdit_2">
+       <widget class="QLineEdit" name="CablelineEdit_1_2">
         <property name="placeholderText">
          <string>Cable_SN_2</string>
         </property>
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QLabel" name="label_2">
+       <widget class="QLabel" name="label_1_2">
         <property name="font">
          <font>
           <pointsize>12</pointsize>
@@ -141,7 +141,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="BatterylineEdit_2">
+       <widget class="QLineEdit" name="BatterylineEdit_1_2">
         <property name="placeholderText">
          <string>Battery_SN_2</string>
         </property>
@@ -149,7 +149,7 @@
       </item>
      </layout>
     </widget>
-    <widget class="QGroupBox" name="groupBox3">
+    <widget class="QGroupBox" name="groupBox1_3">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -169,7 +169,7 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_3">
       <item row="0" column="0">
-       <widget class="QLineEdit" name="sn_lineEdit_3">
+       <widget class="QLineEdit" name="sn_lineEdit_1_3">
         <property name="maxLength">
          <number>33</number>
         </property>
@@ -179,14 +179,14 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="CablelineEdit_3">
+       <widget class="QLineEdit" name="CablelineEdit_1_3">
         <property name="placeholderText">
          <string>Cable_SN_3</string>
         </property>
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QLabel" name="label_3">
+       <widget class="QLabel" name="label_1_3">
         <property name="font">
          <font>
           <pointsize>12</pointsize>
@@ -198,7 +198,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="BatterylineEdit_3">
+       <widget class="QLineEdit" name="BatterylineEdit_1_3">
         <property name="placeholderText">
          <string>Battery_SN_3</string>
         </property>
@@ -206,7 +206,7 @@
       </item>
      </layout>
     </widget>
-    <widget class="QGroupBox" name="groupBox4">
+    <widget class="QGroupBox" name="groupBox1_4">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -226,7 +226,7 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_6">
       <item row="0" column="0">
-       <widget class="QLineEdit" name="sn_lineEdit_4">
+       <widget class="QLineEdit" name="sn_lineEdit_1_4">
         <property name="maxLength">
          <number>33</number>
         </property>
@@ -236,14 +236,14 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="CablelineEdit_4">
+       <widget class="QLineEdit" name="CablelineEdit_1_4">
         <property name="placeholderText">
          <string>Cable_SN_4</string>
         </property>
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QLabel" name="label_4">
+       <widget class="QLabel" name="label_1_4">
         <property name="font">
          <font>
           <pointsize>12</pointsize>
@@ -255,7 +255,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="BatterylineEdit_4">
+       <widget class="QLineEdit" name="BatterylineEdit_1_4">
         <property name="placeholderText">
          <string>Battery_SN_4</string>
         </property>
@@ -263,7 +263,7 @@
       </item>
      </layout>
     </widget>
-    <widget class="QGroupBox" name="groupBox5">
+    <widget class="QGroupBox" name="groupBox1_5">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -283,7 +283,7 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_7">
       <item row="0" column="0">
-       <widget class="QLineEdit" name="sn_lineEdit_5">
+       <widget class="QLineEdit" name="sn_lineEdit_1_5">
         <property name="acceptDrops">
          <bool>true</bool>
         </property>
@@ -299,14 +299,14 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="CablelineEdit_5">
+       <widget class="QLineEdit" name="CablelineEdit_1_5">
         <property name="placeholderText">
          <string>Cable_SN_5</string>
         </property>
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QLabel" name="label_5">
+       <widget class="QLabel" name="label_1_5">
         <property name="font">
          <font>
           <pointsize>12</pointsize>
@@ -318,7 +318,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="BatterylineEdit_5">
+       <widget class="QLineEdit" name="BatterylineEdit_1_5">
         <property name="placeholderText">
          <string>Battery_SN_5</string>
         </property>
@@ -326,7 +326,7 @@
       </item>
      </layout>
     </widget>
-    <widget class="QGroupBox" name="groupBox6">
+    <widget class="QGroupBox" name="groupBox1_6">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -346,7 +346,7 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_8">
       <item row="0" column="0">
-       <widget class="QLineEdit" name="sn_lineEdit_6">
+       <widget class="QLineEdit" name="sn_lineEdit_1_6">
         <property name="maxLength">
          <number>33</number>
         </property>
@@ -356,14 +356,14 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="CablelineEdit_6">
+       <widget class="QLineEdit" name="CablelineEdit_1_6">
         <property name="placeholderText">
          <string>Cable_SN_6</string>
         </property>
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QLabel" name="label_6">
+       <widget class="QLabel" name="label_1_6">
         <property name="font">
          <font>
           <pointsize>12</pointsize>
@@ -375,7 +375,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="BatterylineEdit_6">
+       <widget class="QLineEdit" name="BatterylineEdit_1_6">
         <property name="placeholderText">
          <string>Battery_SN_6</string>
         </property>
@@ -383,7 +383,7 @@
       </item>
      </layout>
     </widget>
-    <widget class="QGroupBox" name="groupBox1">
+    <widget class="QGroupBox" name="groupBox1_1">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -403,7 +403,7 @@
      </property>
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="0">
-       <widget class="QLineEdit" name="sn_lineEdit_1">
+       <widget class="QLineEdit" name="sn_lineEdit_1_1">
         <property name="acceptDrops">
          <bool>true</bool>
         </property>
@@ -419,14 +419,14 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="CablelineEdit_1">
+       <widget class="QLineEdit" name="CablelineEdit_1_1">
         <property name="placeholderText">
          <string>Cable_SN_1</string>
         </property>
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QLabel" name="label_1">
+       <widget class="QLabel" name="label_1_1">
         <property name="font">
          <font>
           <pointsize>12</pointsize>
@@ -438,7 +438,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="BatterylineEdit_1">
+       <widget class="QLineEdit" name="BatterylineEdit_1_1">
         <property name="placeholderText">
          <string>Battery_SN_1</string>
         </property>
@@ -446,7 +446,7 @@
       </item>
      </layout>
     </widget>
-    <widget class="QGroupBox" name="groupBox7">
+    <widget class="QGroupBox" name="groupBox1_7">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -466,7 +466,7 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_10">
       <item row="0" column="0">
-       <widget class="QLineEdit" name="sn_lineEdit_7">
+       <widget class="QLineEdit" name="sn_lineEdit_1_7">
         <property name="maxLength">
          <number>33</number>
         </property>
@@ -476,14 +476,14 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="CablelineEdit_7">
+       <widget class="QLineEdit" name="CablelineEdit_1_7">
         <property name="placeholderText">
          <string>Cable_SN_7</string>
         </property>
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QLabel" name="label_7">
+       <widget class="QLabel" name="label_1_7">
         <property name="font">
          <font>
           <pointsize>12</pointsize>
@@ -495,7 +495,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="BatterylineEdit_7">
+       <widget class="QLineEdit" name="BatterylineEdit_1_7">
         <property name="placeholderText">
          <string>Battery_SN_7</string>
         </property>
@@ -503,7 +503,7 @@
       </item>
      </layout>
     </widget>
-    <widget class="QGroupBox" name="groupBox16">
+    <widget class="QGroupBox" name="groupBox1_16">
      <property name="geometry">
       <rect>
        <x>480</x>
@@ -523,7 +523,7 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_19">
       <item row="0" column="0">
-       <widget class="QLineEdit" name="sn_lineEdit_16">
+       <widget class="QLineEdit" name="sn_lineEdit_1_16">
         <property name="maxLength">
          <number>33</number>
         </property>
@@ -533,14 +533,14 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="CablelineEdit_16">
+       <widget class="QLineEdit" name="CablelineEdit_1_16">
         <property name="placeholderText">
          <string>Cable_SN_16</string>
         </property>
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QLabel" name="label_16">
+       <widget class="QLabel" name="label_1_16">
         <property name="font">
          <font>
           <pointsize>12</pointsize>
@@ -552,7 +552,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="BatterylineEdit_16">
+       <widget class="QLineEdit" name="BatterylineEdit_1_16">
         <property name="placeholderText">
          <string>Battery_SN_16</string>
         </property>
@@ -560,7 +560,7 @@
       </item>
      </layout>
     </widget>
-    <widget class="QGroupBox" name="groupBox9">
+    <widget class="QGroupBox" name="groupBox1_9">
      <property name="geometry">
       <rect>
        <x>480</x>
@@ -580,7 +580,7 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_12">
       <item row="0" column="0">
-       <widget class="QLineEdit" name="sn_lineEdit_9">
+       <widget class="QLineEdit" name="sn_lineEdit_1_9">
         <property name="acceptDrops">
          <bool>true</bool>
         </property>
@@ -596,14 +596,14 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="CablelineEdit_9">
+       <widget class="QLineEdit" name="CablelineEdit_1_9">
         <property name="placeholderText">
          <string>Cable_SN_9</string>
         </property>
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QLabel" name="label_9">
+       <widget class="QLabel" name="label_1_9">
         <property name="font">
          <font>
           <pointsize>12</pointsize>
@@ -615,7 +615,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="BatterylineEdit_9">
+       <widget class="QLineEdit" name="BatterylineEdit_1_9">
         <property name="placeholderText">
          <string>Battery_SN_9</string>
         </property>
@@ -623,7 +623,7 @@
       </item>
      </layout>
     </widget>
-    <widget class="QGroupBox" name="groupBox11">
+    <widget class="QGroupBox" name="groupBox1_11">
      <property name="geometry">
       <rect>
        <x>480</x>
@@ -643,7 +643,7 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_14">
       <item row="0" column="0">
-       <widget class="QLineEdit" name="sn_lineEdit_11">
+       <widget class="QLineEdit" name="sn_lineEdit_1_11">
         <property name="maxLength">
          <number>33</number>
         </property>
@@ -653,14 +653,14 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="CablelineEdit_11">
+       <widget class="QLineEdit" name="CablelineEdit_1_11">
         <property name="placeholderText">
          <string>Cable_SN_11</string>
         </property>
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QLabel" name="label_11">
+       <widget class="QLabel" name="label_1_11">
         <property name="font">
          <font>
           <pointsize>12</pointsize>
@@ -672,19 +672,19 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="BatterylineEdit_11">
+       <widget class="QLineEdit" name="BatterylineEdit_1_11">
         <property name="placeholderText">
          <string>Battery_SN_11</string>
         </property>
        </widget>
       </item>
      </layout>
-     <zorder>sn_lineEdit_11</zorder>
-     <zorder>label_11</zorder>
-     <zorder>CablelineEdit_11</zorder>
-     <zorder>BatterylineEdit_11</zorder>
+     <zorder>sn_lineEdit_1_11</zorder>
+     <zorder>label_1_11</zorder>
+     <zorder>CablelineEdit_1_11</zorder>
+     <zorder>BatterylineEdit_1_11</zorder>
     </widget>
-    <widget class="QGroupBox" name="groupBox12">
+    <widget class="QGroupBox" name="groupBox1_12">
      <property name="geometry">
       <rect>
        <x>480</x>
@@ -704,7 +704,7 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_15">
       <item row="0" column="0">
-       <widget class="QLineEdit" name="sn_lineEdit_12">
+       <widget class="QLineEdit" name="sn_lineEdit_1_12">
         <property name="maxLength">
          <number>33</number>
         </property>
@@ -714,14 +714,14 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="CablelineEdit_12">
+       <widget class="QLineEdit" name="CablelineEdit_1_12">
         <property name="placeholderText">
          <string>Cable_SN_12</string>
         </property>
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QLabel" name="label_12">
+       <widget class="QLabel" name="label_1_12">
         <property name="font">
          <font>
           <pointsize>12</pointsize>
@@ -733,7 +733,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="BatterylineEdit_12">
+       <widget class="QLineEdit" name="BatterylineEdit_1_12">
         <property name="placeholderText">
          <string>Battery_SN_12</string>
         </property>
@@ -741,7 +741,7 @@
       </item>
      </layout>
     </widget>
-    <widget class="QGroupBox" name="groupBox13">
+    <widget class="QGroupBox" name="groupBox1_13">
      <property name="geometry">
       <rect>
        <x>480</x>
@@ -761,7 +761,7 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_16">
       <item row="0" column="0">
-       <widget class="QLineEdit" name="sn_lineEdit_13">
+       <widget class="QLineEdit" name="sn_lineEdit_1_13">
         <property name="acceptDrops">
          <bool>true</bool>
         </property>
@@ -777,14 +777,14 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="CablelineEdit_13">
+       <widget class="QLineEdit" name="CablelineEdit_1_13">
         <property name="placeholderText">
          <string>Cable_SN_13</string>
         </property>
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QLabel" name="label_13">
+       <widget class="QLabel" name="label_1_13">
         <property name="font">
          <font>
           <pointsize>12</pointsize>
@@ -796,7 +796,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="BatterylineEdit_13">
+       <widget class="QLineEdit" name="BatterylineEdit_1_13">
         <property name="placeholderText">
          <string>Battery_SN_13</string>
         </property>
@@ -804,7 +804,7 @@
       </item>
      </layout>
     </widget>
-    <widget class="QGroupBox" name="groupBox10">
+    <widget class="QGroupBox" name="groupBox1_10">
      <property name="geometry">
       <rect>
        <x>480</x>
@@ -824,7 +824,7 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_13">
       <item row="0" column="0">
-       <widget class="QLineEdit" name="sn_lineEdit_10">
+       <widget class="QLineEdit" name="sn_lineEdit_1_10">
         <property name="maxLength">
          <number>33</number>
         </property>
@@ -834,14 +834,14 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="CablelineEdit_10">
+       <widget class="QLineEdit" name="CablelineEdit_1_10">
         <property name="placeholderText">
          <string>Cable_SN_10</string>
         </property>
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QLabel" name="label_10">
+       <widget class="QLabel" name="label_1_10">
         <property name="font">
          <font>
           <pointsize>12</pointsize>
@@ -853,7 +853,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="BatterylineEdit_10">
+       <widget class="QLineEdit" name="BatterylineEdit_1_10">
         <property name="placeholderText">
          <string>Battery_SN_10</string>
         </property>
@@ -861,7 +861,7 @@
       </item>
      </layout>
     </widget>
-    <widget class="QGroupBox" name="groupBox14">
+    <widget class="QGroupBox" name="groupBox1_14">
      <property name="geometry">
       <rect>
        <x>480</x>
@@ -881,7 +881,7 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_17">
       <item row="0" column="0">
-       <widget class="QLineEdit" name="sn_lineEdit_14">
+       <widget class="QLineEdit" name="sn_lineEdit_1_14">
         <property name="maxLength">
          <number>33</number>
         </property>
@@ -891,14 +891,14 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="CablelineEdit_14">
+       <widget class="QLineEdit" name="CablelineEdit_1_14">
         <property name="placeholderText">
          <string>Cable_SN_14</string>
         </property>
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QLabel" name="label_14">
+       <widget class="QLabel" name="label_1_14">
         <property name="font">
          <font>
           <pointsize>12</pointsize>
@@ -910,7 +910,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="BatterylineEdit_14">
+       <widget class="QLineEdit" name="BatterylineEdit_1_14">
         <property name="placeholderText">
          <string>Battery_SN_14</string>
         </property>
@@ -918,7 +918,7 @@
       </item>
      </layout>
     </widget>
-    <widget class="QGroupBox" name="groupBox15">
+    <widget class="QGroupBox" name="groupBox1_15">
      <property name="geometry">
       <rect>
        <x>480</x>
@@ -938,7 +938,7 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_18">
       <item row="0" column="0">
-       <widget class="QLineEdit" name="sn_lineEdit_15">
+       <widget class="QLineEdit" name="sn_lineEdit_1_15">
         <property name="maxLength">
          <number>33</number>
         </property>
@@ -948,14 +948,14 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="CablelineEdit_15">
+       <widget class="QLineEdit" name="CablelineEdit_1_15">
         <property name="placeholderText">
          <string>Cable_SN_15</string>
         </property>
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QLabel" name="label_15">
+       <widget class="QLabel" name="label_1_15">
         <property name="font">
          <font>
           <pointsize>12</pointsize>
@@ -967,7 +967,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="BatterylineEdit_15">
+       <widget class="QLineEdit" name="BatterylineEdit_1_15">
         <property name="placeholderText">
          <string>Battery_SN_15</string>
         </property>
@@ -1352,22 +1352,22 @@
   <tabstop>tabWidget</tabstop>
   <tabstop>Mode4in1</tabstop>
   <tabstop>start_pushButton</tabstop>
-  <tabstop>sn_lineEdit_1</tabstop>
-  <tabstop>sn_lineEdit_2</tabstop>
-  <tabstop>sn_lineEdit_3</tabstop>
-  <tabstop>sn_lineEdit_4</tabstop>
-  <tabstop>sn_lineEdit_5</tabstop>
-  <tabstop>sn_lineEdit_6</tabstop>
-  <tabstop>sn_lineEdit_7</tabstop>
-  <tabstop>sn_lineEdit_8</tabstop>
-  <tabstop>sn_lineEdit_9</tabstop>
-  <tabstop>sn_lineEdit_10</tabstop>
-  <tabstop>sn_lineEdit_11</tabstop>
-  <tabstop>sn_lineEdit_12</tabstop>
-  <tabstop>sn_lineEdit_13</tabstop>
-  <tabstop>sn_lineEdit_14</tabstop>
-  <tabstop>sn_lineEdit_15</tabstop>
-  <tabstop>sn_lineEdit_16</tabstop>
+  <tabstop>sn_lineEdit_1_1</tabstop>
+  <tabstop>sn_lineEdit_1_2</tabstop>
+  <tabstop>sn_lineEdit_1_3</tabstop>
+  <tabstop>sn_lineEdit_1_4</tabstop>
+  <tabstop>sn_lineEdit_1_5</tabstop>
+  <tabstop>sn_lineEdit_1_6</tabstop>
+  <tabstop>sn_lineEdit_1_7</tabstop>
+  <tabstop>sn_lineEdit_1_8</tabstop>
+  <tabstop>sn_lineEdit_1_9</tabstop>
+  <tabstop>sn_lineEdit_1_10</tabstop>
+  <tabstop>sn_lineEdit_1_11</tabstop>
+  <tabstop>sn_lineEdit_1_12</tabstop>
+  <tabstop>sn_lineEdit_1_13</tabstop>
+  <tabstop>sn_lineEdit_1_14</tabstop>
+  <tabstop>sn_lineEdit_1_15</tabstop>
+  <tabstop>sn_lineEdit_1_16</tabstop>
   <tabstop>info_textBrowser</tabstop>
   <tabstop>partNum_comboBox</tabstop>
   <tabstop>revision_comboBox</tabstop>
@@ -1413,489 +1413,9 @@
    </hints>
   </connection>
   <connection>
-   <sender>sn_lineEdit_1</sender>
-   <signal>returnPressed()</signal>
-   <receiver>sn_lineEdit_2</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>212</x>
-     <y>71</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>277</x>
-     <y>71</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sn_lineEdit_2</sender>
-   <signal>returnPressed()</signal>
-   <receiver>sn_lineEdit_3</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>418</x>
-     <y>70</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>511</x>
-     <y>74</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sn_lineEdit_3</sender>
-   <signal>returnPressed()</signal>
-   <receiver>sn_lineEdit_4</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>690</x>
-     <y>67</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>786</x>
-     <y>70</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sn_lineEdit_4</sender>
-   <signal>returnPressed()</signal>
-   <receiver>sn_lineEdit_5</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>821</x>
-     <y>81</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>124</x>
-     <y>184</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sn_lineEdit_5</sender>
-   <signal>returnPressed()</signal>
-   <receiver>sn_lineEdit_6</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>124</x>
-     <y>184</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>358</x>
-     <y>184</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sn_lineEdit_6</sender>
-   <signal>returnPressed()</signal>
-   <receiver>sn_lineEdit_7</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>358</x>
-     <y>184</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>592</x>
-     <y>184</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sn_lineEdit_7</sender>
-   <signal>returnPressed()</signal>
-   <receiver>sn_lineEdit_8</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>592</x>
-     <y>184</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>825</x>
-     <y>184</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sn_lineEdit_8</sender>
-   <signal>returnPressed()</signal>
-   <receiver>sn_lineEdit_9</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>825</x>
-     <y>184</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>124</x>
-     <y>294</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sn_lineEdit_9</sender>
-   <signal>returnPressed()</signal>
-   <receiver>sn_lineEdit_10</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>124</x>
-     <y>294</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>358</x>
-     <y>294</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sn_lineEdit_10</sender>
-   <signal>returnPressed()</signal>
-   <receiver>sn_lineEdit_11</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>358</x>
-     <y>294</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>592</x>
-     <y>294</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sn_lineEdit_11</sender>
-   <signal>returnPressed()</signal>
-   <receiver>sn_lineEdit_12</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>592</x>
-     <y>294</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>825</x>
-     <y>294</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sn_lineEdit_12</sender>
-   <signal>returnPressed()</signal>
-   <receiver>sn_lineEdit_13</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>825</x>
-     <y>294</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>124</x>
-     <y>404</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sn_lineEdit_13</sender>
-   <signal>returnPressed()</signal>
-   <receiver>sn_lineEdit_14</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>124</x>
-     <y>404</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>358</x>
-     <y>404</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sn_lineEdit_14</sender>
-   <signal>returnPressed()</signal>
-   <receiver>sn_lineEdit_15</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>358</x>
-     <y>404</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>592</x>
-     <y>404</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sn_lineEdit_15</sender>
-   <signal>returnPressed()</signal>
-   <receiver>sn_lineEdit_16</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>592</x>
-     <y>404</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>825</x>
-     <y>404</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sn_lineEdit_1</sender>
-   <signal>returnPressed()</signal>
-   <receiver>sn_lineEdit_2</receiver>
-   <slot>setFocus()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>228</x>
-     <y>83</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>464</x>
-     <y>83</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sn_lineEdit_2</sender>
-   <signal>returnPressed()</signal>
-   <receiver>sn_lineEdit_3</receiver>
-   <slot>setFocus()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>464</x>
-     <y>83</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>699</x>
-     <y>83</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sn_lineEdit_3</sender>
-   <signal>returnPressed()</signal>
-   <receiver>sn_lineEdit_4</receiver>
-   <slot>setFocus()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>699</x>
-     <y>83</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>934</x>
-     <y>83</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sn_lineEdit_4</sender>
-   <signal>returnPressed()</signal>
-   <receiver>sn_lineEdit_5</receiver>
-   <slot>setFocus()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>887</x>
-     <y>73</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>124</x>
-     <y>184</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sn_lineEdit_5</sender>
-   <signal>returnPressed()</signal>
-   <receiver>sn_lineEdit_6</receiver>
-   <slot>setFocus()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>124</x>
-     <y>184</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>358</x>
-     <y>184</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sn_lineEdit_6</sender>
-   <signal>returnPressed()</signal>
-   <receiver>sn_lineEdit_7</receiver>
-   <slot>setFocus()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>358</x>
-     <y>184</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>592</x>
-     <y>184</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sn_lineEdit_7</sender>
-   <signal>returnPressed()</signal>
-   <receiver>sn_lineEdit_8</receiver>
-   <slot>setFocus()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>592</x>
-     <y>184</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>825</x>
-     <y>184</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sn_lineEdit_8</sender>
-   <signal>returnPressed()</signal>
-   <receiver>sn_lineEdit_9</receiver>
-   <slot>setFocus()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>825</x>
-     <y>184</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>124</x>
-     <y>294</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sn_lineEdit_9</sender>
-   <signal>returnPressed()</signal>
-   <receiver>sn_lineEdit_10</receiver>
-   <slot>setFocus()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>124</x>
-     <y>294</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>358</x>
-     <y>294</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sn_lineEdit_10</sender>
-   <signal>returnPressed()</signal>
-   <receiver>sn_lineEdit_11</receiver>
-   <slot>setFocus()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>358</x>
-     <y>294</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>592</x>
-     <y>294</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sn_lineEdit_11</sender>
-   <signal>returnPressed()</signal>
-   <receiver>sn_lineEdit_12</receiver>
-   <slot>setFocus()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>592</x>
-     <y>294</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>825</x>
-     <y>294</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sn_lineEdit_12</sender>
-   <signal>returnPressed()</signal>
-   <receiver>sn_lineEdit_13</receiver>
-   <slot>setFocus()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>825</x>
-     <y>294</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>124</x>
-     <y>404</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sn_lineEdit_13</sender>
-   <signal>returnPressed()</signal>
-   <receiver>sn_lineEdit_14</receiver>
-   <slot>setFocus()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>124</x>
-     <y>404</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>358</x>
-     <y>404</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sn_lineEdit_14</sender>
-   <signal>returnPressed()</signal>
-   <receiver>sn_lineEdit_15</receiver>
-   <slot>setFocus()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>358</x>
-     <y>404</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>592</x>
-     <y>404</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sn_lineEdit_15</sender>
-   <signal>returnPressed()</signal>
-   <receiver>sn_lineEdit_16</receiver>
-   <slot>setFocus()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>592</x>
-     <y>404</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>825</x>
-     <y>404</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>Mode4in1</sender>
    <signal>clicked(bool)</signal>
-   <receiver>groupBox2</receiver>
+   <receiver>groupBox1_2</receiver>
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1911,7 +1431,7 @@
   <connection>
    <sender>Mode4in1</sender>
    <signal>clicked(bool)</signal>
-   <receiver>groupBox3</receiver>
+   <receiver>groupBox1_3</receiver>
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1927,7 +1447,7 @@
   <connection>
    <sender>Mode4in1</sender>
    <signal>clicked(bool)</signal>
-   <receiver>groupBox4</receiver>
+   <receiver>groupBox1_4</receiver>
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1943,7 +1463,7 @@
   <connection>
    <sender>Mode4in1</sender>
    <signal>clicked(bool)</signal>
-   <receiver>groupBox6</receiver>
+   <receiver>groupBox1_6</receiver>
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1959,7 +1479,7 @@
   <connection>
    <sender>Mode4in1</sender>
    <signal>clicked(bool)</signal>
-   <receiver>groupBox7</receiver>
+   <receiver>groupBox1_7</receiver>
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1975,7 +1495,7 @@
   <connection>
    <sender>Mode4in1</sender>
    <signal>clicked(bool)</signal>
-   <receiver>groupBox8</receiver>
+   <receiver>groupBox1_8</receiver>
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1991,7 +1511,7 @@
   <connection>
    <sender>Mode4in1</sender>
    <signal>clicked(bool)</signal>
-   <receiver>groupBox10</receiver>
+   <receiver>groupBox1_10</receiver>
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -2007,7 +1527,7 @@
   <connection>
    <sender>Mode4in1</sender>
    <signal>clicked(bool)</signal>
-   <receiver>groupBox11</receiver>
+   <receiver>groupBox1_11</receiver>
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -2023,7 +1543,7 @@
   <connection>
    <sender>Mode4in1</sender>
    <signal>clicked(bool)</signal>
-   <receiver>groupBox12</receiver>
+   <receiver>groupBox1_12</receiver>
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -2039,7 +1559,7 @@
   <connection>
    <sender>Mode4in1</sender>
    <signal>clicked(bool)</signal>
-   <receiver>groupBox14</receiver>
+   <receiver>groupBox1_14</receiver>
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -2055,7 +1575,7 @@
   <connection>
    <sender>Mode4in1</sender>
    <signal>clicked(bool)</signal>
-   <receiver>groupBox15</receiver>
+   <receiver>groupBox1_15</receiver>
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -2071,7 +1591,7 @@
   <connection>
    <sender>Mode4in1</sender>
    <signal>clicked(bool)</signal>
-   <receiver>groupBox16</receiver>
+   <receiver>groupBox1_16</receiver>
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -2087,7 +1607,7 @@
   <connection>
    <sender>Mode4in1</sender>
    <signal>clicked()</signal>
-   <receiver>sn_lineEdit_2</receiver>
+   <receiver>sn_lineEdit_1_2</receiver>
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -2103,7 +1623,7 @@
   <connection>
    <sender>Mode4in1</sender>
    <signal>clicked()</signal>
-   <receiver>sn_lineEdit_3</receiver>
+   <receiver>sn_lineEdit_1_3</receiver>
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -2119,7 +1639,7 @@
   <connection>
    <sender>Mode4in1</sender>
    <signal>clicked()</signal>
-   <receiver>sn_lineEdit_4</receiver>
+   <receiver>sn_lineEdit_1_4</receiver>
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -2135,7 +1655,7 @@
   <connection>
    <sender>Mode4in1</sender>
    <signal>clicked()</signal>
-   <receiver>sn_lineEdit_6</receiver>
+   <receiver>sn_lineEdit_1_6</receiver>
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -2151,7 +1671,7 @@
   <connection>
    <sender>Mode4in1</sender>
    <signal>clicked()</signal>
-   <receiver>sn_lineEdit_7</receiver>
+   <receiver>sn_lineEdit_1_7</receiver>
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -2167,7 +1687,7 @@
   <connection>
    <sender>Mode4in1</sender>
    <signal>clicked()</signal>
-   <receiver>sn_lineEdit_8</receiver>
+   <receiver>sn_lineEdit_1_8</receiver>
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -2183,7 +1703,7 @@
   <connection>
    <sender>Mode4in1</sender>
    <signal>clicked()</signal>
-   <receiver>sn_lineEdit_10</receiver>
+   <receiver>sn_lineEdit_1_10</receiver>
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -2199,7 +1719,7 @@
   <connection>
    <sender>Mode4in1</sender>
    <signal>clicked()</signal>
-   <receiver>sn_lineEdit_11</receiver>
+   <receiver>sn_lineEdit_1_11</receiver>
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -2215,7 +1735,7 @@
   <connection>
    <sender>Mode4in1</sender>
    <signal>clicked()</signal>
-   <receiver>sn_lineEdit_12</receiver>
+   <receiver>sn_lineEdit_1_12</receiver>
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -2231,7 +1751,7 @@
   <connection>
    <sender>Mode4in1</sender>
    <signal>clicked()</signal>
-   <receiver>sn_lineEdit_14</receiver>
+   <receiver>sn_lineEdit_1_14</receiver>
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -2247,7 +1767,7 @@
   <connection>
    <sender>Mode4in1</sender>
    <signal>clicked()</signal>
-   <receiver>sn_lineEdit_15</receiver>
+   <receiver>sn_lineEdit_1_15</receiver>
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -2263,7 +1783,7 @@
   <connection>
    <sender>Mode4in1</sender>
    <signal>clicked()</signal>
-   <receiver>sn_lineEdit_16</receiver>
+   <receiver>sn_lineEdit_1_16</receiver>
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">

@@ -143,7 +143,14 @@ class Channel(threading.Thread):
 
         logger.info("Initiate Hardware...")
         #first setup erie
-        self.erie = erie.Erie(port=ERIE_PORT)
+        if self.channel == 0:
+            self.erie = erie.Erie(port=ERIE_NO1)
+        elif self.channel == 1:
+            self.erie = erie.Erie(port=ERIE_NO2)
+        elif self.channel == 2:
+            self.erie = erie.Erie(port=ERIE_NO3)
+        elif self.channel == 3:
+            self.erie = erie.Erie(port=ERIE_NO4)
 
         # aardvark
         self.adk = aardvark.Adapter(self.erie)

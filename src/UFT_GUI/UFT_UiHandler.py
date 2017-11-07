@@ -342,39 +342,6 @@ class UFT_UiHandler(UFT_UiForm):
                 i = ""
         return capacitor_barcodes
 
-    def click_on_TabCable(self):
-        self.CablelineEdit_1.selectAll()
-        self.CablelineEdit_1.setFocus()
-
-    def click_on_TabBattery(self):
-        self.BatterylineEdit_1.selectAll()
-        self.BatterylineEdit_1.setFocus()
-
-    def show_image(self):
-        barcodes = self.barcodes()
-        image_labels = [self.imageLabel1,
-                        self.imageLabel2,
-                        self.imageLabel3,
-                        self.imageLabel4]
-        for i in range(len(barcodes)):
-            r = BARCODE_PATTERN.search(barcodes[i])
-            if barcodes[i] == "":
-                image_labels[i].setText("")
-            elif r:
-                barcode_dict = r.groupdict()
-                partnumber = barcode_dict["PN"]
-                image_file = RESOURCE + partnumber + ".jpg"
-                if os.path.isfile(image_file):
-                    my_pixmap = QtGui.QPixmap(image_file)
-                    my_scaled_pixmap = my_pixmap.scaled(
-                        image_labels[i].maximumSize(),
-                        QtCore.Qt.KeepAspectRatio)
-                    image_labels[i].setPixmap(my_scaled_pixmap)
-                else:
-                    image_labels[i].setText("No dut image found")
-            else:
-                image_labels[i].setText("Invalid Serial Number")
-
     def comboBox_update(self):
         current_pn = self.partNum_comboBox.currentText()
         self.config_model.setFilter("PARTNUMBER='" + current_pn + "'")
@@ -419,36 +386,6 @@ class UFT_UiHandler(UFT_UiForm):
                 self.search_result_label.setText("No Item Found")
 
             self.log_tableView.resizeColumnsToContents()
-
-    def push_multi_mpls(self):
-        mpls = [self.mplwidget,
-                self.mplwidget_2,
-                self.mplwidget_3,
-                self.mplwidget_4]
-        item = ""
-        for i in self.buttonGroup.buttons():
-            if i.isChecked():
-                item = i.text()
-
-        for i, barcode in enumerate(self.barcodes()):
-            if barcode == "":
-                continue
-            time = []
-            data = []
-            mpls[i].setFocus()
-
-            self.cycle_model.setFilter(
-                "barcode = '" + barcode + "' AND archived = 0")
-            self.cycle_model.select()
-            for j in range(self.cycle_model.rowCount()):
-                record = self.cycle_model.record(j)
-                time.append(int(record.value("counter").toString()))
-                data.append(float(record.value(item).toString()))
-            self.plot(mpls[i], time, data)
-
-    def plot(self, mpl_widget, t, d):
-        mpl_widget.axes.plot(t, d)
-        mpl_widget.draw()
 
     def print_time(self, sec):
         min = sec // 60

@@ -57,11 +57,6 @@ class MainWidget(QtGui.QWidget):
         self.ui.submit_pushButton.clicked.connect(self.ui.submit_config)
         self.ui.search_lineEdit.returnPressed.connect(self.ui.search)
         self.ui.search_pushButton.clicked.connect(self.ui.search)
-        self.ui.buttonGroup.buttonClicked.connect(self.ui.push_multi_mpls)
-        self.ui.sn_lineEdit_1.textChanged.connect(self.ui.show_image)
-        self.ui.sn_lineEdit_2.textChanged.connect(self.ui.show_image)
-        self.ui.sn_lineEdit_3.textChanged.connect(self.ui.show_image)
-        self.ui.sn_lineEdit_4.textChanged.connect(self.ui.show_image)
         self.ui.checkBox.toggled.connect(self.ui.config_edit_toggle)
 
         self.u = Update()

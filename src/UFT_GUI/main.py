@@ -203,12 +203,15 @@ class Update(QtCore.QThread):
             del ch1
         if ch2 is not None:
             ch2.save_db()
+            time.sleep(0.5)
             del ch2
         if ch3 is not None:
             ch3.save_db()
+            time.sleep(0.5)
             del ch3
         if ch4 is not None:
             ch4.save_db()
+            time.sleep(0.5)
             del ch4
         #self.terminate()
         self.emit(QtCore.SIGNAL("is_alive"), 0)

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'UFT_Ui.ui'
 #
-# Created: Wed Nov 08 09:12:58 2017
+# Created: Wed Nov 08 14:37:16 2017
 #      by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -2013,30 +2013,6 @@ class Ui_Form(object):
         self.tabWidget.setCurrentIndex(0)
         QtCore.QObject.connect(self.checkBox, QtCore.SIGNAL(_fromUtf8("toggled(bool)")), self.submit_pushButton.setEnabled)
         QtCore.QObject.connect(self.start_pushButton, QtCore.SIGNAL(_fromUtf8("clicked()")), self.info_textBrowser.clear)
-        QtCore.QObject.connect(self.Mode4in1, QtCore.SIGNAL(_fromUtf8("clicked(bool)")), self.groupBox1_2.setDisabled)
-        QtCore.QObject.connect(self.Mode4in1, QtCore.SIGNAL(_fromUtf8("clicked(bool)")), self.groupBox1_3.setDisabled)
-        QtCore.QObject.connect(self.Mode4in1, QtCore.SIGNAL(_fromUtf8("clicked(bool)")), self.groupBox1_4.setDisabled)
-        QtCore.QObject.connect(self.Mode4in1, QtCore.SIGNAL(_fromUtf8("clicked(bool)")), self.groupBox1_6.setDisabled)
-        QtCore.QObject.connect(self.Mode4in1, QtCore.SIGNAL(_fromUtf8("clicked(bool)")), self.groupBox1_7.setDisabled)
-        QtCore.QObject.connect(self.Mode4in1, QtCore.SIGNAL(_fromUtf8("clicked(bool)")), self.groupBox1_8.setDisabled)
-        QtCore.QObject.connect(self.Mode4in1, QtCore.SIGNAL(_fromUtf8("clicked(bool)")), self.groupBox1_10.setDisabled)
-        QtCore.QObject.connect(self.Mode4in1, QtCore.SIGNAL(_fromUtf8("clicked(bool)")), self.groupBox1_11.setDisabled)
-        QtCore.QObject.connect(self.Mode4in1, QtCore.SIGNAL(_fromUtf8("clicked(bool)")), self.groupBox1_12.setDisabled)
-        QtCore.QObject.connect(self.Mode4in1, QtCore.SIGNAL(_fromUtf8("clicked(bool)")), self.groupBox1_14.setDisabled)
-        QtCore.QObject.connect(self.Mode4in1, QtCore.SIGNAL(_fromUtf8("clicked(bool)")), self.groupBox1_15.setDisabled)
-        QtCore.QObject.connect(self.Mode4in1, QtCore.SIGNAL(_fromUtf8("clicked(bool)")), self.groupBox1_16.setDisabled)
-        QtCore.QObject.connect(self.Mode4in1, QtCore.SIGNAL(_fromUtf8("clicked()")), self.sn_lineEdit_1_2.clear)
-        QtCore.QObject.connect(self.Mode4in1, QtCore.SIGNAL(_fromUtf8("clicked()")), self.sn_lineEdit_1_3.clear)
-        QtCore.QObject.connect(self.Mode4in1, QtCore.SIGNAL(_fromUtf8("clicked()")), self.sn_lineEdit_1_4.clear)
-        QtCore.QObject.connect(self.Mode4in1, QtCore.SIGNAL(_fromUtf8("clicked()")), self.sn_lineEdit_1_6.clear)
-        QtCore.QObject.connect(self.Mode4in1, QtCore.SIGNAL(_fromUtf8("clicked()")), self.sn_lineEdit_1_7.clear)
-        QtCore.QObject.connect(self.Mode4in1, QtCore.SIGNAL(_fromUtf8("clicked()")), self.sn_lineEdit_1_8.clear)
-        QtCore.QObject.connect(self.Mode4in1, QtCore.SIGNAL(_fromUtf8("clicked()")), self.sn_lineEdit_1_10.clear)
-        QtCore.QObject.connect(self.Mode4in1, QtCore.SIGNAL(_fromUtf8("clicked()")), self.sn_lineEdit_1_11.clear)
-        QtCore.QObject.connect(self.Mode4in1, QtCore.SIGNAL(_fromUtf8("clicked()")), self.sn_lineEdit_1_12.clear)
-        QtCore.QObject.connect(self.Mode4in1, QtCore.SIGNAL(_fromUtf8("clicked()")), self.sn_lineEdit_1_14.clear)
-        QtCore.QObject.connect(self.Mode4in1, QtCore.SIGNAL(_fromUtf8("clicked()")), self.sn_lineEdit_1_15.clear)
-        QtCore.QObject.connect(self.Mode4in1, QtCore.SIGNAL(_fromUtf8("clicked()")), self.sn_lineEdit_1_16.clear)
         QtCore.QMetaObject.connectSlotsByName(Form)
         Form.setTabOrder(self.tabWidget, self.Mode4in1)
         Form.setTabOrder(self.Mode4in1, self.start_pushButton)

@@ -88,6 +88,12 @@ class MainWidget(QtGui.QWidget):
                          self.ui.auto_enable_disable_widgets)
             self.connect(self.u, QtCore.SIGNAL("dut_status_1"),
                          self.ui.set_status_text_1)
+            self.connect(self.u, QtCore.SIGNAL("dut_status_2"),
+                         self.ui.set_status_text_2)
+            self.connect(self.u, QtCore.SIGNAL("dut_status_3"),
+                         self.ui.set_status_text_3)
+            self.connect(self.u, QtCore.SIGNAL("dut_status_4"),
+                         self.ui.set_status_text_4)
             self.connect(self.u, QtCore.SIGNAL('time_used'),
                          self.ui.print_time)
             self.u.start()

@@ -3971,7 +3971,7 @@
        <widget class="QLabel" name="Indicator_1">
         <property name="font">
          <font>
-          <pointsize>12</pointsize>
+          <pointsize>11</pointsize>
          </font>
         </property>
         <property name="text">
@@ -3986,7 +3986,7 @@
        <widget class="QLabel" name="Indicator_2">
         <property name="font">
          <font>
-          <pointsize>12</pointsize>
+          <pointsize>11</pointsize>
          </font>
         </property>
         <property name="text">
@@ -4001,7 +4001,7 @@
        <widget class="QLabel" name="Indicator_3">
         <property name="font">
          <font>
-          <pointsize>12</pointsize>
+          <pointsize>11</pointsize>
          </font>
         </property>
         <property name="text">
@@ -4016,7 +4016,7 @@
        <widget class="QLabel" name="Indicator_4">
         <property name="font">
          <font>
-          <pointsize>12</pointsize>
+          <pointsize>11</pointsize>
          </font>
         </property>
         <property name="text">

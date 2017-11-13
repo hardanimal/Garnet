@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'UFT_Ui.ui'
 #
-# Created: Mon Nov 13 11:22:50 2017
+# Created: Mon Nov 13 15:45:13 2017
 #      by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -1872,28 +1872,28 @@ class Ui_Form(object):
         self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
         self.Indicator_1 = QtGui.QLabel(self.groupBox)
         font = QtGui.QFont()
-        font.setPointSize(12)
+        font.setPointSize(11)
         self.Indicator_1.setFont(font)
         self.Indicator_1.setAlignment(QtCore.Qt.AlignCenter)
         self.Indicator_1.setObjectName(_fromUtf8("Indicator_1"))
         self.horizontalLayout.addWidget(self.Indicator_1)
         self.Indicator_2 = QtGui.QLabel(self.groupBox)
         font = QtGui.QFont()
-        font.setPointSize(12)
+        font.setPointSize(11)
         self.Indicator_2.setFont(font)
         self.Indicator_2.setAlignment(QtCore.Qt.AlignCenter)
         self.Indicator_2.setObjectName(_fromUtf8("Indicator_2"))
         self.horizontalLayout.addWidget(self.Indicator_2)
         self.Indicator_3 = QtGui.QLabel(self.groupBox)
         font = QtGui.QFont()
-        font.setPointSize(12)
+        font.setPointSize(11)
         self.Indicator_3.setFont(font)
         self.Indicator_3.setAlignment(QtCore.Qt.AlignCenter)
         self.Indicator_3.setObjectName(_fromUtf8("Indicator_3"))
         self.horizontalLayout.addWidget(self.Indicator_3)
         self.Indicator_4 = QtGui.QLabel(self.groupBox)
         font = QtGui.QFont()
-        font.setPointSize(12)
+        font.setPointSize(11)
         self.Indicator_4.setFont(font)
         self.Indicator_4.setAlignment(QtCore.Qt.AlignCenter)
         self.Indicator_4.setObjectName(_fromUtf8("Indicator_4"))

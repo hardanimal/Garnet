@@ -175,7 +175,7 @@ class UFT_UiHandler(UFT_UiForm):
 
     def set_label(self, label, slotnum, status):
         status_list = ["Idle", "Pass", "Fail", "Charging", "Discharging", "Self_Discharging",
-                       "Cap_Measuring", "Program_VPD", "Running"]
+                       "Cap_Measuring", "Program_VPD", "Running..."]
         color_list = ["background-color: wheat",
                       "background-color: green",
                       "background-color: red",

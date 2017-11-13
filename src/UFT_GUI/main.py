@@ -88,13 +88,21 @@ class MainWidget(QtGui.QWidget):
             self.connect(self.u, QtCore.SIGNAL('is_alive'),
                          self.ui.auto_enable_disable_widgets)
             self.connect(self.u, QtCore.SIGNAL("dut_status_1"),
-                         self.ui.set_status_text_1)
+                         self.ui.set_dut_status_1)
             self.connect(self.u, QtCore.SIGNAL("dut_status_2"),
-                         self.ui.set_status_text_2)
+                         self.ui.set_dut_status_2)
             self.connect(self.u, QtCore.SIGNAL("dut_status_3"),
-                         self.ui.set_status_text_3)
+                         self.ui.set_dut_status_3)
             self.connect(self.u, QtCore.SIGNAL("dut_status_4"),
-                         self.ui.set_status_text_4)
+                         self.ui.set_dut_status_4)
+            self.connect(self.u, QtCore.SIGNAL("board_status_1"),
+                         self.ui.set_board_status_1)
+            self.connect(self.u, QtCore.SIGNAL("board_status_2"),
+                         self.ui.set_board_status_2)
+            self.connect(self.u, QtCore.SIGNAL("board_status_3"),
+                         self.ui.set_board_status_3)
+            self.connect(self.u, QtCore.SIGNAL("board_status_4"),
+                         self.ui.set_board_status_4)
             self.connect(self.u, QtCore.SIGNAL('time_used'),
                          self.ui.print_time)
             self.u.start()
@@ -187,6 +195,10 @@ class Update(QtCore.QThread):
                 if dut is not None:
                     self.emit(QtCore.SIGNAL("dut_status_4"), dut.slotnum,
                               dut.status)
+            self.emit(QtCore.SIGNAL("board_status_1"), ch1.channelresult)
+            self.emit(QtCore.SIGNAL("board_status_2"), ch2.channelresult)
+            self.emit(QtCore.SIGNAL("board_status_3"), ch3.channelresult)
+            self.emit(QtCore.SIGNAL("board_status_4"), ch4.channelresult)
             time.sleep(1)
 
         self.emit(QtCore.SIGNAL("progress_bar"), 100)
@@ -202,6 +214,10 @@ class Update(QtCore.QThread):
         for dut in ch4.dut_list:
             if dut is not None:
                 self.emit(QtCore.SIGNAL("dut_status_4"), dut.slotnum, dut.status)
+        self.emit(QtCore.SIGNAL("board_status_1"), ch1.channelresult)
+        self.emit(QtCore.SIGNAL("board_status_2"), ch2.channelresult)
+        self.emit(QtCore.SIGNAL("board_status_3"), ch3.channelresult)
+        self.emit(QtCore.SIGNAL("board_status_4"), ch4.channelresult)
 
         # clean resource
         if ch1 is not None:

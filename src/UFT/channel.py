@@ -92,6 +92,13 @@ class ChannelStates(object):
     RECHARGE = 0x1F
 
 
+class BOARD_STATUS(object):
+    Idle = 0  # wait to test
+    Pass = 1  # pass the test
+    Fail = 2  # fail in test
+    Running = 8
+
+
 class Channel(threading.Thread):
     def __init__(self, name, barcode_list, cable_barcodes_list, capacitor_barcodes_list, mode4in1, channel_id=0):
         """initialize channel
@@ -104,6 +111,8 @@ class Channel(threading.Thread):
         # 8 mother boards can be stacked from 0 to 7.
         # use 1 motherboard in default.
         self.channel = channel_id
+
+        self.channelresult = BOARD_STATUS.Idle
 
         # Amber 4x/e uses master port + shared port mode
         self.InMode4in1 = mode4in1
@@ -225,6 +234,8 @@ class Channel(threading.Thread):
                     if not dialog.exec_():
                         dut.errormessage = "Not the latest revision"
                         dut.status = DUT_STATUS.Fail
+
+                self.channelresult = BOARD_STATUS.Running
             else:
                 # dut is not loaded on fixture
                 self.dut_list.append(None)
@@ -988,6 +999,12 @@ class Channel(threading.Thread):
         """ cleanup and save to database before exit.
         :return: None
         """
+
+        if len(self.dut_list) == 0:
+            self.channelresult = BOARD_STATUS.Idle
+        else:
+            self.channelresult = BOARD_STATUS.Pass
+
         for dut in self.dut_list:
             if dut is None:
                 continue
@@ -995,6 +1012,7 @@ class Channel(threading.Thread):
                 dut.status = DUT_STATUS.Pass
                 msg = "passed"
             else:
+                self.channelresult = BOARD_STATUS.Fail
                 self.erie.LedOn(dut.slotnum)
                 msg = dut.errormessage
             logger.info("TEST RESULT: dut {0} ===> {1}".format(

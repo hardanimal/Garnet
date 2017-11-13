@@ -173,61 +173,60 @@ class UFT_UiHandler(UFT_UiForm):
         else:
             pass
 
-    def set_status_text_1(self, slotnum, status):
-        status_list = ["Idle", "Pass", "Fail", "Charging", "Discharging", "Self_Discharging", "Cap_Measuring"]
+    def set_label(self, label, slotnum, status):
+        status_list = ["Idle", "Pass", "Fail", "Charging", "Discharging", "Self_Discharging",
+                       "Cap_Measuring", "Program_VPD", "Running"]
+        color_list = ["background-color: wheat",
+                      "background-color: green",
+                      "background-color: red",
+                      "background-color: yellow",
+                      "background-color: yellow",
+                      "background-color: yellow",
+                      "background-color: yellow",
+                      "background-color: yellow",
+                      "background-color: yellow"]
+        label[slotnum].setText(status_list[status])
+        label[slotnum].setStyleSheet(color_list[status])
+
+    def set_dut_status_1(self, slotnum, status):
         label = [self.label_1_1, self.label_1_2, self.label_1_3, self.label_1_4, self.label_1_5, self.label_1_6, self.label_1_7, self.label_1_8,
                  self.label_1_9, self.label_1_10, self.label_1_11, self.label_1_12, self.label_1_13, self.label_1_14, self.label_1_15, self.label_1_16]
-        color_list = ["background-color: wheat",
-                      "background-color: green",
-                      "background-color: red",
-                      "background-color: yellow",
-                      "background-color: yellow",
-                      "background-color: yellow",
-                      "background-color: yellow"]
-        label[slotnum].setText(status_list[status])
-        label[slotnum].setStyleSheet(color_list[status])
+        self.set_label(label, slotnum, status)
 
-    def set_status_text_2(self, slotnum, status):
-        status_list = ["Idle", "Pass", "Fail", "Charging", "Discharging", "Self_Discharging", "Cap_Measuring"]
+    def set_dut_status_2(self, slotnum, status):
         label = [self.label_2_1, self.label_2_2, self.label_2_3, self.label_2_4, self.label_2_5, self.label_2_6, self.label_2_7, self.label_2_8,
                  self.label_2_9, self.label_2_10, self.label_2_11, self.label_2_12, self.label_2_13, self.label_2_14, self.label_2_15, self.label_2_16]
-        color_list = ["background-color: wheat",
-                      "background-color: green",
-                      "background-color: red",
-                      "background-color: yellow",
-                      "background-color: yellow",
-                      "background-color: yellow",
-                      "background-color: yellow"]
-        label[slotnum].setText(status_list[status])
-        label[slotnum].setStyleSheet(color_list[status])
+        self.set_label(label, slotnum, status)
 
-    def set_status_text_3(self, slotnum, status):
-        status_list = ["Idle", "Pass", "Fail", "Charging", "Discharging", "Self_Discharging", "Cap_Measuring"]
+    def set_dut_status_3(self, slotnum, status):
         label = [self.label_3_1, self.label_3_2, self.label_3_3, self.label_3_4, self.label_3_5, self.label_3_6, self.label_3_7, self.label_3_8,
                  self.label_3_9, self.label_3_10, self.label_3_11, self.label_3_12, self.label_3_13, self.label_3_14, self.label_3_15, self.label_3_16]
-        color_list = ["background-color: wheat",
-                      "background-color: green",
-                      "background-color: red",
-                      "background-color: yellow",
-                      "background-color: yellow",
-                      "background-color: yellow",
-                      "background-color: yellow"]
-        label[slotnum].setText(status_list[status])
-        label[slotnum].setStyleSheet(color_list[status])
+        self.set_label(label, slotnum, status)
 
-    def set_status_text_4(self, slotnum, status):
-        status_list = ["Idle", "Pass", "Fail", "Charging", "Discharging", "Self_Discharging", "Cap_Measuring"]
+    def set_dut_status_4(self, slotnum, status):
         label = [self.label_4_1, self.label_4_2, self.label_4_3, self.label_4_4, self.label_4_5, self.label_4_6, self.label_4_7, self.label_4_8,
                  self.label_4_9, self.label_4_10, self.label_4_11, self.label_4_12, self.label_4_13, self.label_4_14, self.label_4_15, self.label_4_16]
-        color_list = ["background-color: wheat",
-                      "background-color: green",
-                      "background-color: red",
-                      "background-color: yellow",
-                      "background-color: yellow",
-                      "background-color: yellow",
-                      "background-color: yellow"]
-        label[slotnum].setText(status_list[status])
-        label[slotnum].setStyleSheet(color_list[status])
+        self.set_label(label, slotnum, status)
+
+    def set_board_status_1(self, status):
+        label = [self.Indicator_1, self.Indicator_2, self.Indicator_3, self.Indicator_4]
+        self.set_label(label, 0, status)
+        pass
+
+    def set_board_status_2(self, status):
+        label = [self.Indicator_1, self.Indicator_2, self.Indicator_3, self.Indicator_4]
+        self.set_label(label, 1, status)
+        pass
+
+    def set_board_status_3(self, status):
+        label = [self.Indicator_1, self.Indicator_2, self.Indicator_3, self.Indicator_4]
+        self.set_label(label, 2, status)
+        pass
+
+    def set_board_status_4(self, status):
+        label = [self.Indicator_1, self.Indicator_2, self.Indicator_3, self.Indicator_4]
+        self.set_label(label, 3, status)
+        pass
 
     def InMode4in1(self):
         return bool(self.Mode4in1.checkState())

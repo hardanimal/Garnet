@@ -149,108 +149,22 @@ class UFT_UiHandler(UFT_UiForm):
     def auto_enable_disable_widgets(self, ch_is_alive):
         if ch_is_alive:
             self.start_pushButton.setDisabled(True)
-            self.sn_lineEdit_1.setDisabled(True)
-            self.sn_lineEdit_2.setDisabled(True)
-            self.sn_lineEdit_3.setDisabled(True)
-            self.sn_lineEdit_4.setDisabled(True)
-            self.sn_lineEdit_5.setDisabled(True)
-            self.sn_lineEdit_6.setDisabled(True)
-            self.sn_lineEdit_7.setDisabled(True)
-            self.sn_lineEdit_8.setDisabled(True)
-            self.sn_lineEdit_9.setDisabled(True)
-            self.sn_lineEdit_10.setDisabled(True)
-            self.sn_lineEdit_11.setDisabled(True)
-            self.sn_lineEdit_12.setDisabled(True)
-            self.sn_lineEdit_13.setDisabled(True)
-            self.sn_lineEdit_14.setDisabled(True)
-            self.sn_lineEdit_15.setDisabled(True)
-            self.sn_lineEdit_16.setDisabled(True)
-            self.CablelineEdit_1.setDisabled(True)
-            self.CablelineEdit_2.setDisabled(True)
-            self.CablelineEdit_3.setDisabled(True)
-            self.CablelineEdit_4.setDisabled(True)
-            self.CablelineEdit_5.setDisabled(True)
-            self.CablelineEdit_6.setDisabled(True)
-            self.CablelineEdit_7.setDisabled(True)
-            self.CablelineEdit_8.setDisabled(True)
-            self.CablelineEdit_9.setDisabled(True)
-            self.CablelineEdit_10.setDisabled(True)
-            self.CablelineEdit_11.setDisabled(True)
-            self.CablelineEdit_12.setDisabled(True)
-            self.CablelineEdit_13.setDisabled(True)
-            self.CablelineEdit_14.setDisabled(True)
-            self.CablelineEdit_15.setDisabled(True)
-            self.CablelineEdit_16.setDisabled(True)
-            self.BatterylineEdit_1.setDisabled(True)
-            self.BatterylineEdit_2.setDisabled(True)
-            self.BatterylineEdit_3.setDisabled(True)
-            self.BatterylineEdit_4.setDisabled(True)
-            self.BatterylineEdit_5.setDisabled(True)
-            self.BatterylineEdit_6.setDisabled(True)
-            self.BatterylineEdit_7.setDisabled(True)
-            self.BatterylineEdit_8.setDisabled(True)
-            self.BatterylineEdit_9.setDisabled(True)
-            self.BatterylineEdit_10.setDisabled(True)
-            self.BatterylineEdit_11.setDisabled(True)
-            self.BatterylineEdit_12.setDisabled(True)
-            self.BatterylineEdit_13.setDisabled(True)
-            self.BatterylineEdit_14.setDisabled(True)
-            self.BatterylineEdit_15.setDisabled(True)
-            self.BatterylineEdit_16.setDisabled(True)
             self.Mode4in1.setDisabled(True)
+            self.tab_EB1.setDisabled(True)
+            self.tab_EB2.setDisabled(True)
+            self.tab_EB3.setDisabled(True)
+            self.tab_EB4.setDisabled(True)
         else:
             self.start_pushButton.setEnabled(True)
-            self.sn_lineEdit_1.setEnabled(True)
-            self.sn_lineEdit_2.setEnabled(True)
-            self.sn_lineEdit_3.setEnabled(True)
-            self.sn_lineEdit_4.setEnabled(True)
-            self.sn_lineEdit_5.setEnabled(True)
-            self.sn_lineEdit_6.setEnabled(True)
-            self.sn_lineEdit_7.setEnabled(True)
-            self.sn_lineEdit_8.setEnabled(True)
-            self.sn_lineEdit_9.setEnabled(True)
-            self.sn_lineEdit_10.setEnabled(True)
-            self.sn_lineEdit_11.setEnabled(True)
-            self.sn_lineEdit_12.setEnabled(True)
-            self.sn_lineEdit_13.setEnabled(True)
-            self.sn_lineEdit_14.setEnabled(True)
-            self.sn_lineEdit_15.setEnabled(True)
-            self.sn_lineEdit_16.setEnabled(True)
-            self.CablelineEdit_1.setEnabled(True)
-            self.CablelineEdit_2.setEnabled(True)
-            self.CablelineEdit_3.setEnabled(True)
-            self.CablelineEdit_4.setEnabled(True)
-            self.CablelineEdit_5.setEnabled(True)
-            self.CablelineEdit_6.setEnabled(True)
-            self.CablelineEdit_7.setEnabled(True)
-            self.CablelineEdit_8.setEnabled(True)
-            self.CablelineEdit_9.setEnabled(True)
-            self.CablelineEdit_10.setEnabled(True)
-            self.CablelineEdit_11.setEnabled(True)
-            self.CablelineEdit_12.setEnabled(True)
-            self.CablelineEdit_13.setEnabled(True)
-            self.CablelineEdit_14.setEnabled(True)
-            self.CablelineEdit_15.setEnabled(True)
-            self.CablelineEdit_16.setEnabled(True)
-            self.BatterylineEdit_1.setEnabled(True)
-            self.BatterylineEdit_2.setEnabled(True)
-            self.BatterylineEdit_3.setEnabled(True)
-            self.BatterylineEdit_4.setEnabled(True)
-            self.BatterylineEdit_5.setEnabled(True)
-            self.BatterylineEdit_6.setEnabled(True)
-            self.BatterylineEdit_7.setEnabled(True)
-            self.BatterylineEdit_8.setEnabled(True)
-            self.BatterylineEdit_9.setEnabled(True)
-            self.BatterylineEdit_10.setEnabled(True)
-            self.BatterylineEdit_11.setEnabled(True)
-            self.BatterylineEdit_12.setEnabled(True)
-            self.BatterylineEdit_13.setEnabled(True)
-            self.BatterylineEdit_14.setEnabled(True)
-            self.BatterylineEdit_15.setEnabled(True)
-            self.BatterylineEdit_16.setEnabled(True)
             self.Mode4in1.setEnabled(True)
-            self.sn_lineEdit_1.selectAll()
-            self.sn_lineEdit_1.setFocus()
+            self.tab_EB1.setEnabled(True)
+            self.tab_EB2.setEnabled(True)
+            self.tab_EB3.setEnabled(True)
+            self.tab_EB4.setEnabled(True)
+
+            # back to first
+            self.sn_lineEdit_1_1.setFocus()
+            self.sn_lineEdit_1_1.selectAll()
 
     def append_format_data(self, data):
         if data:
@@ -259,13 +173,14 @@ class UFT_UiHandler(UFT_UiForm):
         else:
             pass
 
-    def set_status_text(self, slotnum, status):
-        status_list = ["Idle", "Pass", "Fail", "Charging", "Discharging", "Self_Discharging", "Cap_Measuring"]
-        label = [self.label_1, self.label_2, self.label_3, self.label_4, self.label_5, self.label_6, self.label_7, self.label_8,
-                 self.label_9, self.label_10, self.label_11, self.label_12, self.label_13, self.label_14, self.label_15, self.label_16]
+    def set_label(self, label, slotnum, status):
+        status_list = ["Idle", "Pass", "Fail", "Charging", "Discharging", "Self_Discharging",
+                       "Cap_Measuring", "Program_VPD", "Running..."]
         color_list = ["background-color: wheat",
                       "background-color: green",
                       "background-color: red",
+                      "background-color: yellow",
+                      "background-color: yellow",
                       "background-color: yellow",
                       "background-color: yellow",
                       "background-color: yellow",
@@ -273,107 +188,312 @@ class UFT_UiHandler(UFT_UiForm):
         label[slotnum].setText(status_list[status])
         label[slotnum].setStyleSheet(color_list[status])
 
-    def barcodes(self):
-        barcodes = [str(self.sn_lineEdit_1.text()),
-                    str(self.sn_lineEdit_2.text()),
-                    str(self.sn_lineEdit_3.text()),
-                    str(self.sn_lineEdit_4.text()),
-                    str(self.sn_lineEdit_5.text()),
-                    str(self.sn_lineEdit_6.text()),
-                    str(self.sn_lineEdit_7.text()),
-                    str(self.sn_lineEdit_8.text()),
-                    str(self.sn_lineEdit_9.text()),
-                    str(self.sn_lineEdit_10.text()),
-                    str(self.sn_lineEdit_11.text()),
-                    str(self.sn_lineEdit_12.text()),
-                    str(self.sn_lineEdit_13.text()),
-                    str(self.sn_lineEdit_14.text()),
-                    str(self.sn_lineEdit_15.text()),
-                    str(self.sn_lineEdit_16.text())]
+    def set_dut_status_1(self, slotnum, status):
+        label = [self.label_1_1, self.label_1_2, self.label_1_3, self.label_1_4, self.label_1_5, self.label_1_6, self.label_1_7, self.label_1_8,
+                 self.label_1_9, self.label_1_10, self.label_1_11, self.label_1_12, self.label_1_13, self.label_1_14, self.label_1_15, self.label_1_16]
+        self.set_label(label, slotnum, status)
+
+    def set_dut_status_2(self, slotnum, status):
+        label = [self.label_2_1, self.label_2_2, self.label_2_3, self.label_2_4, self.label_2_5, self.label_2_6, self.label_2_7, self.label_2_8,
+                 self.label_2_9, self.label_2_10, self.label_2_11, self.label_2_12, self.label_2_13, self.label_2_14, self.label_2_15, self.label_2_16]
+        self.set_label(label, slotnum, status)
+
+    def set_dut_status_3(self, slotnum, status):
+        label = [self.label_3_1, self.label_3_2, self.label_3_3, self.label_3_4, self.label_3_5, self.label_3_6, self.label_3_7, self.label_3_8,
+                 self.label_3_9, self.label_3_10, self.label_3_11, self.label_3_12, self.label_3_13, self.label_3_14, self.label_3_15, self.label_3_16]
+        self.set_label(label, slotnum, status)
+
+    def set_dut_status_4(self, slotnum, status):
+        label = [self.label_4_1, self.label_4_2, self.label_4_3, self.label_4_4, self.label_4_5, self.label_4_6, self.label_4_7, self.label_4_8,
+                 self.label_4_9, self.label_4_10, self.label_4_11, self.label_4_12, self.label_4_13, self.label_4_14, self.label_4_15, self.label_4_16]
+        self.set_label(label, slotnum, status)
+
+    def set_board_status_1(self, status):
+        label = [self.Indicator_1, self.Indicator_2, self.Indicator_3, self.Indicator_4]
+        self.set_label(label, 0, status)
+        pass
+
+    def set_board_status_2(self, status):
+        label = [self.Indicator_1, self.Indicator_2, self.Indicator_3, self.Indicator_4]
+        self.set_label(label, 1, status)
+        pass
+
+    def set_board_status_3(self, status):
+        label = [self.Indicator_1, self.Indicator_2, self.Indicator_3, self.Indicator_4]
+        self.set_label(label, 2, status)
+        pass
+
+    def set_board_status_4(self, status):
+        label = [self.Indicator_1, self.Indicator_2, self.Indicator_3, self.Indicator_4]
+        self.set_label(label, 3, status)
+        pass
+
+    def InMode4in1(self):
+        return bool(self.Mode4in1.checkState())
+
+    def barcodes_1(self):
+        barcodes = [str(self.sn_lineEdit_1_1.text()),
+                    str(self.sn_lineEdit_1_2.text()),
+                    str(self.sn_lineEdit_1_3.text()),
+                    str(self.sn_lineEdit_1_4.text()),
+                    str(self.sn_lineEdit_1_5.text()),
+                    str(self.sn_lineEdit_1_6.text()),
+                    str(self.sn_lineEdit_1_7.text()),
+                    str(self.sn_lineEdit_1_8.text()),
+                    str(self.sn_lineEdit_1_9.text()),
+                    str(self.sn_lineEdit_1_10.text()),
+                    str(self.sn_lineEdit_1_11.text()),
+                    str(self.sn_lineEdit_1_12.text()),
+                    str(self.sn_lineEdit_1_13.text()),
+                    str(self.sn_lineEdit_1_14.text()),
+                    str(self.sn_lineEdit_1_15.text()),
+                    str(self.sn_lineEdit_1_16.text())]
         for i in barcodes:
             if not i:
                 i = ""
         return barcodes
 
-    def InMode4in1(self):
-        return bool(self.Mode4in1.checkState())
-
-    def cabel_barcodes(self):
-        cabel_barcodes = [str(self.CablelineEdit_1.text()),
-                          str(self.CablelineEdit_2.text()),
-                          str(self.CablelineEdit_3.text()),
-                          str(self.CablelineEdit_4.text()),
-                          str(self.CablelineEdit_5.text()),
-                          str(self.CablelineEdit_6.text()),
-                          str(self.CablelineEdit_7.text()),
-                          str(self.CablelineEdit_8.text()),
-                          str(self.CablelineEdit_9.text()),
-                          str(self.CablelineEdit_10.text()),
-                          str(self.CablelineEdit_11.text()),
-                          str(self.CablelineEdit_12.text()),
-                          str(self.CablelineEdit_13.text()),
-                          str(self.CablelineEdit_14.text()),
-                          str(self.CablelineEdit_15.text()),
-                          str(self.CablelineEdit_16.text())]
+    def cabel_barcodes_1(self):
+        cabel_barcodes = [str(self.CablelineEdit_1_1.text()),
+                          str(self.CablelineEdit_1_2.text()),
+                          str(self.CablelineEdit_1_3.text()),
+                          str(self.CablelineEdit_1_4.text()),
+                          str(self.CablelineEdit_1_5.text()),
+                          str(self.CablelineEdit_1_6.text()),
+                          str(self.CablelineEdit_1_7.text()),
+                          str(self.CablelineEdit_1_8.text()),
+                          str(self.CablelineEdit_1_9.text()),
+                          str(self.CablelineEdit_1_10.text()),
+                          str(self.CablelineEdit_1_11.text()),
+                          str(self.CablelineEdit_1_12.text()),
+                          str(self.CablelineEdit_1_13.text()),
+                          str(self.CablelineEdit_1_14.text()),
+                          str(self.CablelineEdit_1_15.text()),
+                          str(self.CablelineEdit_1_16.text())]
         for i in cabel_barcodes:
             if not i:
                 i = ""
         return cabel_barcodes
 
-    def capacitor_barcodes(self):
-        capacitor_barcodes = [str(self.BatterylineEdit_1.text()),
-                          str(self.BatterylineEdit_2.text()),
-                          str(self.BatterylineEdit_3.text()),
-                          str(self.BatterylineEdit_4.text()),
-                          str(self.BatterylineEdit_5.text()),
-                          str(self.BatterylineEdit_6.text()),
-                          str(self.BatterylineEdit_7.text()),
-                          str(self.BatterylineEdit_8.text()),
-                          str(self.BatterylineEdit_9.text()),
-                          str(self.BatterylineEdit_10.text()),
-                          str(self.BatterylineEdit_11.text()),
-                          str(self.BatterylineEdit_12.text()),
-                          str(self.BatterylineEdit_13.text()),
-                          str(self.BatterylineEdit_14.text()),
-                          str(self.BatterylineEdit_15.text()),
-                          str(self.BatterylineEdit_16.text())]
+    def capacitor_barcodes_1(self):
+        capacitor_barcodes = [str(self.BatterylineEdit_1_1.text()),
+                          str(self.BatterylineEdit_1_2.text()),
+                          str(self.BatterylineEdit_1_3.text()),
+                          str(self.BatterylineEdit_1_4.text()),
+                          str(self.BatterylineEdit_1_5.text()),
+                          str(self.BatterylineEdit_1_6.text()),
+                          str(self.BatterylineEdit_1_7.text()),
+                          str(self.BatterylineEdit_1_8.text()),
+                          str(self.BatterylineEdit_1_9.text()),
+                          str(self.BatterylineEdit_1_10.text()),
+                          str(self.BatterylineEdit_1_11.text()),
+                          str(self.BatterylineEdit_1_12.text()),
+                          str(self.BatterylineEdit_1_13.text()),
+                          str(self.BatterylineEdit_1_14.text()),
+                          str(self.BatterylineEdit_1_15.text()),
+                          str(self.BatterylineEdit_1_16.text())]
         for i in capacitor_barcodes:
             if not i:
                 i = ""
         return capacitor_barcodes
 
-    def click_on_TabCable(self):
-        self.CablelineEdit_1.selectAll()
-        self.CablelineEdit_1.setFocus()
+    def barcodes_2(self):
+        barcodes = [str(self.sn_lineEdit_2_1.text()),
+                    str(self.sn_lineEdit_2_2.text()),
+                    str(self.sn_lineEdit_2_3.text()),
+                    str(self.sn_lineEdit_2_4.text()),
+                    str(self.sn_lineEdit_2_5.text()),
+                    str(self.sn_lineEdit_2_6.text()),
+                    str(self.sn_lineEdit_2_7.text()),
+                    str(self.sn_lineEdit_2_8.text()),
+                    str(self.sn_lineEdit_2_9.text()),
+                    str(self.sn_lineEdit_2_10.text()),
+                    str(self.sn_lineEdit_2_11.text()),
+                    str(self.sn_lineEdit_2_12.text()),
+                    str(self.sn_lineEdit_2_13.text()),
+                    str(self.sn_lineEdit_2_14.text()),
+                    str(self.sn_lineEdit_2_15.text()),
+                    str(self.sn_lineEdit_2_16.text())]
+        for i in barcodes:
+            if not i:
+                i = ""
+        return barcodes
 
-    def click_on_TabBattery(self):
-        self.BatterylineEdit_1.selectAll()
-        self.BatterylineEdit_1.setFocus()
+    def cabel_barcodes_2(self):
+        cabel_barcodes = [str(self.CablelineEdit_2_1.text()),
+                          str(self.CablelineEdit_2_2.text()),
+                          str(self.CablelineEdit_2_3.text()),
+                          str(self.CablelineEdit_2_4.text()),
+                          str(self.CablelineEdit_2_5.text()),
+                          str(self.CablelineEdit_2_6.text()),
+                          str(self.CablelineEdit_2_7.text()),
+                          str(self.CablelineEdit_2_8.text()),
+                          str(self.CablelineEdit_2_9.text()),
+                          str(self.CablelineEdit_2_10.text()),
+                          str(self.CablelineEdit_2_11.text()),
+                          str(self.CablelineEdit_2_12.text()),
+                          str(self.CablelineEdit_2_13.text()),
+                          str(self.CablelineEdit_2_14.text()),
+                          str(self.CablelineEdit_2_15.text()),
+                          str(self.CablelineEdit_2_16.text())]
+        for i in cabel_barcodes:
+            if not i:
+                i = ""
+        return cabel_barcodes
 
-    def show_image(self):
-        barcodes = self.barcodes()
-        image_labels = [self.imageLabel1,
-                        self.imageLabel2,
-                        self.imageLabel3,
-                        self.imageLabel4]
-        for i in range(len(barcodes)):
-            r = BARCODE_PATTERN.search(barcodes[i])
-            if barcodes[i] == "":
-                image_labels[i].setText("")
-            elif r:
-                barcode_dict = r.groupdict()
-                partnumber = barcode_dict["PN"]
-                image_file = RESOURCE + partnumber + ".jpg"
-                if os.path.isfile(image_file):
-                    my_pixmap = QtGui.QPixmap(image_file)
-                    my_scaled_pixmap = my_pixmap.scaled(
-                        image_labels[i].maximumSize(),
-                        QtCore.Qt.KeepAspectRatio)
-                    image_labels[i].setPixmap(my_scaled_pixmap)
-                else:
-                    image_labels[i].setText("No dut image found")
-            else:
-                image_labels[i].setText("Invalid Serial Number")
+    def capacitor_barcodes_2(self):
+        capacitor_barcodes = [str(self.BatterylineEdit_2_1.text()),
+                          str(self.BatterylineEdit_2_2.text()),
+                          str(self.BatterylineEdit_2_3.text()),
+                          str(self.BatterylineEdit_2_4.text()),
+                          str(self.BatterylineEdit_2_5.text()),
+                          str(self.BatterylineEdit_2_6.text()),
+                          str(self.BatterylineEdit_2_7.text()),
+                          str(self.BatterylineEdit_2_8.text()),
+                          str(self.BatterylineEdit_2_9.text()),
+                          str(self.BatterylineEdit_2_10.text()),
+                          str(self.BatterylineEdit_2_11.text()),
+                          str(self.BatterylineEdit_2_12.text()),
+                          str(self.BatterylineEdit_2_13.text()),
+                          str(self.BatterylineEdit_2_14.text()),
+                          str(self.BatterylineEdit_2_15.text()),
+                          str(self.BatterylineEdit_2_16.text())]
+        for i in capacitor_barcodes:
+            if not i:
+                i = ""
+        return capacitor_barcodes
+
+    def barcodes_3(self):
+        barcodes = [str(self.sn_lineEdit_3_1.text()),
+                    str(self.sn_lineEdit_3_2.text()),
+                    str(self.sn_lineEdit_3_3.text()),
+                    str(self.sn_lineEdit_3_4.text()),
+                    str(self.sn_lineEdit_3_5.text()),
+                    str(self.sn_lineEdit_3_6.text()),
+                    str(self.sn_lineEdit_3_7.text()),
+                    str(self.sn_lineEdit_3_8.text()),
+                    str(self.sn_lineEdit_3_9.text()),
+                    str(self.sn_lineEdit_3_10.text()),
+                    str(self.sn_lineEdit_3_11.text()),
+                    str(self.sn_lineEdit_3_12.text()),
+                    str(self.sn_lineEdit_3_13.text()),
+                    str(self.sn_lineEdit_3_14.text()),
+                    str(self.sn_lineEdit_3_15.text()),
+                    str(self.sn_lineEdit_3_16.text())]
+        for i in barcodes:
+            if not i:
+                i = ""
+        return barcodes
+
+    def cabel_barcodes_3(self):
+        cabel_barcodes = [str(self.CablelineEdit_3_1.text()),
+                          str(self.CablelineEdit_3_2.text()),
+                          str(self.CablelineEdit_3_3.text()),
+                          str(self.CablelineEdit_3_4.text()),
+                          str(self.CablelineEdit_3_5.text()),
+                          str(self.CablelineEdit_3_6.text()),
+                          str(self.CablelineEdit_3_7.text()),
+                          str(self.CablelineEdit_3_8.text()),
+                          str(self.CablelineEdit_3_9.text()),
+                          str(self.CablelineEdit_3_10.text()),
+                          str(self.CablelineEdit_3_11.text()),
+                          str(self.CablelineEdit_3_12.text()),
+                          str(self.CablelineEdit_3_13.text()),
+                          str(self.CablelineEdit_3_14.text()),
+                          str(self.CablelineEdit_3_15.text()),
+                          str(self.CablelineEdit_3_16.text())]
+        for i in cabel_barcodes:
+            if not i:
+                i = ""
+        return cabel_barcodes
+
+    def capacitor_barcodes_3(self):
+        capacitor_barcodes = [str(self.BatterylineEdit_3_1.text()),
+                          str(self.BatterylineEdit_3_2.text()),
+                          str(self.BatterylineEdit_3_3.text()),
+                          str(self.BatterylineEdit_3_4.text()),
+                          str(self.BatterylineEdit_3_5.text()),
+                          str(self.BatterylineEdit_3_6.text()),
+                          str(self.BatterylineEdit_3_7.text()),
+                          str(self.BatterylineEdit_3_8.text()),
+                          str(self.BatterylineEdit_3_9.text()),
+                          str(self.BatterylineEdit_3_10.text()),
+                          str(self.BatterylineEdit_3_11.text()),
+                          str(self.BatterylineEdit_3_12.text()),
+                          str(self.BatterylineEdit_3_13.text()),
+                          str(self.BatterylineEdit_3_14.text()),
+                          str(self.BatterylineEdit_3_15.text()),
+                          str(self.BatterylineEdit_3_16.text())]
+        for i in capacitor_barcodes:
+            if not i:
+                i = ""
+        return capacitor_barcodes
+
+    def barcodes_4(self):
+        barcodes = [str(self.sn_lineEdit_4_1.text()),
+                    str(self.sn_lineEdit_4_2.text()),
+                    str(self.sn_lineEdit_4_3.text()),
+                    str(self.sn_lineEdit_4_4.text()),
+                    str(self.sn_lineEdit_4_5.text()),
+                    str(self.sn_lineEdit_4_6.text()),
+                    str(self.sn_lineEdit_4_7.text()),
+                    str(self.sn_lineEdit_4_8.text()),
+                    str(self.sn_lineEdit_4_9.text()),
+                    str(self.sn_lineEdit_4_10.text()),
+                    str(self.sn_lineEdit_4_11.text()),
+                    str(self.sn_lineEdit_4_12.text()),
+                    str(self.sn_lineEdit_4_13.text()),
+                    str(self.sn_lineEdit_4_14.text()),
+                    str(self.sn_lineEdit_4_15.text()),
+                    str(self.sn_lineEdit_4_16.text())]
+        for i in barcodes:
+            if not i:
+                i = ""
+        return barcodes
+
+    def cabel_barcodes_4(self):
+        cabel_barcodes = [str(self.CablelineEdit_4_1.text()),
+                          str(self.CablelineEdit_4_2.text()),
+                          str(self.CablelineEdit_4_3.text()),
+                          str(self.CablelineEdit_4_4.text()),
+                          str(self.CablelineEdit_4_5.text()),
+                          str(self.CablelineEdit_4_6.text()),
+                          str(self.CablelineEdit_4_7.text()),
+                          str(self.CablelineEdit_4_8.text()),
+                          str(self.CablelineEdit_4_9.text()),
+                          str(self.CablelineEdit_4_10.text()),
+                          str(self.CablelineEdit_4_11.text()),
+                          str(self.CablelineEdit_4_12.text()),
+                          str(self.CablelineEdit_4_13.text()),
+                          str(self.CablelineEdit_4_14.text()),
+                          str(self.CablelineEdit_4_15.text()),
+                          str(self.CablelineEdit_4_16.text())]
+        for i in cabel_barcodes:
+            if not i:
+                i = ""
+        return cabel_barcodes
+
+    def capacitor_barcodes_4(self):
+        capacitor_barcodes = [str(self.BatterylineEdit_4_1.text()),
+                          str(self.BatterylineEdit_4_2.text()),
+                          str(self.BatterylineEdit_4_3.text()),
+                          str(self.BatterylineEdit_4_4.text()),
+                          str(self.BatterylineEdit_4_5.text()),
+                          str(self.BatterylineEdit_4_6.text()),
+                          str(self.BatterylineEdit_4_7.text()),
+                          str(self.BatterylineEdit_4_8.text()),
+                          str(self.BatterylineEdit_4_9.text()),
+                          str(self.BatterylineEdit_4_10.text()),
+                          str(self.BatterylineEdit_4_11.text()),
+                          str(self.BatterylineEdit_4_12.text()),
+                          str(self.BatterylineEdit_4_13.text()),
+                          str(self.BatterylineEdit_4_14.text()),
+                          str(self.BatterylineEdit_4_15.text()),
+                          str(self.BatterylineEdit_4_16.text())]
+        for i in capacitor_barcodes:
+            if not i:
+                i = ""
+        return capacitor_barcodes
 
     def comboBox_update(self):
         current_pn = self.partNum_comboBox.currentText()
@@ -420,36 +540,6 @@ class UFT_UiHandler(UFT_UiForm):
 
             self.log_tableView.resizeColumnsToContents()
 
-    def push_multi_mpls(self):
-        mpls = [self.mplwidget,
-                self.mplwidget_2,
-                self.mplwidget_3,
-                self.mplwidget_4]
-        item = ""
-        for i in self.buttonGroup.buttons():
-            if i.isChecked():
-                item = i.text()
-
-        for i, barcode in enumerate(self.barcodes()):
-            if barcode == "":
-                continue
-            time = []
-            data = []
-            mpls[i].setFocus()
-
-            self.cycle_model.setFilter(
-                "barcode = '" + barcode + "' AND archived = 0")
-            self.cycle_model.select()
-            for j in range(self.cycle_model.rowCount()):
-                record = self.cycle_model.record(j)
-                time.append(int(record.value("counter").toString()))
-                data.append(float(record.value(item).toString()))
-            self.plot(mpls[i], time, data)
-
-    def plot(self, mpl_widget, t, d):
-        mpl_widget.axes.plot(t, d)
-        mpl_widget.draw()
-
     def print_time(self, sec):
         min = sec // 60
         sec -= min * 60
@@ -469,6 +559,251 @@ class UFT_UiHandler(UFT_UiForm):
             else:
                 self.checkBox.setChecked(False)
 
+    def switch_between_mode4in1(self, toggle):
+        if toggle:
+            self.groupBox1_2.setDisabled(True)
+            self.groupBox1_3.setDisabled(True)
+            self.groupBox1_4.setDisabled(True)
+            self.groupBox1_6.setDisabled(True)
+            self.groupBox1_7.setDisabled(True)
+            self.groupBox1_8.setDisabled(True)
+            self.groupBox1_10.setDisabled(True)
+            self.groupBox1_11.setDisabled(True)
+            self.groupBox1_12.setDisabled(True)
+            self.groupBox1_14.setDisabled(True)
+            self.groupBox1_15.setDisabled(True)
+            self.groupBox1_16.setDisabled(True)
+            self.groupBox2_2.setDisabled(True)
+            self.groupBox2_3.setDisabled(True)
+            self.groupBox2_4.setDisabled(True)
+            self.groupBox2_6.setDisabled(True)
+            self.groupBox2_7.setDisabled(True)
+            self.groupBox2_8.setDisabled(True)
+            self.groupBox2_10.setDisabled(True)
+            self.groupBox2_11.setDisabled(True)
+            self.groupBox2_12.setDisabled(True)
+            self.groupBox2_14.setDisabled(True)
+            self.groupBox2_15.setDisabled(True)
+            self.groupBox2_16.setDisabled(True)
+            self.groupBox3_2.setDisabled(True)
+            self.groupBox3_3.setDisabled(True)
+            self.groupBox3_4.setDisabled(True)
+            self.groupBox3_6.setDisabled(True)
+            self.groupBox3_7.setDisabled(True)
+            self.groupBox3_8.setDisabled(True)
+            self.groupBox3_10.setDisabled(True)
+            self.groupBox3_11.setDisabled(True)
+            self.groupBox3_12.setDisabled(True)
+            self.groupBox3_14.setDisabled(True)
+            self.groupBox3_15.setDisabled(True)
+            self.groupBox3_16.setDisabled(True)
+            self.groupBox4_2.setDisabled(True)
+            self.groupBox4_3.setDisabled(True)
+            self.groupBox4_4.setDisabled(True)
+            self.groupBox4_6.setDisabled(True)
+            self.groupBox4_7.setDisabled(True)
+            self.groupBox4_8.setDisabled(True)
+            self.groupBox4_10.setDisabled(True)
+            self.groupBox4_11.setDisabled(True)
+            self.groupBox4_12.setDisabled(True)
+            self.groupBox4_14.setDisabled(True)
+            self.groupBox4_15.setDisabled(True)
+            self.groupBox4_16.setDisabled(True)
+            self.sn_lineEdit_1_2.clear()
+            self.sn_lineEdit_1_3.clear()
+            self.sn_lineEdit_1_4.clear()
+            self.sn_lineEdit_1_6.clear()
+            self.sn_lineEdit_1_7.clear()
+            self.sn_lineEdit_1_8.clear()
+            self.sn_lineEdit_1_10.clear()
+            self.sn_lineEdit_1_11.clear()
+            self.sn_lineEdit_1_12.clear()
+            self.sn_lineEdit_1_14.clear()
+            self.sn_lineEdit_1_15.clear()
+            self.sn_lineEdit_1_16.clear()
+            self.sn_lineEdit_2_2.clear()
+            self.sn_lineEdit_2_3.clear()
+            self.sn_lineEdit_2_4.clear()
+            self.sn_lineEdit_2_6.clear()
+            self.sn_lineEdit_2_7.clear()
+            self.sn_lineEdit_2_8.clear()
+            self.sn_lineEdit_2_10.clear()
+            self.sn_lineEdit_2_11.clear()
+            self.sn_lineEdit_2_12.clear()
+            self.sn_lineEdit_2_14.clear()
+            self.sn_lineEdit_2_15.clear()
+            self.sn_lineEdit_2_16.clear()
+            self.sn_lineEdit_3_2.clear()
+            self.sn_lineEdit_3_3.clear()
+            self.sn_lineEdit_3_4.clear()
+            self.sn_lineEdit_3_6.clear()
+            self.sn_lineEdit_3_7.clear()
+            self.sn_lineEdit_3_8.clear()
+            self.sn_lineEdit_3_10.clear()
+            self.sn_lineEdit_3_11.clear()
+            self.sn_lineEdit_3_12.clear()
+            self.sn_lineEdit_3_14.clear()
+            self.sn_lineEdit_3_15.clear()
+            self.sn_lineEdit_3_16.clear()
+            self.sn_lineEdit_4_2.clear()
+            self.sn_lineEdit_4_3.clear()
+            self.sn_lineEdit_4_4.clear()
+            self.sn_lineEdit_4_6.clear()
+            self.sn_lineEdit_4_7.clear()
+            self.sn_lineEdit_4_8.clear()
+            self.sn_lineEdit_4_10.clear()
+            self.sn_lineEdit_4_11.clear()
+            self.sn_lineEdit_4_12.clear()
+            self.sn_lineEdit_4_14.clear()
+            self.sn_lineEdit_4_15.clear()
+            self.sn_lineEdit_4_16.clear()
+            self.CablelineEdit_1_2.clear()
+            self.CablelineEdit_1_3.clear()
+            self.CablelineEdit_1_4.clear()
+            self.CablelineEdit_1_6.clear()
+            self.CablelineEdit_1_7.clear()
+            self.CablelineEdit_1_8.clear()
+            self.CablelineEdit_1_10.clear()
+            self.CablelineEdit_1_11.clear()
+            self.CablelineEdit_1_12.clear()
+            self.CablelineEdit_1_14.clear()
+            self.CablelineEdit_1_15.clear()
+            self.CablelineEdit_1_16.clear()
+            self.CablelineEdit_2_2.clear()
+            self.CablelineEdit_2_3.clear()
+            self.CablelineEdit_2_4.clear()
+            self.CablelineEdit_2_6.clear()
+            self.CablelineEdit_2_7.clear()
+            self.CablelineEdit_2_8.clear()
+            self.CablelineEdit_2_10.clear()
+            self.CablelineEdit_2_11.clear()
+            self.CablelineEdit_2_12.clear()
+            self.CablelineEdit_2_14.clear()
+            self.CablelineEdit_2_15.clear()
+            self.CablelineEdit_2_16.clear()
+            self.CablelineEdit_3_2.clear()
+            self.CablelineEdit_3_3.clear()
+            self.CablelineEdit_3_4.clear()
+            self.CablelineEdit_3_6.clear()
+            self.CablelineEdit_3_7.clear()
+            self.CablelineEdit_3_8.clear()
+            self.CablelineEdit_3_10.clear()
+            self.CablelineEdit_3_11.clear()
+            self.CablelineEdit_3_12.clear()
+            self.CablelineEdit_3_14.clear()
+            self.CablelineEdit_3_15.clear()
+            self.CablelineEdit_3_16.clear()
+            self.CablelineEdit_4_2.clear()
+            self.CablelineEdit_4_3.clear()
+            self.CablelineEdit_4_4.clear()
+            self.CablelineEdit_4_6.clear()
+            self.CablelineEdit_4_7.clear()
+            self.CablelineEdit_4_8.clear()
+            self.CablelineEdit_4_10.clear()
+            self.CablelineEdit_4_11.clear()
+            self.CablelineEdit_4_12.clear()
+            self.CablelineEdit_4_14.clear()
+            self.CablelineEdit_4_15.clear()
+            self.CablelineEdit_4_16.clear()
+            self.BatterylineEdit_1_2.clear()
+            self.BatterylineEdit_1_3.clear()
+            self.BatterylineEdit_1_4.clear()
+            self.BatterylineEdit_1_6.clear()
+            self.BatterylineEdit_1_7.clear()
+            self.BatterylineEdit_1_8.clear()
+            self.BatterylineEdit_1_10.clear()
+            self.BatterylineEdit_1_11.clear()
+            self.BatterylineEdit_1_12.clear()
+            self.BatterylineEdit_1_14.clear()
+            self.BatterylineEdit_1_15.clear()
+            self.BatterylineEdit_1_16.clear()
+            self.BatterylineEdit_2_2.clear()
+            self.BatterylineEdit_2_3.clear()
+            self.BatterylineEdit_2_4.clear()
+            self.BatterylineEdit_2_6.clear()
+            self.BatterylineEdit_2_7.clear()
+            self.BatterylineEdit_2_8.clear()
+            self.BatterylineEdit_2_10.clear()
+            self.BatterylineEdit_2_11.clear()
+            self.BatterylineEdit_2_12.clear()
+            self.BatterylineEdit_2_14.clear()
+            self.BatterylineEdit_2_15.clear()
+            self.BatterylineEdit_2_16.clear()
+            self.BatterylineEdit_3_2.clear()
+            self.BatterylineEdit_3_3.clear()
+            self.BatterylineEdit_3_4.clear()
+            self.BatterylineEdit_3_6.clear()
+            self.BatterylineEdit_3_7.clear()
+            self.BatterylineEdit_3_8.clear()
+            self.BatterylineEdit_3_10.clear()
+            self.BatterylineEdit_3_11.clear()
+            self.BatterylineEdit_3_12.clear()
+            self.BatterylineEdit_3_14.clear()
+            self.BatterylineEdit_3_15.clear()
+            self.BatterylineEdit_3_16.clear()
+            self.BatterylineEdit_4_2.clear()
+            self.BatterylineEdit_4_3.clear()
+            self.BatterylineEdit_4_4.clear()
+            self.BatterylineEdit_4_6.clear()
+            self.BatterylineEdit_4_7.clear()
+            self.BatterylineEdit_4_8.clear()
+            self.BatterylineEdit_4_10.clear()
+            self.BatterylineEdit_4_11.clear()
+            self.BatterylineEdit_4_12.clear()
+            self.BatterylineEdit_4_14.clear()
+            self.BatterylineEdit_4_15.clear()
+            self.BatterylineEdit_4_16.clear()
+
+        else:
+            self.groupBox1_2.setEnabled(True)
+            self.groupBox1_3.setEnabled(True)
+            self.groupBox1_4.setEnabled(True)
+            self.groupBox1_6.setEnabled(True)
+            self.groupBox1_7.setEnabled(True)
+            self.groupBox1_8.setEnabled(True)
+            self.groupBox1_10.setEnabled(True)
+            self.groupBox1_11.setEnabled(True)
+            self.groupBox1_12.setEnabled(True)
+            self.groupBox1_14.setEnabled(True)
+            self.groupBox1_15.setEnabled(True)
+            self.groupBox1_16.setEnabled(True)
+            self.groupBox2_2.setEnabled(True)
+            self.groupBox2_3.setEnabled(True)
+            self.groupBox2_4.setEnabled(True)
+            self.groupBox2_6.setEnabled(True)
+            self.groupBox2_7.setEnabled(True)
+            self.groupBox2_8.setEnabled(True)
+            self.groupBox2_10.setEnabled(True)
+            self.groupBox2_11.setEnabled(True)
+            self.groupBox2_12.setEnabled(True)
+            self.groupBox2_14.setEnabled(True)
+            self.groupBox2_15.setEnabled(True)
+            self.groupBox2_16.setEnabled(True)
+            self.groupBox3_2.setEnabled(True)
+            self.groupBox3_3.setEnabled(True)
+            self.groupBox3_4.setEnabled(True)
+            self.groupBox3_6.setEnabled(True)
+            self.groupBox3_7.setEnabled(True)
+            self.groupBox3_8.setEnabled(True)
+            self.groupBox3_10.setEnabled(True)
+            self.groupBox3_11.setEnabled(True)
+            self.groupBox3_12.setEnabled(True)
+            self.groupBox3_14.setEnabled(True)
+            self.groupBox3_15.setEnabled(True)
+            self.groupBox3_16.setEnabled(True)
+            self.groupBox4_2.setEnabled(True)
+            self.groupBox4_3.setEnabled(True)
+            self.groupBox4_4.setEnabled(True)
+            self.groupBox4_6.setEnabled(True)
+            self.groupBox4_7.setEnabled(True)
+            self.groupBox4_8.setEnabled(True)
+            self.groupBox4_10.setEnabled(True)
+            self.groupBox4_11.setEnabled(True)
+            self.groupBox4_12.setEnabled(True)
+            self.groupBox4_14.setEnabled(True)
+            self.groupBox4_15.setEnabled(True)
+            self.groupBox4_16.setEnabled(True)
+
                 # def login(self):
                 # dialog = LoginDialog()
                 # if dialog.exec_():
@@ -483,6 +818,5 @@ if __name__ == "__main__":
     w = UFT_UiHandler()
     w.setupUi(Form)
     w.setupWidget(Form)
-    w.show_image("../res/icons/despicableMe.jpg")
     Form.show()
     sys.exit(a.exec_())

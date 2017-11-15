@@ -39,7 +39,10 @@ ADK_PORT = config.getint('StationConfig', 'ADK_PORT')
 LD_PORT = config.get('StationConfig', 'LD_PORT')
 LD_DELAY = config.getint('StationConfig', 'LD_DELAY')
 
-ERIE_PORT = config.get('StationConfig', 'ERIE_PORT')
+ERIE_NO1 = config.get('StationConfig', 'ERIE_NO1')
+ERIE_NO2 = config.get('StationConfig', 'ERIE_NO2')
+ERIE_NO3 = config.get('StationConfig', 'ERIE_NO3')
+ERIE_NO4 = config.get('StationConfig', 'ERIE_NO4')
 
 SD_COUNTER = config.getint('StationConfig', 'SD_COUNTER')
 

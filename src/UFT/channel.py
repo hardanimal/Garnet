@@ -92,18 +92,14 @@ class ChannelStates(object):
     RECHARGE = 0x1F
 
 
+class BOARD_STATUS(object):
+    Idle = 0  # wait to test
+    Pass = 1  # pass the test
+    Fail = 2  # fail in test
+    Running = 8
+
+
 class Channel(threading.Thread):
-
-    #first setup erie
-    erie = erie.Erie(port=ERIE_PORT)
-
-    # aardvark
-    adk = aardvark.Adapter(erie)
-    # setup load
-    ld = load.DCLoad(erie)
-    # setup main power supply
-    ps = pwr.PowerSupply(erie)
-
     def __init__(self, name, barcode_list, cable_barcodes_list, capacitor_barcodes_list, mode4in1, channel_id=0):
         """initialize channel
         :param name: thread name
@@ -115,6 +111,8 @@ class Channel(threading.Thread):
         # 8 mother boards can be stacked from 0 to 7.
         # use 1 motherboard in default.
         self.channel = channel_id
+
+        self.channelresult = BOARD_STATUS.Idle
 
         # Amber 4x/e uses master port + shared port mode
         self.InMode4in1 = mode4in1
@@ -138,7 +136,6 @@ class Channel(threading.Thread):
         # exit flag and queue for threading
         self.exit = False
         self.queue = Queue()
-        self.product_class = "Crystal"
         super(Channel, self).__init__(name=name)
 
     def read_volt(self, dut):
@@ -152,6 +149,24 @@ class Channel(threading.Thread):
          # setup load
         #self.ld.reset()
         #time.sleep(2)
+
+        logger.info("Initiate Hardware of Channel {0}...".format(self.channel))
+        #first setup erie
+        if self.channel == 0:
+            self.erie = erie.Erie(port=ERIE_NO1)
+        elif self.channel == 1:
+            self.erie = erie.Erie(port=ERIE_NO2)
+        elif self.channel == 2:
+            self.erie = erie.Erie(port=ERIE_NO3)
+        elif self.channel == 3:
+            self.erie = erie.Erie(port=ERIE_NO4)
+
+        # aardvark
+        self.adk = aardvark.Adapter(self.erie)
+        # setup load
+        self.ld = load.DCLoad(self.erie)
+        # setup main power supply
+        self.ps = pwr.PowerSupply(self.erie)
 
         logger.info("mode 4in1 is {0}".format(self.InMode4in1))
 
@@ -198,11 +213,6 @@ class Channel(threading.Thread):
                 dut = PGEMBase(device=self.adk,
                                slot=i,
                                barcode=bc)
-                if dut.partnumber in DIAMOND4_LIST:
-                    self.product_class = "Diamond4"
-                    dut = Diamond4(device=self.adk,
-                                   slot=i,
-                                   barcode=bc)
                 if self.InMode4in1:
                     if dut.partnumber not in Mode4in1_PN:
                         raise Exception("This partnumber {0} does not support Mode4in1".format(dut.partnumber))
@@ -224,6 +234,8 @@ class Channel(threading.Thread):
                     if not dialog.exec_():
                         dut.errormessage = "Not the latest revision"
                         dut.status = DUT_STATUS.Fail
+
+                self.channelresult = BOARD_STATUS.Running
             else:
                 # dut is not loaded on fixture
                 self.dut_list.append(None)
@@ -987,6 +999,12 @@ class Channel(threading.Thread):
         """ cleanup and save to database before exit.
         :return: None
         """
+
+        if len(self.dut_list) == 0:
+            self.channelresult = BOARD_STATUS.Idle
+        else:
+            self.channelresult = BOARD_STATUS.Pass
+
         for dut in self.dut_list:
             if dut is None:
                 continue
@@ -994,6 +1012,7 @@ class Channel(threading.Thread):
                 dut.status = DUT_STATUS.Pass
                 msg = "passed"
             else:
+                self.channelresult = BOARD_STATUS.Fail
                 self.erie.LedOn(dut.slotnum)
                 msg = dut.errormessage
             logger.info("TEST RESULT: dut {0} ===> {1}".format(

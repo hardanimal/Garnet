@@ -32,7 +32,7 @@ class Erie(object):
                                      timeout=timeout, bytesize=bytesize,
                                      parity=parity, stopbits=stopbits)
         except Exception:
-            raise Exception("Couldn't open COM port - Erie Board does NOT exist or the serial port config error!")
+            raise Exception("Couldn't open serial port {0} - Erie Board does NOT exist or the serial port config error!".format(port))
 
         if not self.ser.isOpen():
             self.ser.open()

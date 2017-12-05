@@ -364,8 +364,8 @@ class Channel(threading.Thread):
                         dut.errormessage = "Discharge Time Too Long."
                     elif (this_cycle.vcap < threshold):
                         all_discharged &= True
-                        self.ld.select_channel(dut.slotnum)
-                        self.ld.input_off()
+                        self.ld.select_channel(dut.slotnum, False)
+                        self.ld.input_off(False)
                         if (discharge_time < min_dischargetime):
                             dut.status = DUT_STATUS.Fail
                             dut.errormessage = "Discharge Time Too Short."

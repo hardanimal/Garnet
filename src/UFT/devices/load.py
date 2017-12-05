@@ -86,69 +86,80 @@ class DCLoad(object):
             logger.error("DC Load Error: " + errmsg)
             raise DCLoadException(errmsg)
 
-    def reset(self):
+    def reset(self, chk_err=True):
         self._write("*RST")
-        self._check_error()
+        if chk_err==True:
+            self._check_error()
 
-    def select_channel(self, chnum):
+    def select_channel(self, chnum, chk_err=True):
         chnum += 1
         if (chnum in range(1, 5)):
             self._write("CHAN " + str(chnum))
         else:
             raise DCLoadException("Invalid channel number")
-        self._check_error()
+        if chk_err==True:
+            self._check_error()
 
-    def change_func(self, mode):
+    def change_func(self, mode, chk_err=True):
         if (mode in [self.ModeCURR, self.ModeRes, self.ModeVolt]):
             self._write("FUNC " + mode)
-        self._check_error()
+        if chk_err==True:
+            self._check_error()
 
-    def set_curr(self, curr):
+    def set_curr(self, curr, chk_err=True):
         if (curr > self.CC_Range["MIN"]):
             self._write("CURR:RANG MAX")  # select max range
         else:
             self._write("CURR:RANG MIN")  # select min range
         self._write("CURR " + str(curr))
-        self._check_error()
+        if chk_err==True:
+            self._check_error()
 
-    def read_curr(self):
+    def read_curr(self, chk_err=True):
         self._write("MEAS:CURR?")
         result = self._read()
-        self._check_error()
+        if chk_err==True:
+            self._check_error()
         logger.debug("Load current: {0}".format(result))
         return float(result)
 
-    def read_volt(self):
+    def read_volt(self, chk_err=True):
         self._write("MEAS:VOLT?")
         result = self._read()
-        self._check_error()
+        if chk_err==True:
+            self._check_error()
         logger.debug("Load voltage: {0}".format(result))
         return float(result)
 
-    def protect_on(self):
+    def protect_on(self, chk_err=True):
         # 2 Amps and 1 second protection
         self._write("CURR:PROT:LEV 2;DEL 0.1")
         self._write("CURR:PROT:STAT ON")
-        self._check_error()
+        if chk_err==True:
+            self._check_error()
 
-    def protect_off(self):
+    def protect_off(self, chk_err=True):
         self._write("CURR:PROT:STAT OFF")
-        self._check_error()
+        if chk_err==True:
+            self._check_error()
 
-    def set_res(self, resistance):
+    def set_res(self, resistance, chk_err=True):
         for (low, high) in self.CR_Range:
             if (low < resistance <= high):
                 self._write("RES:RANG " + str(high))
         self._write("RES " + str(resistance))
-        self._check_error()
+        if chk_err==True:
+            self._check_error()
 
-    def input_on(self):
+    def input_on(self, chk_err=True):
         self._write("INP ON")
-        self._check_error()
+        if chk_err==True:
+            self._check_error()
 
-    def input_off(self):
+    def input_off(self, chk_err=True):
         self._write("INP OFF")
-        self._check_error()
+        if chk_err==True:
+            self._check_error()
 
 
 if __name__ == "__main__":

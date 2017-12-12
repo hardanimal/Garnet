@@ -89,6 +89,9 @@ class Erie(object):
             raise Exception("UART communication failure")
 
     def InputOn(self, port, loadmode):
+        self._logging_("checking power on")
+        if self.isOutputOn(port):
+            raise Exception("Power is on, discharge NOT allowed")
         cmd = 0x0A
         if loadmode == 'low':
             self._logging_("set load on low current")

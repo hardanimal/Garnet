@@ -10,9 +10,10 @@ __all__ = ["erie"]
 import serial, time
 import logging
 from UFT.devices import aardvark
+from UFT.config import ERIE_DEBUG_INFOR
 
 logger = logging.getLogger(__name__)
-debugOut = False
+debugOut = ERIE_DEBUG_INFOR
 Group = 0
 FirmwareVersion = [1, 1]
 

@@ -43,6 +43,7 @@ ERIE_NO1 = config.get('StationConfig', 'ERIE_NO1')
 ERIE_NO2 = config.get('StationConfig', 'ERIE_NO2')
 ERIE_NO3 = config.get('StationConfig', 'ERIE_NO3')
 ERIE_NO4 = config.get('StationConfig', 'ERIE_NO4')
+ERIE_DEBUG_INFOR = config.getboolean('StationConfig', 'ERIE_DEBUG_INFOR')
 
 SD_COUNTER = config.getint('StationConfig', 'SD_COUNTER')
 

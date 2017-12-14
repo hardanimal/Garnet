@@ -113,6 +113,7 @@ class Channel(threading.Thread):
         self.channel = channel_id
 
         self.channelresult = BOARD_STATUS.Idle
+        self.dutnumber = 0
 
         # Amber 4x/e uses master port + shared port mode
         self.InMode4in1 = mode4in1
@@ -236,6 +237,7 @@ class Channel(threading.Thread):
                         dut.status = DUT_STATUS.Fail
 
                 self.channelresult = BOARD_STATUS.Running
+                self.dutnumber += 1
             else:
                 # dut is not loaded on fixture
                 self.dut_list.append(None)
@@ -1000,7 +1002,7 @@ class Channel(threading.Thread):
         :return: None
         """
 
-        if len(self.dut_list) == 0:
+        if self.dutnumber == 0:
             self.channelresult = BOARD_STATUS.Idle
         else:
             self.channelresult = BOARD_STATUS.Pass

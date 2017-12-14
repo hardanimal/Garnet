@@ -609,6 +609,7 @@ class Channel(threading.Thread):
                     all_discharged &= True
                     dut.status = DUT_STATUS.Fail
                     dut.errormessage = "IIC access failed."
+            time.sleep(0.3)
 
         # full discharge cycle
         for dut in self.dut_list:
@@ -888,6 +889,10 @@ class Channel(threading.Thread):
                 logger.info("PGEMSTAT.BIT2: {0}".format(val))
                 vcap_temp=dut.meas_vcap()
                 logger.info("dut: {0} vcap in cap calculate: {1}".format(dut.slotnum,vcap_temp))
+
+                capacitor_time = time.time() - start_time
+                dut.capacitor_time = capacitor_time
+
                 if (val | 0xFB)==0xFB: #PGEMSTAT.BIT2==0 CAP MEASURE COMPLETE
                     all_cap_mears &= True
                     val1 = dut.read_vpd_byaddress(0x100)[0] #`````````````````````````read cap vale from VPD``````````compare````````````````````````````
@@ -899,7 +904,7 @@ class Channel(threading.Thread):
                         logger.info("dut: {0} capacitor: {1} message: {2} ".
                             format(dut.slotnum, dut.capacitance_measured,
                                dut.errormessage))
-                elif time.time()-start_time > overtime:
+                elif capacitor_time > overtime:
                     all_cap_mears &= True
                     dut.status=DUT_STATUS.Fail
                     dut.errormessage = "Cap start over time"

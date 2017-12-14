@@ -40,6 +40,7 @@ class DUT(SQLBase):
     capacitance_measured = Column(Float)
     self_capacitance_measured = Column(Float)
     charge_time = Column(Float)
+    capacitor_time = Column(Float)
     discharge_time = Column(Float)
     program_vpd = Column(Integer, default=0)
 
@@ -78,6 +79,7 @@ class DUT(SQLBase):
                 "capacitor": self.capacitance_measured,
                 "self_capacitor": self.self_capacitance_measured,
                 "charge_time": self.charge_time,
+                "capacitor_time": self.capacitor_time,
                 "discharge_time": self.discharge_time,
                 "slotnum": self.slotnum,
                 "error_message": self.errormessage,

@@ -214,6 +214,8 @@ class Channel(threading.Thread):
                 dut = PGEMBase(device=self.adk,
                                slot=i,
                                barcode=bc)
+                logger.info("dut: {0} SN is {1}"
+                            .format(dut.slotnum, bc))
                 if self.InMode4in1:
                     if dut.partnumber not in Mode4in1_PN:
                         raise Exception("This partnumber {0} does not support Mode4in1".format(dut.partnumber))

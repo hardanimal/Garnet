@@ -166,6 +166,10 @@ class Update(QtCore.QThread):
                           channel_id=2, name="UFT_CHANNEL", mode4in1=self.mode)
         ch4 = Channel(barcode_list=self.barcodes_4, cable_barcodes_list=self.cable_barcodes_4, capacitor_barcodes_list=self.capacitor_barcodes_4,
                           channel_id=3, name="UFT_CHANNEL", mode4in1=self.mode)
+        ch1.setDaemon(True)
+        ch2.setDaemon(True)
+        ch3.setDaemon(True)
+        ch4.setDaemon(True)
         ch1.auto_test()
         ch2.auto_test()
         ch3.auto_test()

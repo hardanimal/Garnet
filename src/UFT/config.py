@@ -21,6 +21,8 @@ DIAMOND4_LIST = config.get('StationConfig', 'DIAMOND4_LIST')
 
 Mode4in1_PN = config.get('StationConfig', 'Mode4in1_PN')
 
+OVERRIDE = config.getboolean('StationConfig', 'OVERRIDE')
+
 TOTAL_SLOTNUM = config.getint('StationConfig', 'TOTAL_SLOTNUM')
 
 INTERVAL = config.getfloat('StationConfig', 'INTERVAL')

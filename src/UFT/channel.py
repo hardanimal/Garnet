@@ -29,55 +29,6 @@ import numpy as np
 logger = logging.getLogger(__name__)
 
 
-class Override(QtGui.QDialog):
-    def __init__(self, parent=None):
-        QtGui.QDialog.__init__(self, parent)
-        self.setWindowTitle(u'Override')
-        self.resize(300, 150)
-
-        self.leText = QtGui.QLabel()
-        self.leText.setText(u'The Revision of this partnumber is not the latest one!\n'+'Please Enter Password')
-
-        self.leName = QtGui.QLineEdit(self)
-        self.leName.setPlaceholderText(u'user')
-
-        self.lePassword = QtGui.QLineEdit(self)
-        self.lePassword.setEchoMode(QtGui.QLineEdit.Password)
-        self.lePassword.setPlaceholderText(u'password')
-
-        self.pbLogin = QtGui.QPushButton(u'login', self)
-        self.pbCancel = QtGui.QPushButton(u'cancel', self)
-
-        self.pbLogin.clicked.connect(self.login)
-        self.pbCancel.clicked.connect(self.reject)
-
-        layout = QtGui.QVBoxLayout()
-        layout.addWidget(self.leText)
-        layout.addWidget(self.leName)
-        layout.addWidget(self.lePassword)
-
-        spacerItem = QtGui.QSpacerItem(20, 28, QtGui.QSizePolicy.Minimum,
-                                       QtGui.QSizePolicy.Expanding)
-        layout.addItem(spacerItem)
-
-        buttonLayout = QtGui.QHBoxLayout()
-        spancerItem2 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding,
-                                         QtGui.QSizePolicy.Minimum)
-        buttonLayout.addItem(spancerItem2)
-        buttonLayout.addWidget(self.pbLogin)
-        buttonLayout.addWidget(self.pbCancel)
-
-        layout.addLayout(buttonLayout)
-
-        self.setLayout(layout)
-
-    def login(self):
-        if self.leName.text() == 'cypress' and self.lePassword.text() == '123':
-            self.accept()
-        else:
-            QtGui.QMessageBox.critical(self, u'error', u'password wrong')
-
-
 class ChannelStates(object):
     EXIT = -1
     INIT = 0x0A
@@ -233,8 +184,7 @@ class Channel(threading.Thread):
                 logger.info("dut: {0} has the latest revision of this partnumber is {1}"
                             .format(dut.slotnum, latest_revision))
                 if latest_revision != dut.revision:
-                    dialog = Override()
-                    if not dialog.exec_():
+                    if not OVERRIDE:
                         dut.errormessage = "Not the latest revision"
                         dut.status = DUT_STATUS.Fail
 

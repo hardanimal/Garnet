@@ -53,6 +53,7 @@ class DUT(SQLBase):
     powerdet = Column(Integer)
     chargecur = Column(Integer)
     hwver = Column(String(5))
+    fwver = Column(String(5))
     cappn = Column(String(20))
     pcbver = Column(String(5))
     sn = Column(String(10))

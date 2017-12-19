@@ -718,7 +718,14 @@ class Channel(threading.Thread):
                     self.switch_to_dut(dut.slotnum)
                     dut.flush_ee()
                     #dut.reset_sys()
-                    self.erie.ResetDUT(dut.slotnum)
+                # perform reset all the time after writing new VPD
+                self.erie.ResetDUT(dut.slotnum)
+
+                dut.hwver = dut.read_hw_version()
+                logger.info("dut: {0} checking hardware version = {1}".format(dut.slotnum, dut.hwver))
+                dut.fwver = dut.read_fw_version()
+                logger.info("dut: {0} checking firmware version = {1}".format(dut.slotnum, dut.fwver))
+
 
             except AssertionError:
                 dut.status = DUT_STATUS.Fail

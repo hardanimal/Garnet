@@ -195,6 +195,18 @@ class PGEMBase(DUT):
         #print dut
         return dut
 
+    def read_hw_version(self):
+        self.device.slave_addr = 0x14
+        ret = str(self.read_vpd_byname('ES_HWREV') & 0xFF)
+        return ret
+
+    def read_fw_version(self):
+        self.device.slave_addr = 0x14
+        major = self.read_vpd_byname('ES_FWREV0')
+        minor = self.read_vpd_byname('ES_FWREV1')
+        ret = str(major & 0x0F) + "." + str((minor & 0xF0) >> 4)
+        return ret
+
     @staticmethod
     def load_bin_file(filepath):
         """read a file and transfer to a binary list

@@ -170,6 +170,10 @@ class Channel(threading.Thread):
                 if self.InMode4in1:
                     if dut.partnumber not in Mode4in1_PN:
                         raise Exception("This partnumber {0} does not support Mode4in1".format(dut.partnumber))
+                else:
+                    if dut.partnumber in Mode4in1_PN:
+                        if not OVERRIDE:
+                            raise Exception("This partnumber {0} NEED Mode4in1".format(dut.partnumber))
                 dut.status = DUT_STATUS.Idle
                 dut.cable_barcode = self.cable_barcodes_list[i]
                 dut.capacitor_barcode = self.capacitor_barcodes_list[i]

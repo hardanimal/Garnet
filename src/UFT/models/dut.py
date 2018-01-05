@@ -66,7 +66,7 @@ class DUT(SQLBase):
     archived = Column(Integer, default=0)  # 0 for running and 1 for archieved.
     status = Column(Integer, nullable=False)
     errormessage = Column(String(20))
-    testdate = Column(DateTime, default=datetime.datetime.utcnow)
+    testdate = Column(DateTime, default=datetime.datetime.now)
 
     # DUT is one to many class refer to Cycles
     cycles = relationship("Cycle")

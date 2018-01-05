@@ -173,7 +173,7 @@ class Channel(threading.Thread):
                 dut.status = DUT_STATUS.Idle
                 dut.cable_barcode = self.cable_barcodes_list[i]
                 dut.capacitor_barcode = self.capacitor_barcodes_list[i]
-                dut.testdate = datetime.datetime.utcnow()
+                dut.testdate = datetime.datetime.now()
                 self.dut_list.append(dut)
                 dut_config = load_config("sqlite:///" + CONFIG_DB,
                                          dut.partnumber, dut.revision)

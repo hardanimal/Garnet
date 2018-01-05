@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'UFT_Ui.ui'
 #
-# Created: Tue Dec 19 10:12:00 2017
+# Created: Fri Jan 05 10:58:02 2018
 #      by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -1996,7 +1996,7 @@ class Ui_Form(object):
         self.gridLayout_5.addWidget(self.log_tableView, 1, 0, 1, 1)
         self.tabWidget.addTab(self.tab, _fromUtf8(""))
         self.title_label = QtGui.QLabel(Form)
-        self.title_label.setGeometry(QtCore.QRect(20, 5, 311, 25))
+        self.title_label.setGeometry(QtCore.QRect(20, 5, 661, 25))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Andalus"))
         font.setPointSize(16)
@@ -2008,7 +2008,7 @@ class Ui_Form(object):
         self.title_label.setTextFormat(QtCore.Qt.AutoText)
         self.title_label.setObjectName(_fromUtf8("title_label"))
         self.layoutWidget = QtGui.QWidget(Form)
-        self.layoutWidget.setGeometry(QtCore.QRect(10, 740, 951, 25))
+        self.layoutWidget.setGeometry(QtCore.QRect(10, 740, 951, 26))
         self.layoutWidget.setObjectName(_fromUtf8("layoutWidget"))
         self.horizontalLayout_4 = QtGui.QHBoxLayout(self.layoutWidget)
         self.horizontalLayout_4.setMargin(0)
@@ -2529,7 +2529,7 @@ class Ui_Form(object):
         self.search_lineEdit.setPlaceholderText(_translate("Form", "search by serial number", None))
         self.search_pushButton.setText(_translate("Form", "Search", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("Form", "test log", None))
-        self.title_label.setText(_translate("Form", "AGIGA UPGEM UFT V5.4.5", None))
+        self.title_label.setText(_translate("Form", "AGIGA UPGEM UFT V5.4.6", None))
         self.start_pushButton.setText(_translate("Form", "START", None))
         self.Mode4in1.setText(_translate("Form", "4 in 1", None))
 

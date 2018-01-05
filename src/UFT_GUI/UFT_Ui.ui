@@ -4209,7 +4209,7 @@
     <rect>
      <x>20</x>
      <y>5</y>
-     <width>311</width>
+     <width>661</width>
      <height>25</height>
     </rect>
    </property>
@@ -4226,7 +4226,7 @@
     <bool>false</bool>
    </property>
    <property name="text">
-    <string>AGIGA UPGEM UFT V5.4.5</string>
+    <string>AGIGA UPGEM UFT V5.4.6</string>
    </property>
    <property name="textFormat">
     <enum>Qt::AutoText</enum>
@@ -4238,7 +4238,7 @@
      <x>10</x>
      <y>740</y>
      <width>951</width>
-     <height>25</height>
+     <height>26</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_4">

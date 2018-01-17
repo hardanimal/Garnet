@@ -709,6 +709,7 @@ class Channel(threading.Thread):
 
                 logger.info("dut: {0} start writing...".format(dut.slotnum))
                 dut.write_vpd(config["File"])
+                dut.read_vpd()
 
                 if self.InMode4in1:
                     for i in range(1, 4):
@@ -716,7 +717,6 @@ class Channel(threading.Thread):
                         self.switch_to_dut(dut.slotnum + i)
                         dut.write_shared_vpd(config["File"], i)
 
-                #dut.read_vpd()
                 dut.program_vpd = 1
                 if config.get("Flush_EE",False)=="Yes":
                     self.switch_to_dut(dut.slotnum)

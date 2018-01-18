@@ -214,6 +214,7 @@ class Channel(threading.Thread):
         """charge
         """
 
+        power_on_delay = False
         for dut in self.dut_list:
             if dut is None:
                 continue
@@ -224,13 +225,12 @@ class Channel(threading.Thread):
                 continue
             if (config["stoponfail"]) & (dut.status != DUT_STATUS.Idle):
                 continue
-            # disable auto discharge
-            #self.switch_to_mb()
-            #self.auto_discharge(slot=dut.slotnum, status=False)
+            power_on_delay = True
             self.switch_to_dut(dut.slotnum)
 
             self.ps.selectChannel(dut.slotnum)
             self.ps.activateOutput()
+            time.sleep(0.1)
 
             if self.InMode4in1:
                 for i in range(1, 4):
@@ -238,14 +238,16 @@ class Channel(threading.Thread):
 
                     self.ps.selectChannel(dut.slotnum + i)
                     self.ps.activateOutput()
+                    time.sleep(0.1)
 
             # start charge
             dut.status = DUT_STATUS.Charging
+        if power_on_delay:
+            time.sleep(5)
 
         all_charged = False
         self.counter = 0
         start_time = time.time()
-        time.sleep(5)
         #while (not dut.read_hwready) & ((time.time() - start_time)<200000):
 
         while (not all_charged):
@@ -312,12 +314,13 @@ class Channel(threading.Thread):
                     dut.status = DUT_STATUS.Fail
                     dut.errormessage = "IIC access failed."
 
-            time.sleep(INTERVAL)
+            if not all_charged:
+                time.sleep(INTERVAL)
 
     def recharge_dut(self):
         """charge
         """
-
+        power_on_delay = False
         for dut in self.dut_list:
             if dut is None:
                 continue
@@ -328,13 +331,12 @@ class Channel(threading.Thread):
                 continue
             if (config["stoponfail"]) & (dut.status != DUT_STATUS.Idle):
                 continue
-            # disable auto discharge
-            #self.switch_to_mb()
-            #self.auto_discharge(slot=dut.slotnum, status=False)
+            power_on_delay = True
             self.switch_to_dut(dut.slotnum)
 
             self.ps.selectChannel(dut.slotnum)
             self.ps.activateOutput()
+            time.sleep(0.1)
 
             if self.InMode4in1:
                 for i in range(1, 4):
@@ -342,14 +344,17 @@ class Channel(threading.Thread):
 
                     self.ps.selectChannel(dut.slotnum + i)
                     self.ps.activateOutput()
+                    time.sleep(0.1)
 
             # start charge
             dut.status = DUT_STATUS.Charging
 
+        if power_on_delay:
+            time.sleep(5)
+
         all_charged = False
         self.counter = 0
         start_time = time.time()
-        time.sleep(5)
         #while (not dut.read_hwready) & ((time.time() - start_time)<200000):
 
         while (not all_charged):
@@ -428,12 +433,13 @@ class Channel(threading.Thread):
                     dut.status = DUT_STATUS.Fail
                     dut.errormessage = "IIC access failed."
 
-            time.sleep(INTERVAL)
+            if not all_charged:
+                time.sleep(INTERVAL)
 
     def discharge_dut(self):
         """discharge
         """
-
+        power_off_delay = False
         for dut in self.dut_list:
             if dut is None:
                 continue
@@ -443,18 +449,13 @@ class Channel(threading.Thread):
                 continue
             if (config["stoponfail"]) & (dut.status != DUT_STATUS.Idle):
                 continue
-            # disable auto discharge
-            #self.switch_to_mb()
-            #self.auto_discharge(slot=dut.slotnum, status=False)
-            # disable self discharge
+            power_off_delay = True
             self.switch_to_dut(dut.slotnum)
-            #dut.self_discharge(status=False)
-            # disable charge
-            #dut.charge(status=False)
             self.ps.selectChannel(dut.slotnum)
             self.ps.deactivateOutput()
 
-        time.sleep(2)
+        if power_off_delay:
+            time.sleep(2)
 
         for dut in self.dut_list:
             if dut is None:
@@ -565,7 +566,8 @@ class Channel(threading.Thread):
                     all_discharged &= True
                     dut.status = DUT_STATUS.Fail
                     dut.errormessage = "IIC access failed."
-            time.sleep(0.3)
+            if not all_discharged:
+                time.sleep(0.3)
 
         # full discharge cycle
         for dut in self.dut_list:
@@ -638,7 +640,8 @@ class Channel(threading.Thread):
                             "status: {1} vcap: {2} message: {3} ".
                             format(dut.slotnum, dut.status, vcap,
                                    dut.errormessage))
-            time.sleep(INTERVAL)
+            if not all_fulldischarged:
+                time.sleep(INTERVAL)
 
     def program_dut(self):
         """ program vpd of DUT.
@@ -672,7 +675,7 @@ class Channel(threading.Thread):
                         dut.errormessage = "PGEM Connection Issue"
                         logger.info("dut: {0} status: {1} message: {2} ".
                                     format(dut.slotnum, dut.status, dut.errormessage))
-
+        power_on_delay = False
         for dut in self.dut_list:
             if dut is None:
                 continue
@@ -682,15 +685,17 @@ class Channel(threading.Thread):
                 continue
             if (config["stoponfail"]) & (dut.status != DUT_STATUS.Idle):
                 continue
+            power_on_delay = True
             self.ps.selectChannel(dut.slotnum)
             self.ps.activateOutput()
-            time.sleep(0.5)
+            time.sleep(0.1)
             if self.InMode4in1:
                 for i in range(1, 4):
                     self.ps.selectChannel(dut.slotnum + i)
                     self.ps.activateOutput()
-
-        time.sleep(5)
+                    time.sleep(0.1)
+        if power_on_delay:
+            time.sleep(5)
         for dut in self.dut_list:
             if dut is None:
                 continue
@@ -826,7 +831,7 @@ class Channel(threading.Thread):
                    "ovp": PS_OVP, "ocp": PS_OCP}
         #self.ps.set(setting)
         #self.ps.activateOutput()
-        time.sleep(2)
+        time.sleep(1)
         start_time = time.time()
 
         all_cap_mears=False
@@ -876,7 +881,8 @@ class Channel(threading.Thread):
                                dut.errormessage))
                 else:
                     all_cap_mears &= False
-            time.sleep(2)
+            if not all_cap_mears:
+                time.sleep(INTERVAL)
 
         #check capacitance ok
         for dut in self.dut_list:

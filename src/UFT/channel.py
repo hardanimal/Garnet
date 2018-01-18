@@ -242,13 +242,12 @@ class Channel(threading.Thread):
 
             # start charge
             dut.status = DUT_STATUS.Charging
-        if power_on_delay:
-            time.sleep(5)
 
         all_charged = False
         self.counter = 0
         start_time = time.time()
-        #while (not dut.read_hwready) & ((time.time() - start_time)<200000):
+        if power_on_delay:
+            time.sleep(5)
 
         while (not all_charged):
             all_charged = True
@@ -349,13 +348,12 @@ class Channel(threading.Thread):
             # start charge
             dut.status = DUT_STATUS.Charging
 
-        if power_on_delay:
-            time.sleep(5)
-
         all_charged = False
         self.counter = 0
         start_time = time.time()
-        #while (not dut.read_hwready) & ((time.time() - start_time)<200000):
+
+        if power_on_delay:
+            time.sleep(5)
 
         while (not all_charged):
             all_charged = True

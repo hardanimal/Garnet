@@ -199,6 +199,13 @@ class Channel(threading.Thread):
                 self.dut_list.append(None)
                 self.config_list.append(None)
 
+    def _check_hardware_ready_(self, dut):
+        for i in range(5):
+            if dut.read_hwready():
+                return True
+            time.sleep(1)
+        return False
+
     def set_productype(self, port, pt):
         if pt == "AGIGA9821":
             logger.info("dut: {0} PN: {1} setting type: Pearl family".format(port, pt))
@@ -263,8 +270,9 @@ class Channel(threading.Thread):
                             (dut.status != DUT_STATUS.Charging):
                         continue
                     self.switch_to_dut(dut.slotnum)
-                    if not dut.read_hwready():
-                        time.sleep(5)
+                    if not self._check_hardware_ready_(dut):
+                        dut.status = DUT_STATUS.Fail
+                        dut.errormessage = "DUT is not ready."
                     this_cycle = Cycle()
                     this_cycle.vin = dut.meas_vin()
                     this_cycle.counter = self.counter
@@ -372,8 +380,9 @@ class Channel(threading.Thread):
                     if config.get("Shutdown",False)=="Yes":
                         shutdown=True
                     self.switch_to_dut(dut.slotnum)
-                    if not dut.read_hwready():
-                        time.sleep(5)
+                    if not self._check_hardware_ready_(dut):
+                        dut.status = DUT_STATUS.Fail
+                        dut.errormessage = "DUT is not ready."
                     #this_cycle = Cycle()
                     #this_cycle.vin = dut.meas_vin()
                     #this_cycle.counter = self.counter
@@ -705,11 +714,22 @@ class Channel(threading.Thread):
                 continue
             self.switch_to_dut(dut.slotnum)
 
+            if not self._check_hardware_ready_(dut):
+                dut.status = DUT_STATUS.Fail
+                dut.errormessage = "DUT is not ready."
+
+        for dut in self.dut_list:
+            if dut is None:
+                continue
+            config = load_test_item(self.config_list[dut.slotnum],
+                                    "Program_VPD")
+            if (not config["enable"]):
+                continue
+            if (config["stoponfail"]) & (dut.status != DUT_STATUS.Idle):
+                continue
+            self.switch_to_dut(dut.slotnum)
+
             try:
-
-                if not dut.read_hwready():
-                    time.sleep(5)
-
                 logger.info("dut: {0} start writing...".format(dut.slotnum))
                 dut.write_vpd(config["File"])
                 dut.read_vpd()

@@ -743,7 +743,6 @@ class Channel(threading.Thread):
                 if config.get("Flush_EE",False)=="Yes":
                     self.switch_to_dut(dut.slotnum)
                     dut.flush_ee()
-                    self.erie.ResetDUT(dut.slotnum)
                 else:
                     self.ps.selectChannel(dut.slotnum)
                     self.ps.deactivateOutput()
@@ -753,6 +752,7 @@ class Channel(threading.Thread):
                             self.ps.selectChannel(dut.slotnum + i)
                             self.ps.deactivateOutput()
                             time.sleep(0.1)
+                    time.sleep(1)
             except AssertionError:
                 dut.status = DUT_STATUS.Fail
                 dut.errormessage = "Programming VPD Fail"
@@ -763,6 +763,46 @@ class Channel(threading.Thread):
                 dut.errormessage = "IIC access failed"
                 logger.info("dut: {0} status: {1} message: {2} ".
                             format(dut.slotnum, dut.status, dut.errormessage))
+
+        # STEP 5: turn power on again if needed
+        power_on_delay = False
+        for dut in self.dut_list:
+            if dut is None:
+                continue
+            config = load_test_item(self.config_list[dut.slotnum],
+                                    "Program_VPD")
+            if (not config["enable"]):
+                continue
+            if (config["stoponfail"]) & (dut.status != DUT_STATUS.Idle):
+                continue
+            self.ps.selectChannel(dut.slotnum)
+            if not self.ps.isOutputOn():
+                power_on_delay = True
+                self.ps.activateOutput()
+                time.sleep(0.1)
+                if self.InMode4in1:
+                    for i in range(1, 4):
+                        self.ps.selectChannel(dut.slotnum + i)
+                        self.ps.activateOutput()
+                        time.sleep(0.1)
+        if power_on_delay:
+            time.sleep(5)
+        # STEP 6: check hardware ready and perform RESET
+        for dut in self.dut_list:
+            if dut is None:
+                continue
+            config = load_test_item(self.config_list[dut.slotnum],
+                                    "Program_VPD")
+            if (not config["enable"]):
+                continue
+            if (config["stoponfail"]) & (dut.status != DUT_STATUS.Idle):
+                continue
+            self.switch_to_dut(dut.slotnum)
+
+            if not self._check_hardware_ready_(dut):
+                dut.status = DUT_STATUS.Fail
+                dut.errormessage = "DUT is not ready."
+            self.erie.ResetDUT(dut.slotnum)
 
     def check_vpd(self):
 
@@ -1108,7 +1148,7 @@ class Channel(threading.Thread):
                     self.error(e)
             elif (state == ChannelStates.CHECK_VPD):
                 try:
-                    logger.info("Channel: Check Temperature")
+                    logger.info("Channel: Check VPD")
                     self.check_vpd()
                     self.progressbar += 5
                 except Exception as e:

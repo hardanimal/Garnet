@@ -41,6 +41,7 @@ class ChannelStates(object):
     DUT_DISCHARGE = 0x1D
     CHECK_POWER_FAIL = 0x1E
     RECHARGE = 0x1F
+    CHECK_VPD = 0x10
 
 
 class BOARD_STATUS(object):
@@ -654,7 +655,7 @@ class Channel(threading.Thread):
         """ program vpd of DUT.
         :return: None
         """
-
+        # STEP 1: check Present Pin first for hardware exist
         for dut in self.dut_list:
             if dut is None:
                 continue
@@ -682,6 +683,7 @@ class Channel(threading.Thread):
                         dut.errormessage = "PGEM Connection Issue"
                         logger.info("dut: {0} status: {1} message: {2} ".
                                     format(dut.slotnum, dut.status, dut.errormessage))
+        # STEP 2: turn power on
         power_on_delay = False
         for dut in self.dut_list:
             if dut is None:
@@ -703,6 +705,7 @@ class Channel(threading.Thread):
                     time.sleep(0.1)
         if power_on_delay:
             time.sleep(5)
+        # STEP 3: check hardware ready
         for dut in self.dut_list:
             if dut is None:
                 continue
@@ -717,6 +720,77 @@ class Channel(threading.Thread):
             if not self._check_hardware_ready_(dut):
                 dut.status = DUT_STATUS.Fail
                 dut.errormessage = "DUT is not ready."
+        # STEP 4: Program VPD
+        for dut in self.dut_list:
+            if dut is None:
+                continue
+            config = load_test_item(self.config_list[dut.slotnum],
+                                    "Program_VPD")
+            if (not config["enable"]):
+                continue
+            if (config["stoponfail"]) & (dut.status != DUT_STATUS.Idle):
+                continue
+            self.switch_to_dut(dut.slotnum)
+            try:
+                logger.info("dut: {0} start writing...".format(dut.slotnum))
+                dut.write_vpd(config["File"])
+                if self.InMode4in1:
+                    for i in range(1, 4):
+                        logger.info("shared port: {0} start writing...".format(dut.slotnum + i))
+                        self.switch_to_dut(dut.slotnum + i)
+                        dut.write_shared_vpd(config["File"], i)
+                dut.program_vpd = 1
+                if config.get("Flush_EE",False)=="Yes":
+                    self.switch_to_dut(dut.slotnum)
+                    dut.flush_ee()
+                    self.erie.ResetDUT(dut.slotnum)
+                else:
+                    self.ps.selectChannel(dut.slotnum)
+                    self.ps.deactivateOutput()
+                    time.sleep(0.1)
+                    if self.InMode4in1:
+                        for i in range(1, 4):
+                            self.ps.selectChannel(dut.slotnum + i)
+                            self.ps.deactivateOutput()
+                            time.sleep(0.1)
+            except AssertionError:
+                dut.status = DUT_STATUS.Fail
+                dut.errormessage = "Programming VPD Fail"
+                logger.info("dut: {0} status: {1} message: {2} ".
+                            format(dut.slotnum, dut.status, dut.errormessage))
+            except aardvark.USBI2CAdapterException:
+                dut.status = DUT_STATUS.Fail
+                dut.errormessage = "IIC access failed"
+                logger.info("dut: {0} status: {1} message: {2} ".
+                            format(dut.slotnum, dut.status, dut.errormessage))
+
+    def check_vpd(self):
+
+        for dut in self.dut_list:
+            if dut is None:
+                continue
+            config = load_test_item(self.config_list[dut.slotnum],
+                                    "Program_VPD")
+            if (not config["enable"]):
+                continue
+            if (config["stoponfail"]) & (dut.status != DUT_STATUS.Idle):
+                continue
+            if dut.status != DUT_STATUS.Idle:
+                continue
+
+            self.ps.selectChannel(dut.slotnum)
+            if not self.ps.isOutputOn():
+                dut.status = DUT_STATUS.Fail
+                dut.errormessage = "No Power output, STOP cap measure"
+
+            if self.InMode4in1:
+                for i in range(1, 4):
+                    self.switch_to_dut(dut.slotnum + i)
+
+                    self.ps.selectChannel(dut.slotnum + i)
+                    if not self.ps.isOutputOn():
+                        dut.status = DUT_STATUS.Fail
+                        dut.errormessage = "No Power output, STOP cap measure"
 
         for dut in self.dut_list:
             if dut is None:
@@ -729,42 +803,11 @@ class Channel(threading.Thread):
                 continue
             self.switch_to_dut(dut.slotnum)
 
-            try:
-                logger.info("dut: {0} start writing...".format(dut.slotnum))
-                dut.write_vpd(config["File"])
-                dut.read_vpd()
-
-                if self.InMode4in1:
-                    for i in range(1, 4):
-                        logger.info("shared port: {0} start writing...".format(dut.slotnum + i))
-                        self.switch_to_dut(dut.slotnum + i)
-                        dut.write_shared_vpd(config["File"], i)
-
-                dut.program_vpd = 1
-                if config.get("Flush_EE",False)=="Yes":
-                    self.switch_to_dut(dut.slotnum)
-                    dut.flush_ee()
-                    #dut.reset_sys()
-                # perform reset all the time after writing new VPD
-                self.erie.ResetDUT(dut.slotnum)
-
-                dut.hwver = dut.read_hw_version()
-                logger.info("dut: {0} checking hardware version = {1}".format(dut.slotnum, dut.hwver))
-                dut.fwver = dut.read_fw_version()
-                logger.info("dut: {0} checking firmware version = {1}".format(dut.slotnum, dut.fwver))
-
-
-            except AssertionError:
-                dut.status = DUT_STATUS.Fail
-                dut.errormessage = "Programming VPD Fail"
-                logger.info("dut: {0} status: {1} message: {2} ".
-                            format(dut.slotnum, dut.status, dut.errormessage))
-
-            except aardvark.USBI2CAdapterException:
-                dut.status = DUT_STATUS.Fail
-                dut.errormessage = "IIC access failed"
-                logger.info("dut: {0} status: {1} message: {2} ".
-                            format(dut.slotnum, dut.status, dut.errormessage))
+            dut.read_vpd()
+            dut.hwver = dut.read_hw_version()
+            logger.info("dut: {0} checking hardware version = {1}".format(dut.slotnum, dut.hwver))
+            dut.fwver = dut.read_fw_version()
+            logger.info("dut: {0} checking firmware version = {1}".format(dut.slotnum, dut.fwver))
 
     def check_temperature_dut(self):
         """
@@ -1060,13 +1103,13 @@ class Channel(threading.Thread):
                 try:
                     logger.info("Channel: Program VPD.")
                     self.program_dut()
-                    self.progressbar += 10
+                    self.progressbar += 5
                 except Exception as e:
                     self.error(e)
-            elif (state == ChannelStates.CHECK_TEMP):
+            elif (state == ChannelStates.CHECK_VPD):
                 try:
                     logger.info("Channel: Check Temperature")
-                    self.check_temperature_dut()
+                    self.check_vpd()
                     self.progressbar += 5
                 except Exception as e:
                     self.error(e)
@@ -1095,7 +1138,7 @@ class Channel(threading.Thread):
         #self.queue.put(ChannelStates.PROGRAM_VPD)
         self.queue.put(ChannelStates.CHECK_CAPACITANCE)
         #self.queue.put(ChannelStates.CHECK_ENCRYPTED_IC)
-        #self.queue.put(ChannelStates.CHECK_TEMP)
+        self.queue.put(ChannelStates.CHECK_VPD)
         #self.queue.put(ChannelStates.CHECK_POWER_FAIL)
         # self.queue.put(ChannelStates.DUT_DISCHARGE)
         self.queue.put(ChannelStates.LOAD_DISCHARGE)

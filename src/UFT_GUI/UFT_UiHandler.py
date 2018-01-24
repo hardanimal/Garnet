@@ -192,6 +192,12 @@ class UFT_UiHandler(UFT_UiForm):
         else:
             pass
 
+    def clean_pass_sn(self, dut, cable, battery, slotnum, status):
+        if status == 1:
+            dut[slotnum].clear()
+            cable[slotnum].clear()
+            battery[slotnum].clear()
+
     def set_label(self, label, slotnum, status):
         status_list = ["Idle", "Pass", "Fail", "Charging", "Discharging", "Self_Discharging",
                        "Cap_Measuring", "Program_VPD", "Running..."]
@@ -210,22 +216,50 @@ class UFT_UiHandler(UFT_UiForm):
     def set_dut_status_1(self, slotnum, status):
         label = [self.label_1_1, self.label_1_2, self.label_1_3, self.label_1_4, self.label_1_5, self.label_1_6, self.label_1_7, self.label_1_8,
                  self.label_1_9, self.label_1_10, self.label_1_11, self.label_1_12, self.label_1_13, self.label_1_14, self.label_1_15, self.label_1_16]
+        dut = [self.sn_lineEdit_1_1, self.sn_lineEdit_1_2, self.sn_lineEdit_1_3, self.sn_lineEdit_1_4, self.sn_lineEdit_1_5, self.sn_lineEdit_1_6, self.sn_lineEdit_1_7, self.sn_lineEdit_1_8,
+               self.sn_lineEdit_1_9, self.sn_lineEdit_1_10, self.sn_lineEdit_1_11, self.sn_lineEdit_1_12, self.sn_lineEdit_1_13, self.sn_lineEdit_1_14, self.sn_lineEdit_1_15, self.sn_lineEdit_1_16]
+        cable = [self.CablelineEdit_1_1, self.CablelineEdit_1_2, self.CablelineEdit_1_3, self.CablelineEdit_1_4, self.CablelineEdit_1_5, self.CablelineEdit_1_6, self.CablelineEdit_1_7, self.CablelineEdit_1_8,
+                 self.CablelineEdit_1_9, self.CablelineEdit_1_10, self.CablelineEdit_1_11, self.CablelineEdit_1_12, self.CablelineEdit_1_13, self.CablelineEdit_1_14, self.CablelineEdit_1_15, self.CablelineEdit_1_16]
+        battery = [self.BatterylineEdit_1_1, self.BatterylineEdit_1_2, self.BatterylineEdit_1_3, self.BatterylineEdit_1_4, self.BatterylineEdit_1_5, self.BatterylineEdit_1_6, self.BatterylineEdit_1_7, self.BatterylineEdit_1_8,
+                   self.BatterylineEdit_1_9, self.BatterylineEdit_1_10, self.BatterylineEdit_1_11, self.BatterylineEdit_1_12, self.BatterylineEdit_1_13, self.BatterylineEdit_1_14, self.BatterylineEdit_1_15, self.BatterylineEdit_1_16]
         self.set_label(label, slotnum, status)
+        self.clean_pass_sn(dut, cable, battery, slotnum, status)
 
     def set_dut_status_2(self, slotnum, status):
         label = [self.label_2_1, self.label_2_2, self.label_2_3, self.label_2_4, self.label_2_5, self.label_2_6, self.label_2_7, self.label_2_8,
                  self.label_2_9, self.label_2_10, self.label_2_11, self.label_2_12, self.label_2_13, self.label_2_14, self.label_2_15, self.label_2_16]
+        dut = [self.sn_lineEdit_2_1, self.sn_lineEdit_2_2, self.sn_lineEdit_2_3, self.sn_lineEdit_2_4, self.sn_lineEdit_2_5, self.sn_lineEdit_2_6, self.sn_lineEdit_2_7, self.sn_lineEdit_2_8,
+               self.sn_lineEdit_2_9, self.sn_lineEdit_2_10, self.sn_lineEdit_2_11, self.sn_lineEdit_2_12, self.sn_lineEdit_2_13, self.sn_lineEdit_2_14, self.sn_lineEdit_2_15, self.sn_lineEdit_2_16]
+        cable = [self.CablelineEdit_2_1, self.CablelineEdit_2_2, self.CablelineEdit_2_3, self.CablelineEdit_2_4, self.CablelineEdit_2_5, self.CablelineEdit_2_6, self.CablelineEdit_2_7, self.CablelineEdit_2_8,
+                 self.CablelineEdit_2_9, self.CablelineEdit_2_10, self.CablelineEdit_2_11, self.CablelineEdit_2_12, self.CablelineEdit_2_13, self.CablelineEdit_2_14, self.CablelineEdit_2_15, self.CablelineEdit_2_16]
+        battery = [self.BatterylineEdit_2_1, self.BatterylineEdit_2_2, self.BatterylineEdit_2_3, self.BatterylineEdit_2_4, self.BatterylineEdit_2_5, self.BatterylineEdit_2_6, self.BatterylineEdit_2_7, self.BatterylineEdit_2_8,
+                   self.BatterylineEdit_2_9, self.BatterylineEdit_2_10, self.BatterylineEdit_2_11, self.BatterylineEdit_2_12, self.BatterylineEdit_2_13, self.BatterylineEdit_2_14, self.BatterylineEdit_2_15, self.BatterylineEdit_2_16]
         self.set_label(label, slotnum, status)
+        self.clean_pass_sn(dut, cable, battery, slotnum, status)
 
     def set_dut_status_3(self, slotnum, status):
         label = [self.label_3_1, self.label_3_2, self.label_3_3, self.label_3_4, self.label_3_5, self.label_3_6, self.label_3_7, self.label_3_8,
                  self.label_3_9, self.label_3_10, self.label_3_11, self.label_3_12, self.label_3_13, self.label_3_14, self.label_3_15, self.label_3_16]
+        dut = [self.sn_lineEdit_3_1, self.sn_lineEdit_3_2, self.sn_lineEdit_3_3, self.sn_lineEdit_3_4, self.sn_lineEdit_3_5, self.sn_lineEdit_3_6, self.sn_lineEdit_3_7, self.sn_lineEdit_3_8,
+               self.sn_lineEdit_3_9, self.sn_lineEdit_3_10, self.sn_lineEdit_3_11, self.sn_lineEdit_3_12, self.sn_lineEdit_3_13, self.sn_lineEdit_3_14, self.sn_lineEdit_3_15, self.sn_lineEdit_3_16]
+        cable = [self.CablelineEdit_3_1, self.CablelineEdit_3_2, self.CablelineEdit_3_3, self.CablelineEdit_3_4, self.CablelineEdit_3_5, self.CablelineEdit_3_6, self.CablelineEdit_3_7, self.CablelineEdit_3_8,
+                 self.CablelineEdit_3_9, self.CablelineEdit_3_10, self.CablelineEdit_3_11, self.CablelineEdit_3_12, self.CablelineEdit_3_13, self.CablelineEdit_3_14, self.CablelineEdit_3_15, self.CablelineEdit_3_16]
+        battery = [self.BatterylineEdit_3_1, self.BatterylineEdit_3_2, self.BatterylineEdit_3_3, self.BatterylineEdit_3_4, self.BatterylineEdit_3_5, self.BatterylineEdit_3_6, self.BatterylineEdit_3_7, self.BatterylineEdit_3_8,
+                   self.BatterylineEdit_3_9, self.BatterylineEdit_3_10, self.BatterylineEdit_3_11, self.BatterylineEdit_3_12, self.BatterylineEdit_3_13, self.BatterylineEdit_3_14, self.BatterylineEdit_3_15, self.BatterylineEdit_3_16]
         self.set_label(label, slotnum, status)
+        self.clean_pass_sn(dut, cable, battery, slotnum, status)
 
     def set_dut_status_4(self, slotnum, status):
         label = [self.label_4_1, self.label_4_2, self.label_4_3, self.label_4_4, self.label_4_5, self.label_4_6, self.label_4_7, self.label_4_8,
                  self.label_4_9, self.label_4_10, self.label_4_11, self.label_4_12, self.label_4_13, self.label_4_14, self.label_4_15, self.label_4_16]
+        dut = [self.sn_lineEdit_4_1, self.sn_lineEdit_4_2, self.sn_lineEdit_4_3, self.sn_lineEdit_4_4, self.sn_lineEdit_4_5, self.sn_lineEdit_4_6, self.sn_lineEdit_4_7, self.sn_lineEdit_4_8,
+               self.sn_lineEdit_4_9, self.sn_lineEdit_4_10, self.sn_lineEdit_4_11, self.sn_lineEdit_4_12, self.sn_lineEdit_4_13, self.sn_lineEdit_4_14, self.sn_lineEdit_4_15, self.sn_lineEdit_4_16]
+        cable = [self.CablelineEdit_4_1, self.CablelineEdit_4_2, self.CablelineEdit_4_3, self.CablelineEdit_4_4, self.CablelineEdit_4_5, self.CablelineEdit_4_6, self.CablelineEdit_4_7, self.CablelineEdit_4_8,
+                 self.CablelineEdit_4_9, self.CablelineEdit_4_10, self.CablelineEdit_4_11, self.CablelineEdit_4_12, self.CablelineEdit_4_13, self.CablelineEdit_4_14, self.CablelineEdit_4_15, self.CablelineEdit_4_16]
+        battery = [self.BatterylineEdit_4_1, self.BatterylineEdit_4_2, self.BatterylineEdit_4_3, self.BatterylineEdit_4_4, self.BatterylineEdit_4_5, self.BatterylineEdit_4_6, self.BatterylineEdit_4_7, self.BatterylineEdit_4_8,
+                   self.BatterylineEdit_4_9, self.BatterylineEdit_4_10, self.BatterylineEdit_4_11, self.BatterylineEdit_4_12, self.BatterylineEdit_4_13, self.BatterylineEdit_4_14, self.BatterylineEdit_4_15, self.BatterylineEdit_4_16]
         self.set_label(label, slotnum, status)
+        self.clean_pass_sn(dut, cable, battery, slotnum, status)
 
     def set_board_status_1(self, status):
         label = [self.Indicator_1, self.Indicator_2, self.Indicator_3, self.Indicator_4]

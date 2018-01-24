@@ -166,6 +166,25 @@ class UFT_UiHandler(UFT_UiForm):
             self.sn_lineEdit_1_1.setFocus()
             self.sn_lineEdit_1_1.selectAll()
 
+    def select_first_slot(self, bdid):
+        if bdid == 0:
+            self.sn_lineEdit_1_1.setFocus()
+            self.sn_lineEdit_1_1.selectAll()
+        elif bdid == 1:
+            self.sn_lineEdit_2_1.setFocus()
+            self.sn_lineEdit_2_1.selectAll()
+        elif bdid == 2:
+            self.sn_lineEdit_3_1.setFocus()
+            self.sn_lineEdit_3_1.selectAll()
+        elif bdid == 3:
+            self.sn_lineEdit_4_1.setFocus()
+            self.sn_lineEdit_4_1.selectAll()
+        elif bdid == 6:
+            self.search_lineEdit.setFocus()
+            self.search_lineEdit.selectAll()
+        else:
+            pass
+
     def append_format_data(self, data):
         if data:
             self.info_textBrowser.append(data)

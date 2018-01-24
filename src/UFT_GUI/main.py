@@ -59,6 +59,7 @@ class MainWidget(QtGui.QWidget):
         self.ui.search_pushButton.clicked.connect(self.ui.search)
         self.ui.checkBox.toggled.connect(self.ui.config_edit_toggle)
         self.ui.Mode4in1.toggled.connect(self.ui.switch_between_mode4in1)
+        self.ui.tabWidget.currentChanged.connect(self.ui.select_first_slot)
 
         self.u = Update()
 

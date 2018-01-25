@@ -130,7 +130,7 @@ class PGEMBase(DUT):
                 val += datas[i] << 8 * i
         return val
 
-    def read_eep_byname(self, reg_name, portnum):
+    def read_eep_byname(self, reg_name, addr):
         """method to read eep_data according to eep_name
         eep is one dict in eep_map, for example:
         {"name": "CINT", "addr": 0x02B3, "length": 1, "type": "int"}
@@ -142,7 +142,7 @@ class PGEMBase(DUT):
         length = eep["length"]  # length
         typ = eep["type"]  # type
         datas=[]
-        self.device.slave_addr = 0x53 + portnum
+        self.device.slave_addr = addr
         for i in range(length):
             #self.device.write_reg(0x00,(start+i) & 0xFF)
             #self.device.write_reg(0x01,((start+i)>>8) & 0xFF)
@@ -265,7 +265,7 @@ class PGEMBase(DUT):
                self.read_vpd_byname("MFDATE")
         assert self.barcode_dict["VV"] == self.read_vpd_byname("MFNAME")
 
-    def write_shared_vpd(self, filepath, potnum):
+    def write_shared_vpd(self, filepath):
         """method to write barcode information to PGEM EEPROM
         :param filepath: the ebf file location.
         """
@@ -288,9 +288,13 @@ class PGEMBase(DUT):
         eep = self._query_map(EEP_MAP, name="MFNAME")[0]
         buffebf[eep["addr"]: eep["addr"] + eep["length"]] = vv
 
-        self.device.slave_addr = (0x53 + potnum)
-        # can be start with 0x41, 0x00 for ensurance.
-        #self.device.write_reg(0x40,0x45) # enable EEP write
+        for rtn in [0x54, 0x55, 0x56]:
+            self.device.slave_addr = rtn
+            try:
+                self.device.read_reg(0x00)
+                break
+            except Exception:
+                continue
 
         for i in range(0x00, len(buffebf)):
             #self.write_vpd_byaddress(i, buffebf[i])
@@ -300,10 +304,11 @@ class PGEMBase(DUT):
             #print buffebf[i]
         # readback to check
         #print self.barcode_dict
-        assert self.barcode_dict["ID"] == self.read_eep_byname("SN", potnum)
+        assert self.barcode_dict["ID"] == self.read_eep_byname("SN", rtn)
         assert (self.barcode_dict["YY"] + self.barcode_dict["WW"]) == \
-               self.read_eep_byname("MFDATE", potnum)
-        assert self.barcode_dict["VV"] == self.read_eep_byname("MFNAME", potnum)
+               self.read_eep_byname("MFDATE", rtn)
+        assert self.barcode_dict["VV"] == self.read_eep_byname("MFNAME", rtn)
+        return rtn
 
     def control_led(self, status="off"):
         """method to control the LED on DUT chip PCA9536DP

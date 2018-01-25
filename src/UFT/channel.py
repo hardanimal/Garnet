@@ -735,10 +735,21 @@ class Channel(threading.Thread):
                 logger.info("dut: {0} start writing...".format(dut.slotnum))
                 dut.write_vpd(config["File"])
                 if self.InMode4in1:
+                    # figure out a non-sequence writing method for shared port, yield a non-sequence cable sequence
+                    s0 = s1 = s2 = False
                     for i in range(1, 4):
-                        logger.info("shared port: {0} start writing...".format(dut.slotnum + i))
                         self.switch_to_dut(dut.slotnum + i)
-                        dut.write_shared_vpd(config["File"], i)
+                        addr = dut.write_shared_vpd(config["File"])
+                        logger.info("shared port: {0} writed at address 0x{1:x}...".format(dut.slotnum + i, addr))
+                        if addr == 0x54:
+                            s0 = True
+                        elif addr == 0x55:
+                            s1 = True
+                        elif addr == 0x56:
+                            s2 = True
+
+                    if not(s0 and s1 and s2):
+                        raise aardvark.USBI2CAdapterException
                 dut.program_vpd = 1
                 if config.get("Flush_EE",False)=="Yes":
                     self.switch_to_dut(dut.slotnum)

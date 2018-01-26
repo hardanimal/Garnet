@@ -4292,8 +4292,8 @@
   <widget class="QCheckBox" name="Mode4in1">
    <property name="geometry">
     <rect>
-     <x>580</x>
-     <y>30</y>
+     <x>660</x>
+     <y>20</y>
      <width>67</width>
      <height>17</height>
     </rect>
@@ -4306,6 +4306,26 @@
    </property>
    <property name="text">
     <string>4 in 1</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_boardnum">
+   <property name="geometry">
+    <rect>
+     <x>500</x>
+     <y>0</y>
+     <width>31</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>31</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>0</string>
    </property>
   </widget>
  </widget>

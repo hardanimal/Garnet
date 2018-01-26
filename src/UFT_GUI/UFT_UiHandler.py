@@ -170,20 +170,25 @@ class UFT_UiHandler(UFT_UiForm):
         if bdid == 0:
             self.sn_lineEdit_1_1.setFocus()
             self.sn_lineEdit_1_1.selectAll()
+            self.label_boardnum.setText("1")
         elif bdid == 1:
             self.sn_lineEdit_2_1.setFocus()
             self.sn_lineEdit_2_1.selectAll()
+            self.label_boardnum.setText("2")
         elif bdid == 2:
             self.sn_lineEdit_3_1.setFocus()
             self.sn_lineEdit_3_1.selectAll()
+            self.label_boardnum.setText("3")
         elif bdid == 3:
             self.sn_lineEdit_4_1.setFocus()
             self.sn_lineEdit_4_1.selectAll()
+            self.label_boardnum.setText("4")
         elif bdid == 6:
             self.search_lineEdit.setFocus()
             self.search_lineEdit.selectAll()
+            self.label_boardnum.setText("N")
         else:
-            pass
+            self.label_boardnum.setText("N")
 
     def append_format_data(self, data):
         if data:

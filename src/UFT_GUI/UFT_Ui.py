@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'UFT_Ui.ui'
 #
-# Created: Thu Jan 25 17:19:33 2018
+# Created: Fri Jan 26 10:56:36 2018
 #      by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -2034,13 +2034,21 @@ class Ui_Form(object):
         self.start_pushButton.setSizePolicy(sizePolicy)
         self.start_pushButton.setObjectName(_fromUtf8("start_pushButton"))
         self.Mode4in1 = QtGui.QCheckBox(Form)
-        self.Mode4in1.setGeometry(QtCore.QRect(580, 30, 67, 17))
+        self.Mode4in1.setGeometry(QtCore.QRect(660, 20, 67, 17))
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Maximum, QtGui.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.Mode4in1.sizePolicy().hasHeightForWidth())
         self.Mode4in1.setSizePolicy(sizePolicy)
         self.Mode4in1.setObjectName(_fromUtf8("Mode4in1"))
+        self.label_boardnum = QtGui.QLabel(Form)
+        self.label_boardnum.setGeometry(QtCore.QRect(500, 0, 31, 41))
+        font = QtGui.QFont()
+        font.setPointSize(31)
+        font.setBold(False)
+        font.setWeight(50)
+        self.label_boardnum.setFont(font)
+        self.label_boardnum.setObjectName(_fromUtf8("label_boardnum"))
 
         self.retranslateUi(Form)
         self.tabWidget.setCurrentIndex(4)
@@ -2532,4 +2540,5 @@ class Ui_Form(object):
         self.title_label.setText(_translate("Form", "AGIGA UPGEM UFT V5.4.9", None))
         self.start_pushButton.setText(_translate("Form", "START", None))
         self.Mode4in1.setText(_translate("Form", "4 in 1", None))
+        self.label_boardnum.setText(_translate("Form", "0", None))
 

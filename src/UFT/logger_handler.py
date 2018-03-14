@@ -10,6 +10,7 @@ import sys
 import logging
 import os
 import ctypes
+import datetime
 # from PyQt4 import QtCore
 
 
@@ -192,10 +193,11 @@ def init_logger(mylogger, formatter, level=logging.INFO):
     stdhl.setLevel(logging.DEBUG)  # print everything
 
     # file handler
-    #hdlr = logging.FileHandler("./uft.log")
-    #hdlr.setFormatter(formatter)
-    # save WARNING, EEROR and CRITICAL to file
-    #hdlr.setLevel(logging.WARNING)
+    filename = "./runtime/" + str(datetime.datetime.now().strftime('%Y%m%d%H%M%S')) + '.log'
+    hdlr = logging.FileHandler(filename)
+    hdlr.setFormatter(formatter)
+    # save INFO, WARNING, EEROR and CRITICAL to file
+    hdlr.setLevel(logging.INFO)
 
     # qt handler
     #qthl = QtHandler()
@@ -203,6 +205,6 @@ def init_logger(mylogger, formatter, level=logging.INFO):
     #qthl.setLevel(logging.DEBUG)
 
     # add handlers
-    #mylogger.addHandler(hdlr)
+    mylogger.addHandler(hdlr)
     mylogger.addHandler(stdhl)
     mylogger.setLevel(level)

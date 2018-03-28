@@ -716,10 +716,16 @@ class Channel(threading.Thread):
             if (config["stoponfail"]) & (dut.status != DUT_STATUS.Idle):
                 continue
             self.switch_to_dut(dut.slotnum)
-
-            if not self._check_hardware_ready_(dut):
+            logger.info("Check PGEM Hardware Ready for slot {0}".format(dut.slotnum))
+            try:
+                if not self._check_hardware_ready_(dut):
+                    dut.status = DUT_STATUS.Fail
+                    dut.errormessage = "DUT is not ready."
+            except aardvark.USBI2CAdapterException:
                 dut.status = DUT_STATUS.Fail
-                dut.errormessage = "DUT is not ready."
+                dut.errormessage = "IIC access failed"
+                logger.info("dut: {0} status: {1} message: {2} ".
+                            format(dut.slotnum, dut.status, dut.errormessage))
         # STEP 4: Program VPD
         for dut in self.dut_list:
             if dut is None:

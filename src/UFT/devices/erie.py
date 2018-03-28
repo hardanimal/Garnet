@@ -39,7 +39,7 @@ class Erie(object):
             self.ser.open()
             self._cleanbuffer_()
 
-        if not self.GetVersion():
+        if not self.GetFirmwareVersion():
             raise Exception("Wrong Erie firmware version, should be: v" + str(FirmwareVersion[0]) + "." + str(FirmwareVersion[1]))
 
 
@@ -70,14 +70,16 @@ class Erie(object):
             display += "%x " % tmp
         logger.info(display)
 
-    def GetVersion(self):
+    def GetFirmwareVersion(self):
         self._logging_("Get firmware version")
         cmd = 0x0C
+        StartFirmwareVersion = float(str(FirmwareVersion[0]) + '.' + str(FirmwareVersion[1]))
         self._transfercommand_(0x00, cmd)
         ret = self._receiveresult_()
         if ret[2] != 0x0C or ret[6] != 0x00:
             raise Exception("UART communication failure")
-        if ret[7] != FirmwareVersion[0] or ret[8] != FirmwareVersion[1]:
+        BoardFirmwareVersion = float(str(ret[7]) + '.' + str(ret[8]))
+        if StartFirmwareVersion > BoardFirmwareVersion:
             return False
         return True
 

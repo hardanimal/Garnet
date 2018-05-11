@@ -100,7 +100,7 @@ class Erie(object):
             self._logging_("set load on low current")
             self._transfercommand_(port, cmd, 0x01, [0x00])
         else:
-            self._logging_("set load on low current")
+            self._logging_("set load on high current")
             self._transfercommand_(port, cmd, 0x01, [0x01])
 
         ret = self._receiveresult_()

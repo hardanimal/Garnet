@@ -193,7 +193,10 @@ def init_logger(mylogger, formatter, level=logging.INFO):
     stdhl.setLevel(logging.DEBUG)  # print everything
 
     # file handler
-    filename = "./runtime/" + str(datetime.datetime.now().strftime('%Y%m%d%H%M%S')) + '.log'
+    SCREEN_LOG = "./runtime/"
+    if not os.path.exists(SCREEN_LOG):
+        os.makedirs(SCREEN_LOG)
+    filename = SCREEN_LOG + str(datetime.datetime.now().strftime('%Y%m%d%H%M%S')) + '.log'
     hdlr = logging.FileHandler(filename)
     hdlr.setFormatter(formatter)
     # save INFO, WARNING, EEROR and CRITICAL to file

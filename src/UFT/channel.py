@@ -577,7 +577,7 @@ class Channel(threading.Thread):
             if not all_discharged:
                 time.sleep(0.3)
 
-        # full discharge cycle
+        # check shutdown function
         for dut in self.dut_list:
             if dut is None:
                 continue
@@ -590,66 +590,34 @@ class Channel(threading.Thread):
             if config.get("Recharge", False) == "Yes":
                 dut.status = DUT_STATUS.Discharging
 
-        all_fulldischarged = False
-        start_time = time.time()
-        while (not all_fulldischarged):
-            all_fulldischarged = True
-            for dut in self.dut_list:
-                if dut is None:
-                    continue
-                config = load_test_item(self.config_list[dut.slotnum],
-                                        "Discharge")
-                if (not config["enable"]):
-                    continue
-                if (config["stoponfail"]) & \
-                        (dut.status != DUT_STATUS.Discharging):
-                    continue
+        for dut in self.dut_list:
+            if dut is None:
+                continue
+            config = load_test_item(self.config_list[dut.slotnum],
+                                    "Discharge")
+            if (not config["enable"]):
+                continue
+            if (config["stoponfail"]) & \
+                    (dut.status != DUT_STATUS.Discharging):
+                continue
 
-                self.switch_to_dut(dut.slotnum)
-                self.ld.select_channel(dut.slotnum)
-                self.ld.input_on()
-                if self.InMode4in1:
-                    for i in range(1, 4):
-                        self.ld.select_channel(dut.slotnum + i)
-                        self.ld.input_on()
-                try:
-                    vcap = dut.meas_vcap()
-                except aardvark.USBI2CAdapterException:
-                    # if iic exception occur, DUT shutdown automatically
-                    vcap = 0
+            fShutdownSuccessfull = False
+            self.switch_to_dut(dut.slotnum)
+            self.erie.ShutdownDUT(dut.slotnum)
+            try:
+                dut.meas_vcap()
+            except aardvark.USBI2CAdapterException:
+                # if iic exception occur, DUT shutdown already
+                fShutdownSuccessfull = True
 
-                threshold = float(config["Threshold"].strip("aAvV"))
-                max_dischargetime = config["max"]
-                min_dischargetime = 5
-
-                fulldischarge_time = time.time() - start_time
-                if (fulldischarge_time > max_dischargetime):
-                    all_fulldischarged &= True
-                    self.ld.select_channel(dut.slotnum)
-                    self.ld.input_off()
-                    dut.status = DUT_STATUS.Fail
-                    dut.errormessage = "Discharge Time Too Long."
-                elif (vcap < 0.5):
-                    all_fulldischarged &= True
-                    self.ld.select_channel(dut.slotnum)
-                    self.ld.input_off()
-                    if self.InMode4in1:
-                        for i in range(1, 4):
-                            self.ld.select_channel(dut.slotnum + i)
-                            self.ld.input_off()
-                    if (fulldischarge_time < min_dischargetime):
-                        dut.status = DUT_STATUS.Fail
-                        dut.errormessage = "Discharge Time Too Short."
-                    else:
-                        dut.status = DUT_STATUS.Idle  # pass
-                else:
-                    all_fulldischarged &= False
-                logger.info("fully discharge process...dut: {0} "
-                            "status: {1} vcap: {2} message: {3} ".
-                            format(dut.slotnum, dut.status, vcap,
-                                   dut.errormessage))
-            if not all_fulldischarged:
-                time.sleep(INTERVAL)
+            if not fShutdownSuccessfull:
+                dut.errormessage = "Shutdown function error."
+                dut.status = DUT_STATUS.Fail
+            else:
+                dut.status = DUT_STATUS.Idle
+            logger.info("Shutdown process...dut: {0} "
+                        "status: {1} message: {2} ".
+                        format(dut.slotnum, dut.status, dut.errormessage))
 
     def program_dut(self):
         """ program vpd of DUT.

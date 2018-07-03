@@ -987,31 +987,32 @@ class Channel(threading.Thread):
                 logger.info("GTG.bit1 ==0")
             # check GTG_WARNING == 0x00
             #temp=self.adk.read_reg(0x22)[0]
-            temp = dut.read_GTG_WARN(0)
-            logger.info("GTG_Warning value: {0}".format(temp))
-            if not (temp==0x00):
-                dut.status = DUT_STATUS.Fail
-                dut.errormessage = "GTG_warning != 0x00"
             else:
-                dut.status = DUT_STATUS.Idle    # pass
-            if not self.erie.GetGTGPin(dut.slotnum):
-                dut.status = DUT_STATUS.Fail
-                dut.errormessage = "GTG Pin check failed"
-            else:
-                if self.InMode4in1:
-                    all_GTG = True
-                    for i in range(1, 4):
-                        self.switch_to_dut(dut.slotnum + i)
-                        if not self.erie.GetGTGPin(dut.slotnum + i):
-                            all_GTG &= False
-
-                    if all_GTG:
-                        dut.status = DUT_STATUS.Idle  # pass
-                    else:
+                temp = dut.read_GTG_WARN(0)
+                logger.info("GTG_Warning value: {0}".format(temp))
+                if not (temp==0x00):
+                    dut.status = DUT_STATUS.Fail
+                    dut.errormessage = "GTG_warning != 0x00"
+                else:
+                    #dut.status = DUT_STATUS.Idle    # pass
+                    if not self.erie.GetGTGPin(dut.slotnum):
                         dut.status = DUT_STATUS.Fail
                         dut.errormessage = "GTG Pin check failed"
-                else:
-                    dut.status = DUT_STATUS.Idle  # pass
+                    else:
+                        if self.InMode4in1:
+                            all_GTG = True
+                            for i in range(1, 4):
+                                self.switch_to_dut(dut.slotnum + i)
+                                if not self.erie.GetGTGPin(dut.slotnum + i):
+                                    all_GTG &= False
+
+                            if all_GTG:
+                                dut.status = DUT_STATUS.Idle  # pass
+                            else:
+                                dut.status = DUT_STATUS.Fail
+                                dut.errormessage = "GTG Pin check failed"
+                        else:
+                            dut.status = DUT_STATUS.Idle  # pass
 
     def save_db(self):
         # setup database

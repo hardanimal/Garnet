@@ -705,6 +705,7 @@ class Channel(threading.Thread):
             if (config["stoponfail"]) & (dut.status != DUT_STATUS.Idle):
                 continue
             self.switch_to_dut(dut.slotnum)
+            dut.status = DUT_STATUS.Program_VPD
             try:
                 logger.info("dut: {0} start writing...".format(dut.slotnum))
                 dut.write_vpd(config["File"])
@@ -758,7 +759,7 @@ class Channel(threading.Thread):
                                     "Program_VPD")
             if (not config["enable"]):
                 continue
-            if (config["stoponfail"]) & (dut.status != DUT_STATUS.Idle):
+            if (config["stoponfail"]) & (dut.status != DUT_STATUS.Program_VPD):
                 continue
             self.ps.selectChannel(dut.slotnum)
             if not self.ps.isOutputOn():
@@ -780,14 +781,16 @@ class Channel(threading.Thread):
                                     "Program_VPD")
             if (not config["enable"]):
                 continue
-            if (config["stoponfail"]) & (dut.status != DUT_STATUS.Idle):
+            if (config["stoponfail"]) & (dut.status != DUT_STATUS.Program_VPD):
                 continue
             self.switch_to_dut(dut.slotnum)
 
             if not self._check_hardware_ready_(dut):
                 dut.status = DUT_STATUS.Fail
                 dut.errormessage = "DUT is not ready."
-            self.erie.ResetDUT(dut.slotnum)
+            else:
+                self.erie.ResetDUT(dut.slotnum)
+                dut.status = DUT_STATUS.Idle
 
     def check_vpd(self):
 

@@ -605,6 +605,9 @@ class UFT_UiHandler(UFT_UiForm):
         sec = str(sec) if sec >= 10 else "0" + str(sec)
         self.lcdNumber.display(str(min) + ":" + sec)
 
+    def print_cycle(self, loop, total):
+        self.lcdCycle.display(str(loop) + " : " + str(total))
+
     def config_edit_toggle(self, toggle_bool):
         if not toggle_bool:
             self.test_item_tableView.setEditTriggers(

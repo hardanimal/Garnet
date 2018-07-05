@@ -107,6 +107,8 @@ class MainWidget(QtGui.QWidget):
                          self.ui.set_board_status_4)
             self.connect(self.u, QtCore.SIGNAL('time_used'),
                          self.ui.print_time)
+            self.connect(self.u, QtCore.SIGNAL('cycle_looped'),
+                         self.ui.print_cycle)
             self.u.start()
 
         except Exception as e:
@@ -243,6 +245,7 @@ class Update(QtCore.QThread):
     def run(self):
         if CYCLE_MODE:
             for i in range(0, CYCLE_TIMES):
+                self.emit(QtCore.SIGNAL("cycle_looped"), i+1, CYCLE_TIMES)
                 self.single_run()
                 time.sleep(CYCLE_INTERVAL)
         else:

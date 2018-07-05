@@ -83,7 +83,7 @@ class MainWidget(QtGui.QWidget):
             cb_4 = self.ui.cabel_barcodes_4()
             bb_4 = self.ui.capacitor_barcodes_4()
 
-            self.u.loaddata(db_1, cb_1, bb_1, db_2, cb_2, bb_2, db_3, cb_3, bb_3, db_4, cb_4, bb_4,mode4in1)
+            self.u.loaddata(db_1, cb_1, bb_1, db_2, cb_2, bb_2, db_3, cb_3, bb_3, db_4, cb_4, bb_4, mode4in1)
             self.connect(self.u, QtCore.SIGNAL('progress_bar'),
                          self.ui.progressBar.setValue)
             self.connect(self.u, QtCore.SIGNAL('is_alive'),
@@ -155,7 +155,6 @@ class Update(QtCore.QThread):
         if not f_ch4:
             bar4 = 100
         return min(bar1, bar2, bar3, bar4)
-
 
     def run(self):
         sec_count = 0

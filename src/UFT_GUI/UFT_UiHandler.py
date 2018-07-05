@@ -10,7 +10,7 @@ import os
 import re
 from PyQt4 import QtCore, QtGui, QtSql
 from UFT_GUI.UFT_Ui import Ui_Form as UFT_UiForm
-from UFT.config import RESULT_DB, CONFIG_DB, RESOURCE, CONFIG_FILE
+from UFT.config import RESULT_DB, CONFIG_DB, RESOURCE, CONFIG_FILE, CYCLE_MODE
 from UFT.backend import sync_config
 
 BARCODE_PATTERN = re.compile(r'^(?P<SN>(?P<PN>AGIGA\d{4}-\d{3}\w{3})'
@@ -198,10 +198,11 @@ class UFT_UiHandler(UFT_UiForm):
             pass
 
     def clean_pass_sn(self, dut, cable, battery, slotnum, status):
-        if status == 1:
-            dut[slotnum].clear()
-            cable[slotnum].clear()
-            battery[slotnum].clear()
+        if not CYCLE_MODE:
+            if status == 1:
+                dut[slotnum].clear()
+                cable[slotnum].clear()
+                battery[slotnum].clear()
 
     def set_label(self, label, slotnum, status):
         status_list = ["Idle", "Pass", "Fail", "Charging", "Discharging", "Self_Discharging",

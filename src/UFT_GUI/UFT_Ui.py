@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'UFT_Ui.ui'
 #
-# Created: Thu Jul 05 11:19:08 2018
+# Created: Thu Jul 05 11:34:44 2018
 #      by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -2046,7 +2046,7 @@ class Ui_Form(object):
         self.lcdCycle = QtGui.QLCDNumber(self.layoutWidget)
         self.lcdCycle.setMinimumSize(QtCore.QSize(91, 0))
         self.lcdCycle.setSmallDecimalPoint(False)
-        self.lcdCycle.setNumDigits(8)
+        self.lcdCycle.setNumDigits(9)
         self.lcdCycle.setSegmentStyle(QtGui.QLCDNumber.Flat)
         self.lcdCycle.setProperty("intValue", 0)
         self.lcdCycle.setObjectName(_fromUtf8("lcdCycle"))

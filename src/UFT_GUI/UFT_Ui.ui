@@ -4325,7 +4325,7 @@
        <bool>false</bool>
       </property>
       <property name="numDigits">
-       <number>8</number>
+       <number>9</number>
       </property>
       <property name="segmentStyle">
        <enum>QLCDNumber::Flat</enum>

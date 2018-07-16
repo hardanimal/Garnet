@@ -16,6 +16,7 @@ from PyQt4.QtGui import QApplication
 from PyQt4 import QtGui, QtCore
 from UFT_GUI.UFT_UiHandler import UFT_UiHandler
 from UFT_GUI import log_handler
+from UFT.config import CYCLE_MODE, CYCLE_TIMES, CYCLE_INTERVAL
 
 app = QApplication(sys.argv)
 app.setStyle("Plastique")
@@ -106,6 +107,8 @@ class MainWidget(QtGui.QWidget):
                          self.ui.set_board_status_4)
             self.connect(self.u, QtCore.SIGNAL('time_used'),
                          self.ui.print_time)
+            self.connect(self.u, QtCore.SIGNAL('cycle_looped'),
+                         self.ui.print_cycle)
             self.u.start()
 
         except Exception as e:
@@ -156,7 +159,7 @@ class Update(QtCore.QThread):
             bar4 = 100
         return min(bar1, bar2, bar3, bar4)
 
-    def run(self):
+    def single_run(self):
         sec_count = 0
         ch1 = Channel(barcode_list=self.barcodes_1, cable_barcodes_list=self.cable_barcodes_1, capacitor_barcodes_list=self.capacitor_barcodes_1,
                           channel_id=0, name="UFT_CHANNEL", mode4in1=self.mode)
@@ -238,6 +241,15 @@ class Update(QtCore.QThread):
             del ch4
         #self.terminate()
         self.emit(QtCore.SIGNAL("is_alive"), 0)
+
+    def run(self):
+        if CYCLE_MODE:
+            for i in range(0, CYCLE_TIMES):
+                self.emit(QtCore.SIGNAL("cycle_looped"), i+1, CYCLE_TIMES)
+                self.single_run()
+                time.sleep(CYCLE_INTERVAL)
+        else:
+            self.single_run()
 
 
 def main():

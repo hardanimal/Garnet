@@ -665,12 +665,6 @@ class Channel(threading.Thread):
             power_on_delay = True
             self.ps.selectChannel(dut.slotnum)
             self.ps.activateOutput()
-            time.sleep(0.1)
-            if self.InMode4in1:
-                for i in range(1, 4):
-                    self.ps.selectChannel(dut.slotnum + i)
-                    self.ps.activateOutput()
-                    time.sleep(0.1)
         if power_on_delay:
             time.sleep(5)
         # STEP 3: check hardware ready
@@ -694,6 +688,44 @@ class Channel(threading.Thread):
                 dut.errormessage = "IIC access failed"
                 logger.info("dut: {0} status: {1} message: {2} ".
                             format(dut.slotnum, dut.status, dut.errormessage))
+        # STEP 3a: check Vin
+        for dut in self.dut_list:
+            if dut is None:
+                continue
+            config = load_test_item(self.config_list[dut.slotnum],
+                                    "Program_VPD")
+            if (not config["enable"]):
+                continue
+            if (config["stoponfail"]) & (dut.status != DUT_STATUS.Idle):
+                continue
+            self.switch_to_dut(dut.slotnum)
+            vin=dut.meas_vin()
+            logger.info("dut: {0} measured Vin {1}".format(dut.slotnum, vin))
+            if 13<vin or 10>vin:
+                dut.status = DUT_STATUS.Fail
+                dut.errormessage = "Vin error"
+            else:
+                if self.InMode4in1:
+                    # test each shared port Vin
+                    for i in range(1, 4):
+                        self.ps.selectChannel(dut.slotnum + i)
+                        self.ps.activateOutput()
+                        time.sleep(0.1)
+                        self.ps.selectChannel(dut.slotnum + i - 1)
+                        self.ps.deactivateOutput()
+                        time.sleep(1)
+                        vin=dut.meas_vin()
+                        logger.info("dut: {0} measured sharded port at {1} Vin {2}".format(dut.slotnum, i, vin))
+                        if 13<vin or 10>vin:
+                            dut.status = DUT_STATUS.Fail
+                            dut.errormessage = "Vin error"
+                        time.sleep(1)
+
+                    # turn on every port
+                    for i in range(0, 4):
+                        self.ps.selectChannel(dut.slotnum + i)
+                        self.ps.activateOutput()
+                        time.sleep(0.1)
         # STEP 4: Program VPD
         for dut in self.dut_list:
             if dut is None:

@@ -8,6 +8,7 @@ __author__ = "@fanmuzhi, @boqiling"
 
 import sys, os
 import ConfigParser
+import ast
 
 # station settings
 STATION_CONFIG = "./xml/station.cfg"
@@ -17,9 +18,9 @@ if not os.path.exists(STATION_CONFIG):
 config = ConfigParser.RawConfigParser()
 config.read(STATION_CONFIG)
 
-DIAMOND4_LIST = config.get('StationConfig', 'DIAMOND4_LIST')
+DIAMOND4_LIST = ast.literal_eval(config.get('StationConfig', 'DIAMOND4_LIST'))
 
-Mode4in1_PN = config.get('StationConfig', 'Mode4in1_PN')
+Mode4in1_PN = ast.literal_eval(config.get('StationConfig', 'Mode4in1_PN'))
 
 OVERRIDE = config.getboolean('StationConfig', 'OVERRIDE')
 
@@ -46,6 +47,11 @@ ERIE_NO2 = config.get('StationConfig', 'ERIE_NO2')
 ERIE_NO3 = config.get('StationConfig', 'ERIE_NO3')
 ERIE_NO4 = config.get('StationConfig', 'ERIE_NO4')
 ERIE_DEBUG_INFOR = config.getboolean('StationConfig', 'ERIE_DEBUG_INFOR')
+
+ERIE_RES_CONF_NO1 = ast.literal_eval(config.get('StationConfig', 'ERIE_RES_CONF_NO1'))
+ERIE_RES_CONF_NO2 = ast.literal_eval(config.get('StationConfig', 'ERIE_RES_CONF_NO2'))
+ERIE_RES_CONF_NO3 = ast.literal_eval(config.get('StationConfig', 'ERIE_RES_CONF_NO3'))
+ERIE_RES_CONF_NO4 = ast.literal_eval(config.get('StationConfig', 'ERIE_RES_CONF_NO4'))
 
 SD_COUNTER = config.getint('StationConfig', 'SD_COUNTER')
 

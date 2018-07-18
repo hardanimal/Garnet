@@ -10,16 +10,17 @@ __all__ = ["erie"]
 import serial, time
 import logging
 from UFT.devices import aardvark
-from UFT.config import ERIE_DEBUG_INFOR
+from UFT.config import ERIE_DEBUG_INFOR, ERIE_RES_CONF_NO1, ERIE_RES_CONF_NO2, ERIE_RES_CONF_NO3, ERIE_RES_CONF_NO4
 
 logger = logging.getLogger(__name__)
 debugOut = ERIE_DEBUG_INFOR
 Group = 0
-FirmwareVersion = [1, 1]
+FirmwareVersion = [1, 3]
 
 
 class Erie(object):
 
+    boardid = 0
     LastSending = ""
     LastReceiving = ""
 
@@ -28,6 +29,7 @@ class Erie(object):
         parity = kvargs.get('parity', serial.PARITY_NONE)
         bytesize = kvargs.get('bytesize', serial.EIGHTBITS)
         stopbits = kvargs.get('stopbits', serial.STOPBITS_ONE)
+        self.boardid = kvargs.get('boardid', 1)
         try:
             self.ser = serial.Serial(port=port, baudrate=baudrate,
                                      timeout=timeout, bytesize=bytesize,
@@ -98,7 +100,8 @@ class Erie(object):
         cmd = 0x0A
         if loadmode == 'low':
             self._logging_("set load on low current")
-            self._transfercommand_(port, cmd, 0x01, [0x00])
+            param=self._load_config_resistor(port)
+            self._transfercommand_(port, cmd, 0x01, param)
         else:
             self._logging_("set load on high current")
             self._transfercommand_(port, cmd, 0x01, [0x01])
@@ -106,6 +109,22 @@ class Erie(object):
         ret = self._receiveresult_()
         if ret[2] != 0x0A or ret[6] != 0x00:
             raise Exception("UART communication failure")
+
+    def _load_config_resistor(self, port):
+        rtn=[]
+        if self.boardid == 1:
+            readout=ERIE_RES_CONF_NO1[port]
+        elif self.boardid == 2:
+            readout=ERIE_RES_CONF_NO2[port]
+        elif self.boardid == 3:
+            readout=ERIE_RES_CONF_NO3[port]
+        elif self.boardid == 4:
+            readout=ERIE_RES_CONF_NO4[port]
+        if readout=='R':
+            rtn.append(0x00)
+        else:
+            rtn.append(0x02)
+        return rtn
 
     def InputOff(self, port):
         self._logging_("set load off")

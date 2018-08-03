@@ -821,12 +821,18 @@ class Channel(threading.Thread):
                 continue
             self.switch_to_dut(dut.slotnum)
 
-            if not self._check_hardware_ready_(dut):
+            try:
+                if not self._check_hardware_ready_(dut):
+                    dut.status = DUT_STATUS.Fail
+                    dut.errormessage = "DUT is not ready."
+                else:
+                    self.erie.ResetDUT(dut.slotnum)
+                    dut.status = DUT_STATUS.Idle
+            except aardvark.USBI2CAdapterException:
                 dut.status = DUT_STATUS.Fail
-                dut.errormessage = "DUT is not ready."
-            else:
-                self.erie.ResetDUT(dut.slotnum)
-                dut.status = DUT_STATUS.Idle
+                dut.errormessage = "IIC access failed."
+                logger.info("dut: {0} status: {1} message: {2} ".
+                            format(dut.slotnum, dut.status, dut.errormessage))
 
     def check_vpd(self):
 

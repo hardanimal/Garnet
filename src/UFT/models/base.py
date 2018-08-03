@@ -467,10 +467,10 @@ class PGEMBase(DUT):
         self.device.slave_addr = 0x14
         # check temp value
         val1 = self.device.read_reg(0x23, length=1)[0]
-        logger.info("PGEMSTAT value: {0}".format(val1))
+        #logger.info("PGEMSTAT value: {0}".format(val1))
         logger.debug("PGEMSTAT value: {0}".format(val1))
         val2 = self.device.read_reg(0x21, length=1)[0]
-        logger.info("GTG value: {0}".format(val2))
+        #logger.info("GTG value: {0}".format(val2))
         logger.debug("GTG value: {0}".format(val2))
         if ((val1|0xFE)==0xFE) & ((val2&0x09)==0x09):
             return True

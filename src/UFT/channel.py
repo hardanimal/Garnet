@@ -270,6 +270,12 @@ class Channel(threading.Thread):
                     if (config["stoponfail"]) & \
                             (dut.status != DUT_STATUS.Charging):
                         continue
+
+                    threshold = float(config["Threshold"].strip("aAvV"))
+                    ceiling = float(config["Ceiling"].strip("aAvV"))
+                    max_chargetime = config["max"]
+                    min_chargetime = config["min"]
+
                     self.switch_to_dut(dut.slotnum)
                     if not self._check_hardware_ready_(dut):
                         dut.status = DUT_STATUS.Fail
@@ -285,11 +291,7 @@ class Channel(threading.Thread):
 
                     self.ld.select_channel(dut.slotnum)
                     this_cycle.vcap = dut.meas_vcap()
-
-                    threshold = float(config["Threshold"].strip("aAvV"))
-                    ceiling = float(config["Ceiling"].strip("aAvV"))
-                    max_chargetime = config["max"]
-                    min_chargetime = config["min"]
+                    chargestatue = dut.charge_status()
 
                     charge_time = this_cycle.time - start_time
                     dut.charge_time = charge_time
@@ -301,8 +303,8 @@ class Channel(threading.Thread):
                         all_charged &= True
                         dut.status = DUT_STATUS.Fail
                         dut.errormessage = "Charge Time Too Long."
-                    elif (dut.charge_status()):
-                        if(ceiling >dut.meas_vcap() >= threshold)&(max_chargetime>dut.charge_time>min_chargetime):  #dut.meas_chg_time()
+                    elif (chargestatue):
+                        if(ceiling > this_cycle.vcap >= threshold)&(max_chargetime>dut.charge_time>min_chargetime):  #dut.meas_chg_time()
                             all_charged &= True
                             dut.status = DUT_STATUS.Idle  # pass
                         else:
@@ -312,9 +314,9 @@ class Channel(threading.Thread):
                         all_charged &= False
                     dut.cycles.append(this_cycle)
                     logger.info("dut: {0} status: {1} vcap: {2} "
-                                "temp: {3} message: {4} ".
+                                "temp: {3} charged: {4} message: {5} ".
                                 format(dut.slotnum, dut.status, this_cycle.vcap,
-                                       this_cycle.temp, dut.errormessage))
+                                       this_cycle.temp, chargestatue, dut.errormessage))
                 except aardvark.USBI2CAdapterException:
                     logger.info("dut: {0} IIC access failed.".
                                 format(dut.slotnum))
@@ -378,6 +380,12 @@ class Channel(threading.Thread):
                     if (config["stoponfail"]) & \
                             (dut.status != DUT_STATUS.Charging):
                         continue
+
+                    threshold = float(config["Threshold"].strip("aAvV"))
+                    ceiling = float(config["Ceiling"].strip("aAvV"))
+                    max_chargetime = config["max"]
+                    min_chargetime = config["min"]
+
                     if config.get("Shutdown",False)=="Yes":
                         shutdown=True
                     self.switch_to_dut(dut.slotnum)
@@ -395,11 +403,7 @@ class Channel(threading.Thread):
 
                     self.ld.select_channel(dut.slotnum)
                     vcap = dut.meas_vcap()
-
-                    threshold = float(config["Threshold"].strip("aAvV"))
-                    ceiling = float(config["Ceiling"].strip("aAvV"))
-                    max_chargetime = config["max"]
-                    min_chargetime = config["min"]
+                    chargestatue=dut.charge_status()
 
                     charge_time = time.time() - start_time
                     dut.charge_time = charge_time
@@ -411,8 +415,8 @@ class Channel(threading.Thread):
                         all_charged &= True
                         dut.status = DUT_STATUS.Fail
                         dut.errormessage = "Charge Time Too Long."
-                    elif (dut.charge_status()):
-                        if(ceiling >dut.meas_vcap() >= threshold)&(max_chargetime>dut.charge_time>min_chargetime):  #dut.meas_chg_time()
+                    elif (chargestatue):
+                        if(ceiling > vcap >= threshold)&(max_chargetime>dut.charge_time>min_chargetime):  #dut.meas_chg_time()
                             all_charged &= True
                             self.ps.selectChannel(dut.slotnum)
                             self.ps.deactivateOutput()
@@ -431,9 +435,9 @@ class Channel(threading.Thread):
                         all_charged &= False
                     #dut.cycles.append(this_cycle)
                     logger.info("dut: {0} status: {1} vcap: {2} "
-                                "temp: {3} message: {4} ".
+                                "temp: {3} charged: {4} message: {5} ".
                                 format(dut.slotnum, dut.status, vcap,
-                                       temperature, dut.errormessage))
+                                       temperature, chargestatue, dut.errormessage))
                 except aardvark.USBI2CAdapterException:
                     logger.info("dut: {0} IIC access failed.".
                                 format(dut.slotnum))
@@ -987,9 +991,9 @@ class Channel(threading.Thread):
                 #self.adk.slave_addr = 0x14
                 #val = self.adk.read_reg(0x23,0x01)[0]
                 val = dut.read_PGEMSTAT(0)
-                logger.info("PGEMSTAT.BIT2: {0}".format(val))
+                #logger.info("PGEMSTAT.BIT2: {0}".format(val))
                 vcap_temp=dut.meas_vcap()
-                logger.info("dut: {0} vcap in cap calculate: {1}".format(dut.slotnum,vcap_temp))
+                logger.info("dut: {0} PGEMSTAT.BIT2: {1} vcap in cap calculate: {2}".format(dut.slotnum, val, vcap_temp))
 
                 capacitor_time = time.time() - start_time
                 dut.capacitor_time = capacitor_time
@@ -1015,7 +1019,7 @@ class Channel(threading.Thread):
                 else:
                     all_cap_mears &= False
             if not all_cap_mears:
-                time.sleep(INTERVAL)
+                time.sleep(INTERVAL * 5)
 
         #check capacitance ok
         for dut in self.dut_list:

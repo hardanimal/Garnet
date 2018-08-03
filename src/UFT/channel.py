@@ -975,49 +975,58 @@ class Channel(threading.Thread):
         while not all_cap_mears:
             all_cap_mears=True
             for dut in self.dut_list:
-                if dut is None:
-                    continue
-                if dut.status != DUT_STATUS.Cap_Measuring:
-                    continue
-                self.switch_to_dut(dut.slotnum)
+                try:
+                    if dut is None:
+                        continue
+                    if dut.status != DUT_STATUS.Cap_Measuring:
+                        continue
+                    self.switch_to_dut(dut.slotnum)
 
-                config = load_test_item(self.config_list[dut.slotnum],
-                                "Capacitor")
-                if "Overtime" in config:
-                    overtime=float(config["Overtime"])
-                else:
-                    overtime=600
+                    config = load_test_item(self.config_list[dut.slotnum],
+                                    "Capacitor")
+                    if "Overtime" in config:
+                        overtime=float(config["Overtime"])
+                    else:
+                        overtime=600
 
-                #self.adk.slave_addr = 0x14
-                #val = self.adk.read_reg(0x23,0x01)[0]
-                val = dut.read_PGEMSTAT(0)
-                #logger.info("PGEMSTAT.BIT2: {0}".format(val))
-                vcap_temp=dut.meas_vcap()
-                logger.info("dut: {0} PGEMSTAT.BIT2: {1} vcap in cap calculate: {2}".format(dut.slotnum, val, vcap_temp))
+                    #self.adk.slave_addr = 0x14
+                    #val = self.adk.read_reg(0x23,0x01)[0]
+                    val = dut.read_PGEMSTAT(0)
+                    #logger.info("PGEMSTAT.BIT2: {0}".format(val))
+                    vcap_temp=dut.meas_vcap()
+                    logger.info("dut: {0} PGEMSTAT.BIT2: {1} vcap in cap calculate: {2}".format(dut.slotnum, val, vcap_temp))
 
-                capacitor_time = time.time() - start_time
-                dut.capacitor_time = capacitor_time
+                    capacitor_time = time.time() - start_time
+                    dut.capacitor_time = capacitor_time
 
-                if (val | 0xFB)==0xFB: #PGEMSTAT.BIT2==0 CAP MEASURE COMPLETE
-                    all_cap_mears &= True
-                    val1 = dut.read_vpd_byaddress(0x100)[0] #`````````````````````````read cap vale from VPD``````````compare````````````````````````````
-                    logger.info("capacitance_measured value: {0}".format(val1))
-                    dut.capacitance_measured=val1
-                    if not (config["min"] < val1 < config["max"]):
+                    if (val | 0xFB)==0xFB: #PGEMSTAT.BIT2==0 CAP MEASURE COMPLETE
+                        all_cap_mears &= True
+                        val1 = dut.read_vpd_byaddress(0x100)[0] #`````````````````````````read cap vale from VPD``````````compare````````````````````````````
+                        logger.info("capacitance_measured value: {0}".format(val1))
+                        dut.capacitance_measured=val1
+                        if not (config["min"] < val1 < config["max"]):
+                            dut.status=DUT_STATUS.Fail
+                            dut.errormessage = "Cap is over limits"
+                            logger.info("dut: {0} capacitor: {1} message: {2} ".
+                                format(dut.slotnum, dut.capacitance_measured,
+                                   dut.errormessage))
+                        else:
+                            dut.status = DUT_STATUS.Idle  # pass
+                    elif capacitor_time > overtime:
+                        all_cap_mears &= True
                         dut.status=DUT_STATUS.Fail
-                        dut.errormessage = "Cap is over limits"
+                        dut.errormessage = "Cap start over time"
                         logger.info("dut: {0} capacitor: {1} message: {2} ".
                             format(dut.slotnum, dut.capacitance_measured,
-                               dut.errormessage))
-                elif capacitor_time > overtime:
+                                   dut.errormessage))
+                    else:
+                        all_cap_mears &= False
+                except aardvark.USBI2CAdapterException:
+                    logger.info("dut: {0} IIC access failed.".
+                                format(dut.slotnum))
                     all_cap_mears &= True
-                    dut.status=DUT_STATUS.Fail
-                    dut.errormessage = "Cap start over time"
-                    logger.info("dut: {0} capacitor: {1} message: {2} ".
-                        format(dut.slotnum, dut.capacitance_measured,
-                               dut.errormessage))
-                else:
-                    all_cap_mears &= False
+                    dut.status = DUT_STATUS.Fail
+                    dut.errormessage = "IIC access failed."
             if not all_cap_mears:
                 time.sleep(INTERVAL * 5)
 
@@ -1026,7 +1035,7 @@ class Channel(threading.Thread):
             all_cap_ready=True
             if dut is None:
                 continue
-            if dut.status != DUT_STATUS.Cap_Measuring:
+            if dut.status != DUT_STATUS.Idle:
                 continue
             self.switch_to_dut(dut.slotnum)
             #self.adk.slave_addr = 0x14

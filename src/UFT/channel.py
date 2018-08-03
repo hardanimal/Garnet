@@ -689,7 +689,7 @@ class Channel(threading.Thread):
                     dut.errormessage = "DUT is not ready."
             except aardvark.USBI2CAdapterException:
                 dut.status = DUT_STATUS.Fail
-                dut.errormessage = "IIC access failed"
+                dut.errormessage = "IIC access failed."
                 logger.info("dut: {0} status: {1} message: {2} ".
                             format(dut.slotnum, dut.status, dut.errormessage))
         # STEP 3a: check Vin
@@ -782,7 +782,7 @@ class Channel(threading.Thread):
                             format(dut.slotnum, dut.status, dut.errormessage))
             except aardvark.USBI2CAdapterException:
                 dut.status = DUT_STATUS.Fail
-                dut.errormessage = "IIC access failed"
+                dut.errormessage = "IIC access failed."
                 logger.info("dut: {0} status: {1} message: {2} ".
                             format(dut.slotnum, dut.status, dut.errormessage))
 

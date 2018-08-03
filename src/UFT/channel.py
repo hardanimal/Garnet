@@ -864,10 +864,22 @@ class Channel(threading.Thread):
             self.switch_to_dut(dut.slotnum)
 
             dut.read_vpd()
-            dut.hwver = dut.read_hw_version()
-            logger.info("dut: {0} checking hardware version = {1}".format(dut.slotnum, dut.hwver))
-            dut.fwver = dut.read_fw_version()
-            logger.info("dut: {0} checking firmware version = {1}".format(dut.slotnum, dut.fwver))
+            if not dut.check_vpd():
+                dut.status = DUT_STATUS.Fail
+                dut.errormessage = "Checking VPD error."
+            else:
+                dut.hwver = dut.read_hw_version()
+                logger.info("dut: {0} checking hardware version = {1}".format(dut.slotnum, dut.hwver))
+                if dut.hwver=='255':
+                    dut.status = DUT_STATUS.Fail
+                    dut.errormessage = "HW ver error."
+                else:
+                    dut.fwver = dut.read_fw_version()
+                    logger.info("dut: {0} checking firmware version = {1}".format(dut.slotnum, dut.fwver))
+                    if config.get("FWver", False):
+                        if not dut.fwver==config["FWver"]:
+                            dut.status = DUT_STATUS.Fail
+                            dut.errormessage = "FW ver error."
 
     def check_temperature_dut(self):
         """

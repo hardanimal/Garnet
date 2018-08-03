@@ -195,6 +195,15 @@ class PGEMBase(DUT):
         #print dut
         return dut
 
+    def check_vpd(self):
+        try:
+            assert self.barcode_dict["ID"] == self.read_vpd_byname("SN")
+            assert (self.barcode_dict["YY"] + self.barcode_dict["WW"]) == self.read_vpd_byname("MFDATE")
+            assert self.barcode_dict["VV"] == self.read_vpd_byname("MFNAME")
+        except AssertionError:
+            return False
+        return True
+
     def read_hw_version(self):
         self.device.slave_addr = 0x14
         ret = str(self.read_vpd_byname('ES_HWREV') & 0xFF)

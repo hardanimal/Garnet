@@ -278,11 +278,7 @@ class Channel(threading.Thread):
                     this_cycle.vin = dut.meas_vin()
                     this_cycle.counter = self.counter
                     this_cycle.time = time.time()
-                    try:
-                        temperature = dut.check_temp()
-                    except aardvark.USBI2CAdapterException:
-                        # temp ic not ready
-                        temperature = 0
+                    temperature = dut.check_temp()
                     this_cycle.temp = temperature
                     this_cycle.state = "charge"
                     self.counter += 1
@@ -297,7 +293,11 @@ class Channel(threading.Thread):
 
                     charge_time = this_cycle.time - start_time
                     dut.charge_time = charge_time
-                    if (charge_time > max_chargetime):
+                    if (temperature>50 or temperature<10):
+                        all_charged &= True
+                        dut.status = DUT_STATUS.Fail
+                        dut.errormessage = "Temperature out of range."
+                    elif (charge_time > max_chargetime):
                         all_charged &= True
                         dut.status = DUT_STATUS.Fail
                         dut.errormessage = "Charge Time Too Long."
@@ -388,11 +388,7 @@ class Channel(threading.Thread):
                     #this_cycle.vin = dut.meas_vin()
                     #this_cycle.counter = self.counter
                     #this_cycle.time = time.time()
-                    try:
-                        temperature = dut.check_temp()
-                    except aardvark.USBI2CAdapterException:
-                        # temp ic not ready
-                        temperature = 0
+                    temperature = dut.check_temp()
                     #this_cycle.temp = temperature
                     #this_cycle.state = "charge"
                     self.counter += 1
@@ -407,7 +403,11 @@ class Channel(threading.Thread):
 
                     charge_time = time.time() - start_time
                     dut.charge_time = charge_time
-                    if (charge_time > max_chargetime):
+                    if (temperature>50 or temperature<10):
+                        all_charged &= True
+                        dut.status = DUT_STATUS.Fail
+                        dut.errormessage = "Temperature out of range."
+                    elif (charge_time > max_chargetime):
                         all_charged &= True
                         dut.status = DUT_STATUS.Fail
                         dut.errormessage = "Charge Time Too Long."
@@ -517,11 +517,7 @@ class Channel(threading.Thread):
                     # print cap_in_ltc
                     this_cycle = Cycle()
                     this_cycle.vin = dut.meas_vin()
-                    try:
-                        temperature = dut.check_temp()
-                    except aardvark.USBI2CAdapterException:
-                        # temp ic not ready
-                        temperature = 0
+                    temperature = dut.check_temp()
                     this_cycle.temp = temperature
                     this_cycle.counter = self.counter
                     this_cycle.time = time.time()
@@ -538,7 +534,11 @@ class Channel(threading.Thread):
 
                     discharge_time = this_cycle.time - start_time
                     dut.discharge_time = discharge_time
-                    if (discharge_time > max_dischargetime):
+                    if (temperature>50 or temperature<10):
+                        all_discharged &= True
+                        dut.status = DUT_STATUS.Fail
+                        dut.errormessage = "Temperature out of range."
+                    elif (discharge_time > max_dischargetime):
                         all_discharged &= True
                         self.ld.select_channel(dut.slotnum)
                         self.ld.input_off()

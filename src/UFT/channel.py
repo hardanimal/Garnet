@@ -873,23 +873,27 @@ class Channel(threading.Thread):
                 continue
             self.switch_to_dut(dut.slotnum)
 
-            dut.read_vpd()
-            if not dut.check_vpd():
-                dut.status = DUT_STATUS.Fail
-                dut.errormessage = "Checking VPD error."
-            else:
-                dut.hwver = dut.read_hw_version()
-                logger.info("dut: {0} checking hardware version = {1}".format(dut.slotnum, dut.hwver))
-                if dut.hwver=='255':
+            try:
+                dut.read_vpd()
+                if not dut.check_vpd():
                     dut.status = DUT_STATUS.Fail
-                    dut.errormessage = "HW ver error."
+                    dut.errormessage = "Checking VPD error."
                 else:
-                    dut.fwver = dut.read_fw_version()
-                    logger.info("dut: {0} checking firmware version = {1}".format(dut.slotnum, dut.fwver))
-                    if config.get("FWver", False):
-                        if not dut.fwver==config["FWver"]:
-                            dut.status = DUT_STATUS.Fail
-                            dut.errormessage = "FW ver error."
+                    dut.hwver = dut.read_hw_version()
+                    logger.info("dut: {0} checking hardware version = {1}".format(dut.slotnum, dut.hwver))
+                    if dut.hwver=='255':
+                        dut.status = DUT_STATUS.Fail
+                        dut.errormessage = "HW ver error."
+                    else:
+                        dut.fwver = dut.read_fw_version()
+                        logger.info("dut: {0} checking firmware version = {1}".format(dut.slotnum, dut.fwver))
+                        if config.get("FWver", False):
+                            if not dut.fwver==config["FWver"]:
+                                dut.status = DUT_STATUS.Fail
+                                dut.errormessage = "FW ver error."
+            except aardvark.USBI2CAdapterException:
+                dut.status = DUT_STATUS.Fail
+                dut.errormessage = "IIC access failed."
 
     def check_temperature_dut(self):
         """
@@ -960,7 +964,11 @@ class Channel(threading.Thread):
                 continue
 
             self.switch_to_dut(dut.slotnum)
-            dut.start_cap()
+            try:
+                dut.start_cap()
+            except aardvark.USBI2CAdapterException:
+                dut.status = DUT_STATUS.Fail
+                dut.errormessage = "IIC access failed."
             #time.sleep(1)
             dut.status = DUT_STATUS.Cap_Measuring
             logger.info("started cap measure")
@@ -1046,39 +1054,43 @@ class Channel(threading.Thread):
             self.switch_to_dut(dut.slotnum)
             #self.adk.slave_addr = 0x14
             #val = self.adk.read_reg(0x21,0x01)[0]
-            val = dut.read_GTG(0)
-            if not((val&0x02)==0x02):
-                dut.status=DUT_STATUS.Fail
-                dut.errormessage = "GTG.bit1 ==0 "
-                logger.info("GTG.bit1 ==0")
-            # check GTG_WARNING == 0x00
-            #temp=self.adk.read_reg(0x22)[0]
-            else:
-                temp = dut.read_GTG_WARN(0)
-                logger.info("GTG_Warning value: {0}".format(temp))
-                if not (temp==0x00):
-                    dut.status = DUT_STATUS.Fail
-                    dut.errormessage = "GTG_warning != 0x00"
+            try:
+                val = dut.read_GTG(0)
+                if not((val&0x02)==0x02):
+                    dut.status=DUT_STATUS.Fail
+                    dut.errormessage = "GTG.bit1 ==0 "
+                    logger.info("GTG.bit1 ==0")
+                # check GTG_WARNING == 0x00
+                #temp=self.adk.read_reg(0x22)[0]
                 else:
-                    #dut.status = DUT_STATUS.Idle    # pass
-                    if not self.erie.GetGTGPin(dut.slotnum):
+                    temp = dut.read_GTG_WARN(0)
+                    logger.info("GTG_Warning value: {0}".format(temp))
+                    if not (temp==0x00):
                         dut.status = DUT_STATUS.Fail
-                        dut.errormessage = "GTG Pin check failed"
+                        dut.errormessage = "GTG_warning != 0x00"
                     else:
-                        if self.InMode4in1:
-                            all_GTG = True
-                            for i in range(1, 4):
-                                self.switch_to_dut(dut.slotnum + i)
-                                if not self.erie.GetGTGPin(dut.slotnum + i):
-                                    all_GTG &= False
-
-                            if all_GTG:
-                                dut.status = DUT_STATUS.Idle  # pass
-                            else:
-                                dut.status = DUT_STATUS.Fail
-                                dut.errormessage = "GTG Pin check failed"
+                        #dut.status = DUT_STATUS.Idle    # pass
+                        if not self.erie.GetGTGPin(dut.slotnum):
+                            dut.status = DUT_STATUS.Fail
+                            dut.errormessage = "GTG Pin check failed"
                         else:
-                            dut.status = DUT_STATUS.Idle  # pass
+                            if self.InMode4in1:
+                                all_GTG = True
+                                for i in range(1, 4):
+                                    self.switch_to_dut(dut.slotnum + i)
+                                    if not self.erie.GetGTGPin(dut.slotnum + i):
+                                        all_GTG &= False
+
+                                if all_GTG:
+                                    dut.status = DUT_STATUS.Idle  # pass
+                                else:
+                                    dut.status = DUT_STATUS.Fail
+                                    dut.errormessage = "GTG Pin check failed"
+                            else:
+                                dut.status = DUT_STATUS.Idle  # pass
+            except aardvark.USBI2CAdapterException:
+                dut.status = DUT_STATUS.Fail
+                dut.errormessage = "IIC access failed."
 
     def save_db(self):
         # setup database

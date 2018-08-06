@@ -67,6 +67,9 @@ class Channel(threading.Thread):
         self.channelresult = BOARD_STATUS.Idle
         self.dutnumber = 0
 
+        # product type setting
+        self.producttype=''
+
         # Amber 4x/e uses master port + shared port mode
         self.InMode4in1 = mode4in1
 
@@ -207,16 +210,27 @@ class Channel(threading.Thread):
             time.sleep(1)
         return False
 
+    def _turn_off_power(self, slot):
+        self.ld.select_channel(slot)
+        self.ld.input_off()
+        if self.InMode4in1:
+            for i in range(1, 4):
+                self.ld.select_channel(slot + i)
+                self.ld.input_off()
+
     def set_productype(self, port, pt):
         if pt == "AGIGA9821":
             logger.info("dut: {0} PN: {1} setting type: Pearl family".format(port, pt))
             self.erie.SetProType(port, 0x00)
+            self.producttype='Pearl'
         if pt == "AGIGA9822" or pt == "AGIGA9823" or pt == "AGIGA9824":
             logger.info("dut: {0} PN: {1} setting type: Amber family ".format(port, pt))
             self.erie.SetProType(port, 0x01)
+            self.producttype='Amber'
         if pt == "AGIGA9831":
             logger.info("dut: {0} PN: {1} setting type: Garnet family ".format(port, pt))
             self.erie.SetProType(port, 0x02)
+            self.producttype='Garnet'
 
     def charge_dut(self):
         """charge
@@ -516,6 +530,10 @@ class Channel(threading.Thread):
                             (dut.status != DUT_STATUS.Discharging):
                         continue
 
+                    threshold = float(config["Threshold"].strip("aAvV"))
+                    max_dischargetime = config["max"]
+                    min_dischargetime = config["min"]
+
                     self.switch_to_dut(dut.slotnum)
                     # cap_in_ltc = dut.meas_capacitor()
                     # print cap_in_ltc
@@ -532,34 +550,31 @@ class Channel(threading.Thread):
                     # this_cycle.vcap = self.ld.read_volt()
                     self.counter += 1
 
-                    threshold = float(config["Threshold"].strip("aAvV"))
-                    max_dischargetime = config["max"]
-                    min_dischargetime = config["min"]
-
                     discharge_time = this_cycle.time - start_time
                     dut.discharge_time = discharge_time
                     if (temperature>50 or temperature<10):
                         all_discharged &= True
                         dut.status = DUT_STATUS.Fail
                         dut.errormessage = "Temperature out of range."
+                        self._turn_off_power(dut.slotnum)
                     elif (discharge_time > max_dischargetime):
                         all_discharged &= True
-                        self.ld.select_channel(dut.slotnum)
-                        self.ld.input_off()
-                        if self.InMode4in1:
-                            for i in range(1, 4):
-                                self.ld.select_channel(dut.slotnum + i)
-                                self.ld.input_off()
                         dut.status = DUT_STATUS.Fail
                         dut.errormessage = "Discharge Time Too Long."
+                        self._turn_off_power(dut.slotnum)
+                    elif (this_cycle.vin < 4.5):
+                        all_discharged &= True
+                        dut.status = DUT_STATUS.Fail
+                        dut.errormessage = "Boost voltage error."
+                        self._turn_off_power(dut.slotnum)
+                    elif (this_cycle.vcap - this_cycle.vin >= 0.3):
+                        all_discharged &= True
+                        dut.status = DUT_STATUS.Fail
+                        dut.errormessage = "Bypass voltage error."
+                        self._turn_off_power(dut.slotnum)
                     elif (this_cycle.vcap < threshold):
                         all_discharged &= True
-                        self.ld.select_channel(dut.slotnum)
-                        self.ld.input_off()
-                        if self.InMode4in1:
-                            for i in range(1, 4):
-                                self.ld.select_channel(dut.slotnum + i)
-                                self.ld.input_off()
+                        self._turn_off_power(dut.slotnum)
                         if (discharge_time < min_dischargetime):
                             dut.status = DUT_STATUS.Fail
                             dut.errormessage = "Discharge Time Too Short."
@@ -578,8 +593,9 @@ class Channel(threading.Thread):
                     all_discharged &= True
                     dut.status = DUT_STATUS.Fail
                     dut.errormessage = "IIC access failed."
+                    self._turn_off_power(dut.slotnum)
             if not all_discharged:
-                time.sleep(0.3)
+                time.sleep(INTERVAL)
 
         # check shutdown function
         for dut in self.dut_list:
@@ -669,6 +685,12 @@ class Channel(threading.Thread):
             power_on_delay = True
             self.ps.selectChannel(dut.slotnum)
             self.ps.activateOutput()
+            time.sleep(0.1)
+            if self.InMode4in1:
+                for i in range(1, 4):
+                    self.ps.selectChannel(dut.slotnum + i)
+                    self.ps.activateOutput()
+                    time.sleep(0.1)
         if power_on_delay:
             time.sleep(5)
         # STEP 3: check hardware ready

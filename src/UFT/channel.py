@@ -576,11 +576,12 @@ class Channel(threading.Thread):
                         else:
                             dut.status = DUT_STATUS.Idle  # pass
                     elif (self.producttype=='Garnet'):
-                        if (this_cycle.vcap - this_cycle.vin >= 0.3):
-                            all_discharged &= True
-                            dut.status = DUT_STATUS.Fail
-                            dut.errormessage = "Bypass voltage error."
-                            self._turn_off_power(dut.slotnum)
+                        if (this_cycle.vcap > 5.5):
+                            if (this_cycle.vcap - this_cycle.vin >= 0.3):
+                                all_discharged &= True
+                                dut.status = DUT_STATUS.Fail
+                                dut.errormessage = "Bypass voltage error."
+                                self._turn_off_power(dut.slotnum)
                     else:
                         all_discharged &= False
                     dut.cycles.append(this_cycle)

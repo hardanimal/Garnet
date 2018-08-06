@@ -567,11 +567,6 @@ class Channel(threading.Thread):
                         dut.status = DUT_STATUS.Fail
                         dut.errormessage = "Boost voltage error."
                         self._turn_off_power(dut.slotnum)
-                    elif (this_cycle.vcap - this_cycle.vin >= 0.3):
-                        all_discharged &= True
-                        dut.status = DUT_STATUS.Fail
-                        dut.errormessage = "Bypass voltage error."
-                        self._turn_off_power(dut.slotnum)
                     elif (this_cycle.vcap < threshold):
                         all_discharged &= True
                         self._turn_off_power(dut.slotnum)
@@ -580,12 +575,18 @@ class Channel(threading.Thread):
                             dut.errormessage = "Discharge Time Too Short."
                         else:
                             dut.status = DUT_STATUS.Idle  # pass
+                    elif (self.producttype=='Garnet'):
+                        if (this_cycle.vcap - this_cycle.vin >= 0.3):
+                            all_discharged &= True
+                            dut.status = DUT_STATUS.Fail
+                            dut.errormessage = "Bypass voltage error."
+                            self._turn_off_power(dut.slotnum)
                     else:
                         all_discharged &= False
                     dut.cycles.append(this_cycle)
-                    logger.info("dut: {0} status: {1} vcap: {2} "
-                                "temp: {3} message: {4} ".
-                                format(dut.slotnum, dut.status, this_cycle.vcap,
+                    logger.info("dut: {0} status: {1} vcap: {2} vout: {3}"
+                                "temp: {4} message: {5} ".
+                                format(dut.slotnum, dut.status, this_cycle.vcap, this_cycle.vin,
                                        this_cycle.temp, dut.errormessage))
                 except aardvark.USBI2CAdapterException:
                     logger.info("dut: {0} IIC access failed.".
@@ -683,7 +684,7 @@ class Channel(threading.Thread):
             if (config["stoponfail"]) & (dut.status != DUT_STATUS.Idle):
                 continue
             power_on_delay = True
-            self.ps.selectChannel(dut.slotnum)
+            self.ps.selectChannel(dut.slotnum)  # no turning on shared port power coz Vin check
             self.ps.activateOutput()
             time.sleep(0.2)
         if power_on_delay:

@@ -4226,7 +4226,7 @@
     <bool>false</bool>
    </property>
    <property name="text">
-    <string>AGIGA UPGEM UFT V5.5.6</string>
+    <string>AGIGA UPGEM UFT V5.5.7</string>
    </property>
    <property name="textFormat">
     <enum>Qt::AutoText</enum>

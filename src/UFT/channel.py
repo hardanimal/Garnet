@@ -576,6 +576,7 @@ class Channel(threading.Thread):
                         else:
                             dut.status = DUT_STATUS.Idle  # pass
                     elif (self.producttype=='Garnet'):
+                        all_discharged &= False
                         if (this_cycle.vcap > 5.5):
                             if (this_cycle.vcap - this_cycle.vin >= 0.3):
                                 all_discharged &= True

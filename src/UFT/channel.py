@@ -685,12 +685,7 @@ class Channel(threading.Thread):
             power_on_delay = True
             self.ps.selectChannel(dut.slotnum)
             self.ps.activateOutput()
-            time.sleep(0.1)
-            if self.InMode4in1:
-                for i in range(1, 4):
-                    self.ps.selectChannel(dut.slotnum + i)
-                    self.ps.activateOutput()
-                    time.sleep(0.1)
+            time.sleep(0.2)
         if power_on_delay:
             time.sleep(5)
         # STEP 3: check hardware ready

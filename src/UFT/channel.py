@@ -586,7 +586,7 @@ class Channel(threading.Thread):
                     else:
                         all_discharged &= False
                     dut.cycles.append(this_cycle)
-                    logger.info("dut: {0} status: {1} vcap: {2} vout: {3}"
+                    logger.info("dut: {0} status: {1} vcap: {2} vout: {3} "
                                 "temp: {4} message: {5} ".
                                 format(dut.slotnum, dut.status, this_cycle.vcap, this_cycle.vin,
                                        this_cycle.temp, dut.errormessage))

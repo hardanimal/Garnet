@@ -476,9 +476,12 @@ class Channel(threading.Thread):
             if (config["stoponfail"]) & (dut.status != DUT_STATUS.Idle):
                 continue
             power_off_delay = True
-            self.switch_to_dut(dut.slotnum)
             self.ps.selectChannel(dut.slotnum)
             self.ps.deactivateOutput()
+            if self.InMode4in1:
+                for i in range(1, 4):
+                    self.ps.selectChannel(dut.slotnum + i)
+                    self.ps.deactivateOutput()
 
         if power_off_delay:
             time.sleep(2)
@@ -500,11 +503,6 @@ class Channel(threading.Thread):
 
             if self.InMode4in1:
                 for i in range(1, 4):
-                    self.switch_to_dut(dut.slotnum + i)
-
-                    self.ps.selectChannel(dut.slotnum + i)
-                    self.ps.deactivateOutput()
-
                     self.ld.select_channel(dut.slotnum + i)
                     self.current = float(config["Current"].strip("aAvV"))
                     self.ld.set_curr(self.current)  # set discharge current

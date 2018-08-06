@@ -821,12 +821,18 @@ class Channel(threading.Thread):
                 continue
             self.switch_to_dut(dut.slotnum)
 
-            if not self._check_hardware_ready_(dut):
+            try:
+                if not self._check_hardware_ready_(dut):
+                    dut.status = DUT_STATUS.Fail
+                    dut.errormessage = "DUT is not ready."
+                else:
+                    self.erie.ResetDUT(dut.slotnum)
+                    dut.status = DUT_STATUS.Idle
+            except aardvark.USBI2CAdapterException:
                 dut.status = DUT_STATUS.Fail
-                dut.errormessage = "DUT is not ready."
-            else:
-                self.erie.ResetDUT(dut.slotnum)
-                dut.status = DUT_STATUS.Idle
+                dut.errormessage = "IIC access failed."
+                logger.info("dut: {0} status: {1} message: {2} ".
+                            format(dut.slotnum, dut.status, dut.errormessage))
 
     def check_vpd(self):
 
@@ -867,23 +873,27 @@ class Channel(threading.Thread):
                 continue
             self.switch_to_dut(dut.slotnum)
 
-            dut.read_vpd()
-            if not dut.check_vpd():
-                dut.status = DUT_STATUS.Fail
-                dut.errormessage = "Checking VPD error."
-            else:
-                dut.hwver = dut.read_hw_version()
-                logger.info("dut: {0} checking hardware version = {1}".format(dut.slotnum, dut.hwver))
-                if dut.hwver=='255':
+            try:
+                dut.read_vpd()
+                if not dut.check_vpd():
                     dut.status = DUT_STATUS.Fail
-                    dut.errormessage = "HW ver error."
+                    dut.errormessage = "Checking VPD error."
                 else:
-                    dut.fwver = dut.read_fw_version()
-                    logger.info("dut: {0} checking firmware version = {1}".format(dut.slotnum, dut.fwver))
-                    if config.get("FWver", False):
-                        if not dut.fwver==config["FWver"]:
-                            dut.status = DUT_STATUS.Fail
-                            dut.errormessage = "FW ver error."
+                    dut.hwver = dut.read_hw_version()
+                    logger.info("dut: {0} checking hardware version = {1}".format(dut.slotnum, dut.hwver))
+                    if dut.hwver=='255':
+                        dut.status = DUT_STATUS.Fail
+                        dut.errormessage = "HW ver error."
+                    else:
+                        dut.fwver = dut.read_fw_version()
+                        logger.info("dut: {0} checking firmware version = {1}".format(dut.slotnum, dut.fwver))
+                        if config.get("FWver", False):
+                            if not dut.fwver==config["FWver"]:
+                                dut.status = DUT_STATUS.Fail
+                                dut.errormessage = "FW ver error."
+            except aardvark.USBI2CAdapterException:
+                dut.status = DUT_STATUS.Fail
+                dut.errormessage = "IIC access failed."
 
     def check_temperature_dut(self):
         """
@@ -954,7 +964,11 @@ class Channel(threading.Thread):
                 continue
 
             self.switch_to_dut(dut.slotnum)
-            dut.start_cap()
+            try:
+                dut.start_cap()
+            except aardvark.USBI2CAdapterException:
+                dut.status = DUT_STATUS.Fail
+                dut.errormessage = "IIC access failed."
             #time.sleep(1)
             dut.status = DUT_STATUS.Cap_Measuring
             logger.info("started cap measure")
@@ -975,49 +989,58 @@ class Channel(threading.Thread):
         while not all_cap_mears:
             all_cap_mears=True
             for dut in self.dut_list:
-                if dut is None:
-                    continue
-                if dut.status != DUT_STATUS.Cap_Measuring:
-                    continue
-                self.switch_to_dut(dut.slotnum)
+                try:
+                    if dut is None:
+                        continue
+                    if dut.status != DUT_STATUS.Cap_Measuring:
+                        continue
+                    self.switch_to_dut(dut.slotnum)
 
-                config = load_test_item(self.config_list[dut.slotnum],
-                                "Capacitor")
-                if "Overtime" in config:
-                    overtime=float(config["Overtime"])
-                else:
-                    overtime=600
+                    config = load_test_item(self.config_list[dut.slotnum],
+                                    "Capacitor")
+                    if "Overtime" in config:
+                        overtime=float(config["Overtime"])
+                    else:
+                        overtime=600
 
-                #self.adk.slave_addr = 0x14
-                #val = self.adk.read_reg(0x23,0x01)[0]
-                val = dut.read_PGEMSTAT(0)
-                #logger.info("PGEMSTAT.BIT2: {0}".format(val))
-                vcap_temp=dut.meas_vcap()
-                logger.info("dut: {0} PGEMSTAT.BIT2: {1} vcap in cap calculate: {2}".format(dut.slotnum, val, vcap_temp))
+                    #self.adk.slave_addr = 0x14
+                    #val = self.adk.read_reg(0x23,0x01)[0]
+                    val = dut.read_PGEMSTAT(0)
+                    #logger.info("PGEMSTAT.BIT2: {0}".format(val))
+                    vcap_temp=dut.meas_vcap()
+                    logger.info("dut: {0} PGEMSTAT.BIT2: {1} vcap in cap calculate: {2}".format(dut.slotnum, val, vcap_temp))
 
-                capacitor_time = time.time() - start_time
-                dut.capacitor_time = capacitor_time
+                    capacitor_time = time.time() - start_time
+                    dut.capacitor_time = capacitor_time
 
-                if (val | 0xFB)==0xFB: #PGEMSTAT.BIT2==0 CAP MEASURE COMPLETE
-                    all_cap_mears &= True
-                    val1 = dut.read_vpd_byaddress(0x100)[0] #`````````````````````````read cap vale from VPD``````````compare````````````````````````````
-                    logger.info("capacitance_measured value: {0}".format(val1))
-                    dut.capacitance_measured=val1
-                    if not (config["min"] < val1 < config["max"]):
+                    if (val | 0xFB)==0xFB: #PGEMSTAT.BIT2==0 CAP MEASURE COMPLETE
+                        all_cap_mears &= True
+                        val1 = dut.read_vpd_byaddress(0x100)[0] #`````````````````````````read cap vale from VPD``````````compare````````````````````````````
+                        logger.info("capacitance_measured value: {0}".format(val1))
+                        dut.capacitance_measured=val1
+                        if not (config["min"] < val1 < config["max"]):
+                            dut.status=DUT_STATUS.Fail
+                            dut.errormessage = "Cap is over limits"
+                            logger.info("dut: {0} capacitor: {1} message: {2} ".
+                                format(dut.slotnum, dut.capacitance_measured,
+                                   dut.errormessage))
+                        else:
+                            dut.status = DUT_STATUS.Idle  # pass
+                    elif capacitor_time > overtime:
+                        all_cap_mears &= True
                         dut.status=DUT_STATUS.Fail
-                        dut.errormessage = "Cap is over limits"
+                        dut.errormessage = "Cap start over time"
                         logger.info("dut: {0} capacitor: {1} message: {2} ".
                             format(dut.slotnum, dut.capacitance_measured,
-                               dut.errormessage))
-                elif capacitor_time > overtime:
+                                   dut.errormessage))
+                    else:
+                        all_cap_mears &= False
+                except aardvark.USBI2CAdapterException:
+                    logger.info("dut: {0} IIC access failed.".
+                                format(dut.slotnum))
                     all_cap_mears &= True
-                    dut.status=DUT_STATUS.Fail
-                    dut.errormessage = "Cap start over time"
-                    logger.info("dut: {0} capacitor: {1} message: {2} ".
-                        format(dut.slotnum, dut.capacitance_measured,
-                               dut.errormessage))
-                else:
-                    all_cap_mears &= False
+                    dut.status = DUT_STATUS.Fail
+                    dut.errormessage = "IIC access failed."
             if not all_cap_mears:
                 time.sleep(INTERVAL * 5)
 
@@ -1026,44 +1049,48 @@ class Channel(threading.Thread):
             all_cap_ready=True
             if dut is None:
                 continue
-            if dut.status != DUT_STATUS.Cap_Measuring:
+            if dut.status != DUT_STATUS.Idle:
                 continue
             self.switch_to_dut(dut.slotnum)
             #self.adk.slave_addr = 0x14
             #val = self.adk.read_reg(0x21,0x01)[0]
-            val = dut.read_GTG(0)
-            if not((val&0x02)==0x02):
-                dut.status=DUT_STATUS.Fail
-                dut.errormessage = "GTG.bit1 ==0 "
-                logger.info("GTG.bit1 ==0")
-            # check GTG_WARNING == 0x00
-            #temp=self.adk.read_reg(0x22)[0]
-            else:
-                temp = dut.read_GTG_WARN(0)
-                logger.info("GTG_Warning value: {0}".format(temp))
-                if not (temp==0x00):
-                    dut.status = DUT_STATUS.Fail
-                    dut.errormessage = "GTG_warning != 0x00"
+            try:
+                val = dut.read_GTG(0)
+                if not((val&0x02)==0x02):
+                    dut.status=DUT_STATUS.Fail
+                    dut.errormessage = "GTG.bit1 ==0 "
+                    logger.info("GTG.bit1 ==0")
+                # check GTG_WARNING == 0x00
+                #temp=self.adk.read_reg(0x22)[0]
                 else:
-                    #dut.status = DUT_STATUS.Idle    # pass
-                    if not self.erie.GetGTGPin(dut.slotnum):
+                    temp = dut.read_GTG_WARN(0)
+                    logger.info("GTG_Warning value: {0}".format(temp))
+                    if not (temp==0x00):
                         dut.status = DUT_STATUS.Fail
-                        dut.errormessage = "GTG Pin check failed"
+                        dut.errormessage = "GTG_warning != 0x00"
                     else:
-                        if self.InMode4in1:
-                            all_GTG = True
-                            for i in range(1, 4):
-                                self.switch_to_dut(dut.slotnum + i)
-                                if not self.erie.GetGTGPin(dut.slotnum + i):
-                                    all_GTG &= False
-
-                            if all_GTG:
-                                dut.status = DUT_STATUS.Idle  # pass
-                            else:
-                                dut.status = DUT_STATUS.Fail
-                                dut.errormessage = "GTG Pin check failed"
+                        #dut.status = DUT_STATUS.Idle    # pass
+                        if not self.erie.GetGTGPin(dut.slotnum):
+                            dut.status = DUT_STATUS.Fail
+                            dut.errormessage = "GTG Pin check failed"
                         else:
-                            dut.status = DUT_STATUS.Idle  # pass
+                            if self.InMode4in1:
+                                all_GTG = True
+                                for i in range(1, 4):
+                                    self.switch_to_dut(dut.slotnum + i)
+                                    if not self.erie.GetGTGPin(dut.slotnum + i):
+                                        all_GTG &= False
+
+                                if all_GTG:
+                                    dut.status = DUT_STATUS.Idle  # pass
+                                else:
+                                    dut.status = DUT_STATUS.Fail
+                                    dut.errormessage = "GTG Pin check failed"
+                            else:
+                                dut.status = DUT_STATUS.Idle  # pass
+            except aardvark.USBI2CAdapterException:
+                dut.status = DUT_STATUS.Fail
+                dut.errormessage = "IIC access failed."
 
     def save_db(self):
         # setup database

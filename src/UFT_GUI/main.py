@@ -122,6 +122,13 @@ class Update(QtCore.QThread):
     def __init__(self):
         QtCore.QThread.__init__(self)
 
+    def isEmpty(self, bclist):
+        rtn = True
+        for i in bclist:
+            if i != "":
+                rtn = False
+        return rtn
+
     def loaddata(self, barcodes_1, cable_barcodes_1, capacitor_barcodes_1,
                  barcodes_2, cable_barcodes_2, capacitor_barcodes_2,
                  barcodes_3, cable_barcodes_3, capacitor_barcodes_3,
@@ -131,18 +138,22 @@ class Update(QtCore.QThread):
         self.barcodes_1 = barcodes_1
         self.cable_barcodes_1 = cable_barcodes_1
         self.capacitor_barcodes_1 = capacitor_barcodes_1
+        self.erie1_is_empty = self.isEmpty(barcodes_1)
         # Erie #2
         self.barcodes_2 = barcodes_2
         self.cable_barcodes_2 = cable_barcodes_2
         self.capacitor_barcodes_2 = capacitor_barcodes_2
+        self.erie2_is_empty = self.isEmpty(barcodes_2)
         # Erie #3
         self.barcodes_3 = barcodes_3
         self.cable_barcodes_3 = cable_barcodes_3
         self.capacitor_barcodes_3 = capacitor_barcodes_3
+        self.erie3_is_empty = self.isEmpty(barcodes_3)
         # Erie #4
         self.barcodes_4 = barcodes_4
         self.cable_barcodes_4 = cable_barcodes_4
         self.capacitor_barcodes_4 = capacitor_barcodes_4
+        self.erie4_is_empty = self.isEmpty(barcodes_4)
         self.mode = mode
 
     def getcurrentprocessbar(self, f_ch1, bar1,
@@ -169,10 +180,14 @@ class Update(QtCore.QThread):
                           channel_id=2, name="UFT_CHANNEL", mode4in1=self.mode)
         ch4 = Channel(barcode_list=self.barcodes_4, cable_barcodes_list=self.cable_barcodes_4, capacitor_barcodes_list=self.capacitor_barcodes_4,
                           channel_id=3, name="UFT_CHANNEL", mode4in1=self.mode)
-        ch1.auto_test()
-        ch2.auto_test()
-        ch3.auto_test()
-        ch4.auto_test()
+        if not self.erie1_is_empty:
+            ch1.auto_test()
+        if not self.erie2_is_empty:
+            ch2.auto_test()
+        if not self.erie3_is_empty:
+            ch3.auto_test()
+        if not self.erie4_is_empty:
+            ch4.auto_test()
         self.emit(QtCore.SIGNAL("is_alive"), 1)
         while ch1.isAlive() or ch2.isAlive() or ch3.isAlive() or ch4.isAlive():
             sec_count += 1

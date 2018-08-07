@@ -210,7 +210,7 @@ class Channel(threading.Thread):
             time.sleep(1)
         return False
 
-    def _turn_off_power(self, slot):
+    def _turn_off_load(self, slot):
         self.ld.select_channel(slot)
         self.ld.input_off()
         if self.InMode4in1:
@@ -554,20 +554,20 @@ class Channel(threading.Thread):
                         all_discharged &= True
                         dut.status = DUT_STATUS.Fail
                         dut.errormessage = "Temperature out of range."
-                        self._turn_off_power(dut.slotnum)
+                        self._turn_off_load(dut.slotnum)
                     elif (discharge_time > max_dischargetime):
                         all_discharged &= True
                         dut.status = DUT_STATUS.Fail
                         dut.errormessage = "Discharge Time Too Long."
-                        self._turn_off_power(dut.slotnum)
+                        self._turn_off_load(dut.slotnum)
                     elif (this_cycle.vin < 4.5):
                         all_discharged &= True
                         dut.status = DUT_STATUS.Fail
                         dut.errormessage = "Boost voltage error."
-                        self._turn_off_power(dut.slotnum)
+                        self._turn_off_load(dut.slotnum)
                     elif (this_cycle.vcap < threshold):
                         all_discharged &= True
-                        self._turn_off_power(dut.slotnum)
+                        self._turn_off_load(dut.slotnum)
                         if (discharge_time < min_dischargetime):
                             dut.status = DUT_STATUS.Fail
                             dut.errormessage = "Discharge Time Too Short."
@@ -580,7 +580,7 @@ class Channel(threading.Thread):
                                 all_discharged &= True
                                 dut.status = DUT_STATUS.Fail
                                 dut.errormessage = "Bypass voltage error."
-                                self._turn_off_power(dut.slotnum)
+                                self._turn_off_load(dut.slotnum)
                     else:
                         all_discharged &= False
                     dut.cycles.append(this_cycle)
@@ -594,7 +594,7 @@ class Channel(threading.Thread):
                     all_discharged &= True
                     dut.status = DUT_STATUS.Fail
                     dut.errormessage = "IIC access failed."
-                    self._turn_off_power(dut.slotnum)
+                    self._turn_off_load(dut.slotnum)
             if not all_discharged:
                 time.sleep(INTERVAL)
 

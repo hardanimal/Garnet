@@ -846,7 +846,7 @@ class Channel(threading.Thread):
             self.ps.selectChannel(dut.slotnum)
             if not self.ps.isOutputOn():
                 dut.status = DUT_STATUS.Fail
-                dut.errormessage = "No Power output, STOP cap measure"
+                dut.errormessage = "No Power output, STOP checking VPD"
 
             if self.InMode4in1:
                 for i in range(1, 4):
@@ -855,7 +855,7 @@ class Channel(threading.Thread):
                     self.ps.selectChannel(dut.slotnum + i)
                     if not self.ps.isOutputOn():
                         dut.status = DUT_STATUS.Fail
-                        dut.errormessage = "No Power output, STOP cap measure"
+                        dut.errormessage = "No Power output, STOP checking VPD"
 
         for dut in self.dut_list:
             if dut is None:

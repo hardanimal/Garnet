@@ -218,6 +218,24 @@ class Channel(threading.Thread):
                 self.ld.select_channel(slot + i)
                 self.ld.input_off()
 
+    def _turn_on_power(self, slot):
+        self.ps.selectChannel(slot)
+        self.ps.activateOutput()
+        time.sleep(0.1)
+        if self.InMode4in1:
+            for i in range(1, 4):
+                self.ps.selectChannel(slot + i)
+                self.ps.activateOutput()
+                time.sleep(0.1)
+
+    def _turn_off_power(self, slot):
+        self.ps.selectChannel(slot)
+        self.ps.deactivateOutput()
+        if self.InMode4in1:
+            for i in range(1, 4):
+                self.ps.selectChannel(slot + i)
+                self.ps.deactivateOutput()
+
     def set_productype(self, port, pt):
         if pt == "AGIGA9821":
             logger.info("dut: {0} PN: {1} setting type: Pearl family".format(port, pt))
@@ -248,19 +266,7 @@ class Channel(threading.Thread):
             if (config["stoponfail"]) & (dut.status != DUT_STATUS.Idle):
                 continue
             power_on_delay = True
-            self.switch_to_dut(dut.slotnum)
-
-            self.ps.selectChannel(dut.slotnum)
-            self.ps.activateOutput()
-            time.sleep(0.1)
-
-            if self.InMode4in1:
-                for i in range(1, 4):
-                    self.switch_to_dut(dut.slotnum + i)
-
-                    self.ps.selectChannel(dut.slotnum + i)
-                    self.ps.activateOutput()
-                    time.sleep(0.1)
+            self._turn_on_power(dut.slotnum)
 
             # start charge
             dut.status = DUT_STATUS.Charging
@@ -356,19 +362,7 @@ class Channel(threading.Thread):
             if (config["stoponfail"]) & (dut.status != DUT_STATUS.Idle):
                 continue
             power_on_delay = True
-            self.switch_to_dut(dut.slotnum)
-
-            self.ps.selectChannel(dut.slotnum)
-            self.ps.activateOutput()
-            time.sleep(0.1)
-
-            if self.InMode4in1:
-                for i in range(1, 4):
-                    self.switch_to_dut(dut.slotnum + i)
-
-                    self.ps.selectChannel(dut.slotnum + i)
-                    self.ps.activateOutput()
-                    time.sleep(0.1)
+            self._turn_on_power(dut.slotnum)
 
             # start charge
             dut.status = DUT_STATUS.Charging
@@ -432,12 +426,7 @@ class Channel(threading.Thread):
                     elif (chargestatue):
                         if(ceiling > vcap >= threshold)&(max_chargetime>dut.charge_time>min_chargetime):  #dut.meas_chg_time()
                             all_charged &= True
-                            self.ps.selectChannel(dut.slotnum)
-                            self.ps.deactivateOutput()
-                            if self.InMode4in1:
-                                for i in range(1, 4):
-                                    self.ps.selectChannel(dut.slotnum + i)
-                                    self.ps.deactivateOutput()
+                            self._turn_off_power(dut.slotnum)
 
                             if shutdown == True:
                                 self.erie.ShutdownDUT(dut.slotnum)
@@ -476,12 +465,7 @@ class Channel(threading.Thread):
             if (config["stoponfail"]) & (dut.status != DUT_STATUS.Idle):
                 continue
             power_off_delay = True
-            self.ps.selectChannel(dut.slotnum)
-            self.ps.deactivateOutput()
-            if self.InMode4in1:
-                for i in range(1, 4):
-                    self.ps.selectChannel(dut.slotnum + i)
-                    self.ps.deactivateOutput()
+            self._turn_off_power(dut.slotnum)
 
         if power_off_delay:
             time.sleep(2)
@@ -784,14 +768,7 @@ class Channel(threading.Thread):
                     self.switch_to_dut(dut.slotnum)
                     dut.flush_ee()
                 else:
-                    self.ps.selectChannel(dut.slotnum)
-                    self.ps.deactivateOutput()
-                    time.sleep(0.1)
-                    if self.InMode4in1:
-                        for i in range(1, 4):
-                            self.ps.selectChannel(dut.slotnum + i)
-                            self.ps.deactivateOutput()
-                            time.sleep(0.1)
+                    self._turn_off_power(dut.slotnum)
                     time.sleep(1)
             except AssertionError:
                 dut.status = DUT_STATUS.Fail

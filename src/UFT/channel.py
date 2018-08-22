@@ -544,7 +544,7 @@ class Channel(threading.Thread):
                         dut.status = DUT_STATUS.Fail
                         dut.errormessage = "Discharge Time Too Long."
                         self._turn_off_load(dut.slotnum)
-                    elif (this_cycle.vin < 4.5):
+                    elif (this_cycle.vin < 4.4):
                         all_discharged &= True
                         dut.status = DUT_STATUS.Fail
                         dut.errormessage = "Boost voltage error."

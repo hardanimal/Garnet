@@ -59,6 +59,9 @@ CYCLE_MODE = config.getboolean('StationConfig', 'CYCLE_MODE')
 CYCLE_TIMES = config.getint('StationConfig', 'CYCLE_TIMES')
 CYCLE_INTERVAL = config.getint('StationConfig', 'CYCLE_INTERVAL')
 
+HOLD_EN = config.getboolean('StationConfig', 'HOLD_EN')
+HOLD_TIME = config.getint('StationConfig', 'HOLD_TIME')
+
 # database settings
 # database for dut test result
 # RESULT_DB = "sqlite:////home/qibo/pyprojects/UFT/test/pgem.db"

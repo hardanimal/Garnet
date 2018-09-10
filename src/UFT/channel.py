@@ -42,6 +42,7 @@ class ChannelStates(object):
     CHECK_POWER_FAIL = 0x1E
     RECHARGE = 0x1F
     CHECK_VPD = 0x10
+    HOLD = 0x0D
 
 
 class BOARD_STATUS(object):
@@ -346,6 +347,20 @@ class Channel(threading.Thread):
 
             if not all_charged:
                 time.sleep(INTERVAL)
+
+    def hold_power_on(self):
+        """
+        Hold the power on status for specified time
+        :return:
+        """
+        logger.info("HOLD power on for {0} minutes ".format(HOLD_TIME))
+        keep_hold=True
+        total_seconds=HOLD_TIME*60
+        start_time = time.time()
+        while(keep_hold):
+            time.sleep(INTERVAL)
+            if (time.time() - start_time) > total_seconds:
+                keep_hold=False
 
     def recharge_dut(self):
         """charge
@@ -1191,6 +1206,12 @@ class Channel(threading.Thread):
                     self.progressbar += 20
                 except Exception as e:
                     self.error(e)
+            elif (state == ChannelStates.HOLD):
+                try:
+                    logger.info("Channel: Hold Power On.")
+                    self.hold_power_on()
+                except Exception as e:
+                    self.error(e)
             elif (state == ChannelStates.LOAD_DISCHARGE):
                 try:
                     logger.info("Channel: Discharge DUT.")
@@ -1234,6 +1255,8 @@ class Channel(threading.Thread):
         self.queue.put(ChannelStates.INIT)
         self.queue.put(ChannelStates.PROGRAM_VPD)
         self.queue.put(ChannelStates.CHARGE)
+        if HOLD_EN:
+            self.queue.put(ChannelStates.HOLD)
         #self.queue.put(ChannelStates.PROGRAM_VPD)
         self.queue.put(ChannelStates.CHECK_CAPACITANCE)
         #self.queue.put(ChannelStates.CHECK_ENCRYPTED_IC)

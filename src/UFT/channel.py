@@ -1114,7 +1114,7 @@ class Channel(threading.Thread):
                 if dut is None:
                     continue
                 for pre_dut in session.query(DUT). \
-                        filter(DUT.barcode == dut.barcode).all():
+                        filter(DUT.barcode == dut.barcode, DUT.archived == 0).all():
                     pre_dut.archived = 1
                     session.add(pre_dut)
                     session.commit()

@@ -390,6 +390,7 @@ class PGEMBase(DUT):
         temp = float(val)/10
         logger.debug("Vcap value: {0}".format(temp))
         return temp
+
     def meas_chg_time(self):
         self.device.slave_addr = 0x14
         # check temp value

@@ -8,6 +8,8 @@ __version__ = "0.1"
 __author__ = "@fanmuzhi, @boqiling"
 __all__ = ["Channel", "ChannelStates"]
 
+import sys
+
 from UFT.devices import pwr, load, aardvark
 from UFT.devices import erie
 from UFT.models import DUT_STATUS, DUT, Cycle, PGEMBase, Diamond4

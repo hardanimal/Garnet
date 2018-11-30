@@ -15,16 +15,13 @@ from UFT.backend import load_config, load_test_item, get_latest_revision
 from UFT.backend.session import SessionManager
 from UFT.backend import simplexml
 from UFT.config import *
-from PyQt4 import QtGui
 import threading
 from Queue import Queue
 import logging
 import time
-import math
 import os
 import traceback
 import datetime
-import numpy as np
 
 logger = logging.getLogger(__name__)
 

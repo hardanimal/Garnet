@@ -510,6 +510,7 @@ class Channel(threading.Thread):
 
         # start discharge cycle
         all_discharged = False
+        fast_loop = False
         start_time = time.time()
         #self.ps.setVolt(0.0)
         while (not all_discharged):
@@ -543,6 +544,8 @@ class Channel(threading.Thread):
                     this_cycle.state = "discharge"
                     self.ld.select_channel(dut.slotnum)
                     this_cycle.vcap = dut.meas_vcap()
+                    if (this_cycle.vcap < threshold + 0.2):
+                        fast_loop = True
                     # this_cycle.vcap = self.ld.read_volt()
                     self.counter += 1
 
@@ -594,7 +597,8 @@ class Channel(threading.Thread):
                     dut.errormessage = "IIC access failed."
                     self._turn_off_load(dut.slotnum)
             if not all_discharged:
-                time.sleep(INTERVAL)
+                if not fast_loop:
+                    time.sleep(INTERVAL)
 
         # check shutdown function
         for dut in self.dut_list:

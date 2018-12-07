@@ -115,7 +115,12 @@ class Adapter(object):
             ata_out = [reg_addr] + wata
         else:
             raise TypeError("i2c ata to be written is not valid")
-        self.write(ata_out)
+        try:
+            self.write(ata_out)
+        except USBI2CAdapterException:
+            logger.info("    IIC error occur, retrying...   ")
+            self.sleep(200)
+            self.write(ata_out)
 
     def read_reg(self, reg_addr, length=1):
         '''
@@ -128,7 +133,13 @@ class Adapter(object):
         #self.write(reg_addr)
 
         # read register ata
-        val = self.read(reg_addr, length)
+        try:
+            val = self.read(reg_addr, length)
+        except USBI2CAdapterException:
+            logger.info("    IIC error occur, retrying...   ")
+            self.sleep(200)
+            val = DEFAULT_REG_VAL
+            val = self.read(reg_addr, length)
         return val
 
     def sleep(self, ms):

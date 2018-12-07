@@ -544,7 +544,7 @@ class Channel(threading.Thread):
                     this_cycle.state = "discharge"
                     self.ld.select_channel(dut.slotnum)
                     this_cycle.vcap = dut.meas_vcap()
-                    if (this_cycle.vcap < threshold + 0.2):
+                    if (this_cycle.vcap <= threshold + 0.2) & (fast_loop == False) & (self.producttype=='Garnet'):
                         fast_loop = True
                     # this_cycle.vcap = self.ld.read_volt()
                     self.counter += 1

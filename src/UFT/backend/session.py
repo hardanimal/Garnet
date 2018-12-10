@@ -7,7 +7,6 @@ __author__ = "@fanmuzhi, @boqiling"
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy.dialects.sqlite.base import dialect
 
 
 class SessionManager(object):

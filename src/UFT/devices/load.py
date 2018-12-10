@@ -7,10 +7,7 @@ __version__ = "0.0.1"
 __author__ = "@fanmuzhi, @boqiling"
 __all__ = ["DCLoad"]
 
-import serial
-import re
 import logging
-import time
 
 logger = logging.getLogger(__name__)
 

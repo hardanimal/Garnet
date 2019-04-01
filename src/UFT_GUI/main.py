@@ -10,6 +10,8 @@ __version__ = "1.0"
 __email__ = "mzfa@cypress.com"
 
 import sys
+sys.path.append("./src/")
+
 import logging
 import time
 from PyQt4.QtGui import QApplication

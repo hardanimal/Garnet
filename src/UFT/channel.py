@@ -573,7 +573,11 @@ class Channel(threading.Thread):
                             dut.status = DUT_STATUS.Fail
                             dut.errormessage = "Discharge Time Too Short."
                         else:
-                            dut.status = DUT_STATUS.Idle  # pass
+                            if self.erie.GetGTGPin(dut.slotnum):
+                                dut.status = DUT_STATUS.Fail
+                                dut.errormessage = "GTG Pin check failed"
+                            else:
+                                dut.status = DUT_STATUS.Idle  # pass
                     elif (self.producttype=='Garnet'):
                         all_discharged &= False
                         if (this_cycle.vcap > 5.5):

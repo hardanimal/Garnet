@@ -249,6 +249,10 @@ class Channel(threading.Thread):
             logger.info("dut: {0} PN: {1} setting type: Garnet family ".format(port, pt))
             self.erie.SetProType(port, 0x02)
             self.producttype='Garnet'
+        if pt == "AGIGA9832" or pt == "AGIGA9834":
+            logger.info("dut: {0} PN: {1} setting type: UPGEM family (as Amber by temporary) ".format(port, pt))
+            self.erie.SetProType(port, 0x01)
+            self.producttype='Amber'
 
     def charge_dut(self):
         """charge

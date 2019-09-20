@@ -249,10 +249,14 @@ class Channel(threading.Thread):
             logger.info("dut: {0} PN: {1} setting type: Garnet family ".format(port, pt))
             self.erie.SetProType(port, 0x02)
             self.producttype='Garnet'
-        if pt == "AGIGA9832" or pt == "AGIGA9834":
-            logger.info("dut: {0} PN: {1} setting type: UPGEM family (as Amber by temporary) ".format(port, pt))
+        if pt == "AGIGA9832":
+            logger.info("dut: {0} PN: {1} setting type: Pearl2 family (as Amber by temporary) ".format(port, pt))
             self.erie.SetProType(port, 0x01)
-            self.producttype='Amber'
+            self.producttype='Amber2'
+        if pt == "AGIGA9834":
+            logger.info("dut: {0} PN: {1} setting type: Jamber family (as Amber by temporary) ".format(port, pt))
+            self.erie.SetProType(port, 0x01)
+            self.producttype='Jamber'
 
     def charge_dut(self):
         """charge
@@ -986,7 +990,10 @@ class Channel(threading.Thread):
 
             self.switch_to_dut(dut.slotnum)
             try:
-                dut.start_cap()
+                if (self.producttype=='Jamber'):
+                    dut.start_cap_ext()
+                else:
+                    dut.start_cap()
             except aardvark.USBI2CAdapterException:
                 dut.status = DUT_STATUS.Fail
                 dut.errormessage = "IIC access failed."
